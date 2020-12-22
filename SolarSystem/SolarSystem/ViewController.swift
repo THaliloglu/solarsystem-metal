@@ -5,10 +5,9 @@
 //  Created by Tolga Haliloğlu on 20.12.2020.
 //
 
-import UIKit
 import MetalKit
 
-class ViewController: UIViewController {
+class ViewController: LocalViewController {
     
     var renderer: Renderer?
     

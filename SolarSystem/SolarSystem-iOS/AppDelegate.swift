@@ -1,11 +1,13 @@
 //
 //  AppDelegate.swift
-//  SolarSystem
+//  SolarSystem-iOS
 //
-//  Created by Tolga Haliloğlu on 20.12.2020.
+//  Created by TOLGA HALILOGLU on 22.12.2020.
 //
 
 import UIKit
+
+class LocalViewController: UIViewController {}
 
 @main
 class AppDelegate: UIResponder, UIApplicationDelegate {

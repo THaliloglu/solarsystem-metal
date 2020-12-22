@@ -7,29 +7,44 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		FD057A5C258F7B6100C67DEF /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD057A5B258F7B6100C67DEF /* AppDelegate.swift */; };
-		FD057A5E258F7B6100C67DEF /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD057A5D258F7B6100C67DEF /* SceneDelegate.swift */; };
-		FD057A60258F7B6100C67DEF /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD057A5F258F7B6100C67DEF /* ViewController.swift */; };
-		FD057A63258F7B6100C67DEF /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FD057A61258F7B6100C67DEF /* Main.storyboard */; };
-		FD057A65258F7B6500C67DEF /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FD057A64258F7B6500C67DEF /* Assets.xcassets */; };
-		FD057A68258F7B6500C67DEF /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FD057A66258F7B6500C67DEF /* LaunchScreen.storyboard */; };
-		FD057A77258F7E0500C67DEF /* Renderer.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD057A76258F7E0500C67DEF /* Renderer.swift */; };
-		FD057A7B258F84DE00C67DEF /* Primitive.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD057A7A258F84DE00C67DEF /* Primitive.swift */; };
-		FD057A7E258F895200C67DEF /* Shaders.metal in Sources */ = {isa = PBXBuildFile; fileRef = FD057A7D258F895200C67DEF /* Shaders.metal */; };
-		FD057A82258F8C2200C67DEF /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = FD057A80258F8C2100C67DEF /* README.md */; };
-		FD057A83258F8C2200C67DEF /* LICENSE in Resources */ = {isa = PBXBuildFile; fileRef = FD057A81258F8C2100C67DEF /* LICENSE */; };
+		38999E4325927A2B00C265F7 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38999E4225927A2B00C265F7 /* AppDelegate.swift */; };
+		38999E4525927A2B00C265F7 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38999E4425927A2B00C265F7 /* SceneDelegate.swift */; };
+		38999E4A25927A2B00C265F7 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 38999E4825927A2B00C265F7 /* Main.storyboard */; };
+		38999E4C25927A2C00C265F7 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 38999E4B25927A2C00C265F7 /* Assets.xcassets */; };
+		38999E4F25927A2C00C265F7 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 38999E4D25927A2C00C265F7 /* LaunchScreen.storyboard */; };
+		38999E5D25927A4C00C265F7 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38999E5C25927A4C00C265F7 /* AppDelegate.swift */; };
+		38999E6125927A4D00C265F7 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 38999E6025927A4D00C265F7 /* Assets.xcassets */; };
+		38999E6425927A4D00C265F7 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 38999E6225927A4D00C265F7 /* Main.storyboard */; };
+		38999E7425927CFC00C265F7 /* Shaders.metal in Sources */ = {isa = PBXBuildFile; fileRef = FD057A7D258F895200C67DEF /* Shaders.metal */; };
+		38999E7525927CFC00C265F7 /* Renderer.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD057A76258F7E0500C67DEF /* Renderer.swift */; };
+		38999E7625927CFC00C265F7 /* Primitive.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD057A7A258F84DE00C67DEF /* Primitive.swift */; };
+		38999E7725927CFC00C265F7 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD057A5F258F7B6100C67DEF /* ViewController.swift */; };
+		38999E7825927CFC00C265F7 /* Shaders.metal in Sources */ = {isa = PBXBuildFile; fileRef = FD057A7D258F895200C67DEF /* Shaders.metal */; };
+		38999E7925927CFC00C265F7 /* Renderer.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD057A76258F7E0500C67DEF /* Renderer.swift */; };
+		38999E7A25927CFC00C265F7 /* Primitive.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD057A7A258F84DE00C67DEF /* Primitive.swift */; };
+		38999E7B25927CFC00C265F7 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD057A5F258F7B6100C67DEF /* ViewController.swift */; };
+		38999E8725927DDD00C265F7 /* MathLibrary.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38999E8625927DDD00C265F7 /* MathLibrary.swift */; };
+		38999E8825927DDD00C265F7 /* MathLibrary.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38999E8625927DDD00C265F7 /* MathLibrary.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		FD057A58258F7B6100C67DEF /* SolarSystem.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SolarSystem.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		FD057A5B258F7B6100C67DEF /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		FD057A5D258F7B6100C67DEF /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
+		38999E4025927A2B00C265F7 /* SolarSystem-iOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "SolarSystem-iOS.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		38999E4225927A2B00C265F7 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		38999E4425927A2B00C265F7 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
+		38999E4925927A2B00C265F7 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		38999E4B25927A2C00C265F7 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		38999E4E25927A2C00C265F7 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		38999E5025927A2C00C265F7 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		38999E5A25927A4C00C265F7 /* SolarSystem-macOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "SolarSystem-macOS.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		38999E5C25927A4C00C265F7 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		38999E6025927A4D00C265F7 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		38999E6325927A4D00C265F7 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		38999E6525927A4D00C265F7 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		38999E6625927A4D00C265F7 /* SolarSystem_macOS.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = SolarSystem_macOS.entitlements; sourceTree = "<group>"; };
+		38999E6D25927A5B00C265F7 /* SolarSystem-iOS.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "SolarSystem-iOS.entitlements"; sourceTree = "<group>"; };
+		38999E8625927DDD00C265F7 /* MathLibrary.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MathLibrary.swift; sourceTree = "<group>"; };
+		38999E8B25927E5C00C265F7 /* Common.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Common.h; sourceTree = "<group>"; };
 		FD057A5F258F7B6100C67DEF /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
-		FD057A62258F7B6100C67DEF /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
-		FD057A64258F7B6500C67DEF /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		FD057A67258F7B6500C67DEF /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
-		FD057A69258F7B6500C67DEF /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		FD057A70258F7B7D00C67DEF /* SolarSystem.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = SolarSystem.entitlements; sourceTree = "<group>"; };
 		FD057A76258F7E0500C67DEF /* Renderer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Renderer.swift; sourceTree = "<group>"; };
 		FD057A7A258F84DE00C67DEF /* Primitive.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Primitive.swift; sourceTree = "<group>"; };
 		FD057A7D258F895200C67DEF /* Shaders.metal */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.metal; path = Shaders.metal; sourceTree = "<group>"; };
@@ -38,7 +53,14 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
-		FD057A55258F7B6100C67DEF /* Frameworks */ = {
+		38999E3D25927A2B00C265F7 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		38999E5725927A4C00C265F7 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -48,12 +70,48 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		38999E4125927A2B00C265F7 /* SolarSystem-iOS */ = {
+			isa = PBXGroup;
+			children = (
+				38999E4225927A2B00C265F7 /* AppDelegate.swift */,
+				38999E4425927A2B00C265F7 /* SceneDelegate.swift */,
+				38999E4B25927A2C00C265F7 /* Assets.xcassets */,
+				38999E4825927A2B00C265F7 /* Main.storyboard */,
+				38999E4D25927A2C00C265F7 /* LaunchScreen.storyboard */,
+				38999E5025927A2C00C265F7 /* Info.plist */,
+				38999E6D25927A5B00C265F7 /* SolarSystem-iOS.entitlements */,
+			);
+			path = "SolarSystem-iOS";
+			sourceTree = "<group>";
+		};
+		38999E5B25927A4C00C265F7 /* SolarSystem-macOS */ = {
+			isa = PBXGroup;
+			children = (
+				38999E5C25927A4C00C265F7 /* AppDelegate.swift */,
+				38999E6025927A4D00C265F7 /* Assets.xcassets */,
+				38999E6225927A4D00C265F7 /* Main.storyboard */,
+				38999E6525927A4D00C265F7 /* Info.plist */,
+				38999E6625927A4D00C265F7 /* SolarSystem_macOS.entitlements */,
+			);
+			path = "SolarSystem-macOS";
+			sourceTree = "<group>";
+		};
+		38999E8525927DDD00C265F7 /* Utility */ = {
+			isa = PBXGroup;
+			children = (
+				38999E8625927DDD00C265F7 /* MathLibrary.swift */,
+			);
+			path = Utility;
+			sourceTree = "<group>";
+		};
 		FD057A4F258F7B6100C67DEF = {
 			isa = PBXGroup;
 			children = (
 				FD057A81258F8C2100C67DEF /* LICENSE */,
 				FD057A80258F8C2100C67DEF /* README.md */,
 				FD057A5A258F7B6100C67DEF /* SolarSystem */,
+				38999E4125927A2B00C265F7 /* SolarSystem-iOS */,
+				38999E5B25927A4C00C265F7 /* SolarSystem-macOS */,
 				FD057A59258F7B6100C67DEF /* Products */,
 			);
 			sourceTree = "<group>";
@@ -61,7 +119,8 @@
 		FD057A59258F7B6100C67DEF /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				FD057A58258F7B6100C67DEF /* SolarSystem.app */,
+				38999E4025927A2B00C265F7 /* SolarSystem-iOS.app */,
+				38999E5A25927A4C00C265F7 /* SolarSystem-macOS.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -69,17 +128,12 @@
 		FD057A5A258F7B6100C67DEF /* SolarSystem */ = {
 			isa = PBXGroup;
 			children = (
-				FD057A70258F7B7D00C67DEF /* SolarSystem.entitlements */,
-				FD057A5B258F7B6100C67DEF /* AppDelegate.swift */,
-				FD057A5D258F7B6100C67DEF /* SceneDelegate.swift */,
+				38999E8B25927E5C00C265F7 /* Common.h */,
 				FD057A5F258F7B6100C67DEF /* ViewController.swift */,
 				FD057A76258F7E0500C67DEF /* Renderer.swift */,
 				FD057A7A258F84DE00C67DEF /* Primitive.swift */,
 				FD057A7D258F895200C67DEF /* Shaders.metal */,
-				FD057A61258F7B6100C67DEF /* Main.storyboard */,
-				FD057A64258F7B6500C67DEF /* Assets.xcassets */,
-				FD057A66258F7B6500C67DEF /* LaunchScreen.storyboard */,
-				FD057A69258F7B6500C67DEF /* Info.plist */,
+				38999E8525927DDD00C265F7 /* Utility */,
 			);
 			path = SolarSystem;
 			sourceTree = "<group>";
@@ -87,21 +141,38 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		FD057A57258F7B6100C67DEF /* SolarSystem */ = {
+		38999E3F25927A2B00C265F7 /* SolarSystem-iOS */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = FD057A6C258F7B6500C67DEF /* Build configuration list for PBXNativeTarget "SolarSystem" */;
+			buildConfigurationList = 38999E5325927A2C00C265F7 /* Build configuration list for PBXNativeTarget "SolarSystem-iOS" */;
 			buildPhases = (
-				FD057A54258F7B6100C67DEF /* Sources */,
-				FD057A55258F7B6100C67DEF /* Frameworks */,
-				FD057A56258F7B6100C67DEF /* Resources */,
+				38999E3C25927A2B00C265F7 /* Sources */,
+				38999E3D25927A2B00C265F7 /* Frameworks */,
+				38999E3E25927A2B00C265F7 /* Resources */,
 			);
 			buildRules = (
 			);
 			dependencies = (
 			);
-			name = SolarSystem;
-			productName = SolarSystem;
-			productReference = FD057A58258F7B6100C67DEF /* SolarSystem.app */;
+			name = "SolarSystem-iOS";
+			productName = "SolarSystem-iOS";
+			productReference = 38999E4025927A2B00C265F7 /* SolarSystem-iOS.app */;
+			productType = "com.apple.product-type.application";
+		};
+		38999E5925927A4C00C265F7 /* SolarSystem-macOS */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 38999E6725927A4D00C265F7 /* Build configuration list for PBXNativeTarget "SolarSystem-macOS" */;
+			buildPhases = (
+				38999E5625927A4C00C265F7 /* Sources */,
+				38999E5725927A4C00C265F7 /* Frameworks */,
+				38999E5825927A4C00C265F7 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "SolarSystem-macOS";
+			productName = "SolarSystem-macOS";
+			productReference = 38999E5A25927A4C00C265F7 /* SolarSystem-macOS.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -110,11 +181,14 @@
 		FD057A50258F7B6100C67DEF /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastSwiftUpdateCheck = 1230;
+				LastSwiftUpdateCheck = 1220;
 				LastUpgradeCheck = 1230;
 				TargetAttributes = {
-					FD057A57258F7B6100C67DEF = {
-						CreatedOnToolsVersion = 12.3;
+					38999E3F25927A2B00C265F7 = {
+						CreatedOnToolsVersion = 12.2;
+					};
+					38999E5925927A4C00C265F7 = {
+						CreatedOnToolsVersion = 12.2;
 					};
 				};
 			};
@@ -131,62 +205,188 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				FD057A57258F7B6100C67DEF /* SolarSystem */,
+				38999E3F25927A2B00C265F7 /* SolarSystem-iOS */,
+				38999E5925927A4C00C265F7 /* SolarSystem-macOS */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
-		FD057A56258F7B6100C67DEF /* Resources */ = {
+		38999E3E25927A2B00C265F7 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				FD057A68258F7B6500C67DEF /* LaunchScreen.storyboard in Resources */,
-				FD057A65258F7B6500C67DEF /* Assets.xcassets in Resources */,
-				FD057A82258F8C2200C67DEF /* README.md in Resources */,
-				FD057A63258F7B6100C67DEF /* Main.storyboard in Resources */,
-				FD057A83258F8C2200C67DEF /* LICENSE in Resources */,
+				38999E4F25927A2C00C265F7 /* LaunchScreen.storyboard in Resources */,
+				38999E4C25927A2C00C265F7 /* Assets.xcassets in Resources */,
+				38999E4A25927A2B00C265F7 /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		38999E5825927A4C00C265F7 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				38999E6125927A4D00C265F7 /* Assets.xcassets in Resources */,
+				38999E6425927A4D00C265F7 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
-		FD057A54258F7B6100C67DEF /* Sources */ = {
+		38999E3C25927A2B00C265F7 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				FD057A7E258F895200C67DEF /* Shaders.metal in Sources */,
-				FD057A77258F7E0500C67DEF /* Renderer.swift in Sources */,
-				FD057A60258F7B6100C67DEF /* ViewController.swift in Sources */,
-				FD057A5C258F7B6100C67DEF /* AppDelegate.swift in Sources */,
-				FD057A5E258F7B6100C67DEF /* SceneDelegate.swift in Sources */,
-				FD057A7B258F84DE00C67DEF /* Primitive.swift in Sources */,
+				38999E7725927CFC00C265F7 /* ViewController.swift in Sources */,
+				38999E8725927DDD00C265F7 /* MathLibrary.swift in Sources */,
+				38999E7525927CFC00C265F7 /* Renderer.swift in Sources */,
+				38999E7425927CFC00C265F7 /* Shaders.metal in Sources */,
+				38999E4325927A2B00C265F7 /* AppDelegate.swift in Sources */,
+				38999E4525927A2B00C265F7 /* SceneDelegate.swift in Sources */,
+				38999E7625927CFC00C265F7 /* Primitive.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		38999E5625927A4C00C265F7 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				38999E7B25927CFC00C265F7 /* ViewController.swift in Sources */,
+				38999E7825927CFC00C265F7 /* Shaders.metal in Sources */,
+				38999E7925927CFC00C265F7 /* Renderer.swift in Sources */,
+				38999E5D25927A4C00C265F7 /* AppDelegate.swift in Sources */,
+				38999E7A25927CFC00C265F7 /* Primitive.swift in Sources */,
+				38999E8825927DDD00C265F7 /* MathLibrary.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXVariantGroup section */
-		FD057A61258F7B6100C67DEF /* Main.storyboard */ = {
+		38999E4825927A2B00C265F7 /* Main.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
-				FD057A62258F7B6100C67DEF /* Base */,
+				38999E4925927A2B00C265F7 /* Base */,
 			);
 			name = Main.storyboard;
 			sourceTree = "<group>";
 		};
-		FD057A66258F7B6500C67DEF /* LaunchScreen.storyboard */ = {
+		38999E4D25927A2C00C265F7 /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
-				FD057A67258F7B6500C67DEF /* Base */,
+				38999E4E25927A2C00C265F7 /* Base */,
 			);
 			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+		38999E6225927A4D00C265F7 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				38999E6325927A4D00C265F7 /* Base */,
+			);
+			name = Main.storyboard;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
+		38999E5125927A2C00C265F7 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = "SolarSystem-iOS/SolarSystem-iOS.entitlements";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = ZEHX8P57LY;
+				INFOPLIST_FILE = "SolarSystem-iOS/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
+				"IPHONEOS_DEPLOYMENT_TARGET[sdk=macosx*]" = 13.1;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 0.1;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.th.SolarSystem-iOS";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SUPPORTS_MACCATALYST = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		38999E5225927A2C00C265F7 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = "SolarSystem-iOS/SolarSystem-iOS.entitlements";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = ZEHX8P57LY;
+				INFOPLIST_FILE = "SolarSystem-iOS/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
+				"IPHONEOS_DEPLOYMENT_TARGET[sdk=macosx*]" = 13.1;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 0.1;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.th.SolarSystem-iOS";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SUPPORTS_MACCATALYST = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		38999E6825927A4D00C265F7 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = "SolarSystem-macOS/SolarSystem_macOS.entitlements";
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				DEVELOPMENT_TEAM = ZEHX8P57LY;
+				ENABLE_HARDENED_RUNTIME = YES;
+				INFOPLIST_FILE = "SolarSystem-macOS/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+				);
+				MACOSX_DEPLOYMENT_TARGET = 10.15;
+				MARKETING_VERSION = 0.1;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.th.SolarSystem-macOS";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = macosx;
+				SWIFT_VERSION = 5.0;
+			};
+			name = Debug;
+		};
+		38999E6925927A4D00C265F7 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = "SolarSystem-macOS/SolarSystem_macOS.entitlements";
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				DEVELOPMENT_TEAM = ZEHX8P57LY;
+				ENABLE_HARDENED_RUNTIME = YES;
+				INFOPLIST_FILE = "SolarSystem-macOS/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+				);
+				MACOSX_DEPLOYMENT_TARGET = 10.15;
+				MARKETING_VERSION = 0.1;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.th.SolarSystem-macOS";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = macosx;
+				SWIFT_VERSION = 5.0;
+			};
+			name = Release;
+		};
 		FD057A6A258F7B6500C67DEF /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -244,6 +444,7 @@
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OBJC_BRIDGING_HEADER = SolarSystem/Common.h;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 			};
 			name = Debug;
@@ -298,76 +499,38 @@
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;
 				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OBJC_BRIDGING_HEADER = SolarSystem/Common.h;
 				SWIFT_OPTIMIZATION_LEVEL = "-O";
 				VALIDATE_PRODUCT = YES;
-			};
-			name = Release;
-		};
-		FD057A6D258F7B6500C67DEF /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
-				CODE_SIGN_ENTITLEMENTS = SolarSystem/SolarSystem.entitlements;
-				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = ZEHX8P57LY;
-				INFOPLIST_FILE = SolarSystem/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
-				"IPHONEOS_DEPLOYMENT_TARGET[sdk=macosx*]" = 13.1;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-				);
-				MARKETING_VERSION = 0.1;
-				PRODUCT_BUNDLE_IDENTIFIER = com.th.SolarSystem;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SUPPORTS_MACCATALYST = YES;
-				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-			};
-			name = Debug;
-		};
-		FD057A6E258F7B6500C67DEF /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
-				CODE_SIGN_ENTITLEMENTS = SolarSystem/SolarSystem.entitlements;
-				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = ZEHX8P57LY;
-				INFOPLIST_FILE = SolarSystem/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
-				"IPHONEOS_DEPLOYMENT_TARGET[sdk=macosx*]" = 13.1;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-				);
-				MARKETING_VERSION = 0.1;
-				PRODUCT_BUNDLE_IDENTIFIER = com.th.SolarSystem;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SUPPORTS_MACCATALYST = YES;
-				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Release;
 		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		38999E5325927A2C00C265F7 /* Build configuration list for PBXNativeTarget "SolarSystem-iOS" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				38999E5125927A2C00C265F7 /* Debug */,
+				38999E5225927A2C00C265F7 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		38999E6725927A4D00C265F7 /* Build configuration list for PBXNativeTarget "SolarSystem-macOS" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				38999E6825927A4D00C265F7 /* Debug */,
+				38999E6925927A4D00C265F7 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 		FD057A53258F7B6100C67DEF /* Build configuration list for PBXProject "SolarSystem" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				FD057A6A258F7B6500C67DEF /* Debug */,
 				FD057A6B258F7B6500C67DEF /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		FD057A6C258F7B6500C67DEF /* Build configuration list for PBXNativeTarget "SolarSystem" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				FD057A6D258F7B6500C67DEF /* Debug */,
-				FD057A6E258F7B6500C67DEF /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
