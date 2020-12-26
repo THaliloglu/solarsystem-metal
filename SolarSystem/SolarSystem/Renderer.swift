@@ -10,13 +10,24 @@ class Renderer: NSObject {
     
     static var device: MTLDevice!
     static var commandQueue: MTLCommandQueue!
-    var mesh: MTKMesh!
-    var vertexBuffer: MTLBuffer!
-    var pipelineState: MTLRenderPipelineState!
+    static var library: MTLLibrary!
+    
+    // Array of Models allows for rendering multiple models
+    var models: [Model] = []
     
     var timer: Float = 0
     public var lightGrayColor: float4 = [1, 0, 0, 1]
     var uniforms = Uniforms()
+    
+    // Camera holds view and projection matrices
+    lazy var camera: Camera = {
+        let camera = ArcballCamera()
+        camera.distance = 2.5
+        camera.target = [0, 0, -2]
+        camera.rotation.x = Float(-25).degreesToRadians
+        
+        return camera
+    }()
     
     init(metalView: MTKView) {
         guard let device = MTLCreateSystemDefaultDevice(),
@@ -26,32 +37,8 @@ class Renderer: NSObject {
         
         Renderer.device = device
         Renderer.commandQueue = commandQueue
+        Renderer.library = device.makeDefaultLibrary()
         metalView.device = device
-        
-        let mdlMesh = Primitive.makeSphere(device: device, size: 0.75)
-        do {
-            mesh = try MTKMesh(mesh: mdlMesh, device: device)
-        } catch let error {
-            print(error.localizedDescription)
-        }
-        
-        vertexBuffer = mesh.vertexBuffers[0].buffer
-        
-        let library = device.makeDefaultLibrary()
-        let vertexFunction = library?.makeFunction(name: "vertex_main")
-        let fragmentFunction = library?.makeFunction(name: "fragment_main")
-        
-        let pipelineDescriptor = MTLRenderPipelineDescriptor()
-        pipelineDescriptor.vertexFunction = vertexFunction
-        pipelineDescriptor.fragmentFunction = fragmentFunction
-        pipelineDescriptor.vertexDescriptor = MTKMetalVertexDescriptorFromModelIO(mdlMesh.vertexDescriptor)
-        pipelineDescriptor.colorAttachments[0].pixelFormat = metalView.colorPixelFormat
-        
-        do {
-            pipelineState = try device.makeRenderPipelineState(descriptor: pipelineDescriptor)
-        } catch let error {
-            fatalError(error.localizedDescription)
-        }
         
         super.init()
         
@@ -59,24 +46,22 @@ class Renderer: NSObject {
                                              blue: 0.8, alpha: 1.0)
         metalView.delegate = self
         
-        // Defaults for testing
-        let translation = float4x4(translation: [0, 0, 100])
-        let rotation = float4x4(rotation: [0, 0, Float(45).degreesToRadians])
-        uniforms.modelMatrix = translation * rotation
+        let spherePrimitive = Model(sphere: 1)
+        spherePrimitive.position = [0, 0, 0]
+        models.append(spherePrimitive)
         
-//        uniforms.viewMatrix = float4x4(translation: [0.8, 0, 0]).inverse
-        uniforms.viewMatrix = float4x4.identity()
+        let sphere = Model(name: "sphere.obj")
+        sphere.position = [0, 0, 0]
+        sphere.scale = [0.25, 0.25, 0.25]
+        models.append(sphere)
         
-//        let aspect = Float(metalView.bounds.width) / Float(metalView.bounds.height)
-//        let projectionMatrix = float4x4(projectionFov: Float(45).degreesToRadians, near: 0.1, far: 200, aspect: aspect)
-//        uniforms.projectionMatrix = projectionMatrix
-        uniforms.projectionMatrix = float4x4.identity()
+        mtkView(metalView, drawableSizeWillChange: metalView.bounds.size)
     }
 }
 
 extension Renderer: MTKViewDelegate {
     func mtkView(_ view: MTKView, drawableSizeWillChange size: CGSize) {
-        
+        camera.aspect = Float(view.bounds.width)/Float(view.bounds.height)
     }
     
     func draw(in view: MTKView) {
@@ -88,21 +73,40 @@ extension Renderer: MTKViewDelegate {
         }
         
         // drawing code goes here
-        timer += 0.005
-        let translation = float4x4(translation: [0, sin(timer), 0])
-        let rotation = float4x4(rotationY: timer)
-        uniforms.viewMatrix = float4x4.identity()
-        uniforms.modelMatrix = translation * rotation
-        renderEncoder.setVertexBytes(&uniforms, length: MemoryLayout<Uniforms>.stride, index: 1)
-        renderEncoder.setRenderPipelineState(pipelineState)
-        renderEncoder.setVertexBuffer(vertexBuffer, offset: 0, index: 0)
-        renderEncoder.setFragmentBytes(&lightGrayColor, length: MemoryLayout<SIMD4<Float>>.stride, index: 0)
-        for submesh in mesh.submeshes {
-            renderEncoder.drawIndexedPrimitives(type: .line,
-                                                indexCount: submesh.indexCount,
-                                                indexType: submesh.indexType,
-                                                indexBuffer: submesh.indexBuffer.buffer,
-                                                indexBufferOffset: submesh.indexBuffer.offset)
+        uniforms.projectionMatrix = camera.projectionMatrix
+        uniforms.viewMatrix = camera.viewMatrix
+        
+        // render all the models in the array
+        for model in models {
+            
+            if model.name != "SpherePrimitive" {
+                timer += 0.005
+                model.position = [sin(timer) * 2, model.position.y, -cos(timer) * 2]
+                model.rotation = [0, timer * 2, 0]
+            } else {
+                model.rotation = [0, timer, 0]
+            }
+            
+            uniforms.modelMatrix = model.modelMatrix
+            
+            renderEncoder.setVertexBytes(&uniforms, length: MemoryLayout<Uniforms>.stride, index: 1)
+            renderEncoder.setRenderPipelineState(model.pipelineState)
+            
+            for mesh in model.meshes {
+                let vertexBuffer = mesh.mtkMesh.vertexBuffers[0].buffer
+                renderEncoder.setVertexBuffer(vertexBuffer, offset: 0, index: 0)
+                
+                renderEncoder.setFragmentBytes(&lightGrayColor, length: MemoryLayout<SIMD4<Float>>.stride, index: 0)
+                
+                for submesh in mesh.submeshes {
+                    let mtkSubmesh = submesh.mtkSubmesh
+                    renderEncoder.drawIndexedPrimitives(type: .line,
+                                                        indexCount: mtkSubmesh.indexCount,
+                                                        indexType: mtkSubmesh.indexType,
+                                                        indexBuffer: mtkSubmesh.indexBuffer.buffer,
+                                                        indexBufferOffset: mtkSubmesh.indexBuffer.offset)
+                }
+            }
         }
         
         renderEncoder.endEncoding()

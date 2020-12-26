@@ -25,6 +25,22 @@
 		38999E7B25927CFC00C265F7 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD057A5F258F7B6100C67DEF /* ViewController.swift */; };
 		38999E8725927DDD00C265F7 /* MathLibrary.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38999E8625927DDD00C265F7 /* MathLibrary.swift */; };
 		38999E8825927DDD00C265F7 /* MathLibrary.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38999E8625927DDD00C265F7 /* MathLibrary.swift */; };
+		3899A0882597D0D900C265F7 /* Node.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3899A0872597D0D900C265F7 /* Node.swift */; };
+		3899A0892597D0DA00C265F7 /* Node.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3899A0872597D0D900C265F7 /* Node.swift */; };
+		3899A08D2597D15F00C265F7 /* Camera.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3899A08C2597D15F00C265F7 /* Camera.swift */; };
+		3899A08E2597D15F00C265F7 /* Camera.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3899A08C2597D15F00C265F7 /* Camera.swift */; };
+		3899A0942597D1F400C265F7 /* Model.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3899A0932597D1F400C265F7 /* Model.swift */; };
+		3899A0952597D1F400C265F7 /* Model.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3899A0932597D1F400C265F7 /* Model.swift */; };
+		3899A0992597D41400C265F7 /* Mesh.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3899A0982597D41400C265F7 /* Mesh.swift */; };
+		3899A09A2597D41400C265F7 /* Mesh.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3899A0982597D41400C265F7 /* Mesh.swift */; };
+		3899A09E2597D45C00C265F7 /* Submesh.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3899A09D2597D45C00C265F7 /* Submesh.swift */; };
+		3899A09F2597D45C00C265F7 /* Submesh.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3899A09D2597D45C00C265F7 /* Submesh.swift */; };
+		3899A0A32597D4D200C265F7 /* VertexDescriptor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3899A0A22597D4D200C265F7 /* VertexDescriptor.swift */; };
+		3899A0A42597D4D200C265F7 /* VertexDescriptor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3899A0A22597D4D200C265F7 /* VertexDescriptor.swift */; };
+		3899A0AC2597E3AA00C265F7 /* sphere.obj in Resources */ = {isa = PBXBuildFile; fileRef = 3899A0AA2597E3AA00C265F7 /* sphere.obj */; };
+		3899A0AD2597E3AA00C265F7 /* sphere.obj in Resources */ = {isa = PBXBuildFile; fileRef = 3899A0AA2597E3AA00C265F7 /* sphere.obj */; };
+		3899A0AE2597E3AA00C265F7 /* sphere.mtl in Resources */ = {isa = PBXBuildFile; fileRef = 3899A0AB2597E3AA00C265F7 /* sphere.mtl */; };
+		3899A0AF2597E3AA00C265F7 /* sphere.mtl in Resources */ = {isa = PBXBuildFile; fileRef = 3899A0AB2597E3AA00C265F7 /* sphere.mtl */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -44,6 +60,14 @@
 		38999E6D25927A5B00C265F7 /* SolarSystem-iOS.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "SolarSystem-iOS.entitlements"; sourceTree = "<group>"; };
 		38999E8625927DDD00C265F7 /* MathLibrary.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MathLibrary.swift; sourceTree = "<group>"; };
 		38999E8B25927E5C00C265F7 /* Common.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Common.h; sourceTree = "<group>"; };
+		3899A0872597D0D900C265F7 /* Node.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Node.swift; sourceTree = "<group>"; };
+		3899A08C2597D15F00C265F7 /* Camera.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Camera.swift; sourceTree = "<group>"; };
+		3899A0932597D1F400C265F7 /* Model.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Model.swift; sourceTree = "<group>"; };
+		3899A0982597D41400C265F7 /* Mesh.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Mesh.swift; sourceTree = "<group>"; };
+		3899A09D2597D45C00C265F7 /* Submesh.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Submesh.swift; sourceTree = "<group>"; };
+		3899A0A22597D4D200C265F7 /* VertexDescriptor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VertexDescriptor.swift; sourceTree = "<group>"; };
+		3899A0AA2597E3AA00C265F7 /* sphere.obj */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = sphere.obj; sourceTree = "<group>"; };
+		3899A0AB2597E3AA00C265F7 /* sphere.mtl */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = sphere.mtl; sourceTree = "<group>"; };
 		FD057A5F258F7B6100C67DEF /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		FD057A76258F7E0500C67DEF /* Renderer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Renderer.swift; sourceTree = "<group>"; };
 		FD057A7A258F84DE00C67DEF /* Primitive.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Primitive.swift; sourceTree = "<group>"; };
@@ -104,6 +128,15 @@
 			path = Utility;
 			sourceTree = "<group>";
 		};
+		3899A0A92597E3AA00C265F7 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				3899A0AA2597E3AA00C265F7 /* sphere.obj */,
+				3899A0AB2597E3AA00C265F7 /* sphere.mtl */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
 		FD057A4F258F7B6100C67DEF = {
 			isa = PBXGroup;
 			children = (
@@ -128,11 +161,18 @@
 		FD057A5A258F7B6100C67DEF /* SolarSystem */ = {
 			isa = PBXGroup;
 			children = (
-				38999E8B25927E5C00C265F7 /* Common.h */,
 				FD057A5F258F7B6100C67DEF /* ViewController.swift */,
 				FD057A76258F7E0500C67DEF /* Renderer.swift */,
-				FD057A7A258F84DE00C67DEF /* Primitive.swift */,
 				FD057A7D258F895200C67DEF /* Shaders.metal */,
+				FD057A7A258F84DE00C67DEF /* Primitive.swift */,
+				38999E8B25927E5C00C265F7 /* Common.h */,
+				3899A0872597D0D900C265F7 /* Node.swift */,
+				3899A08C2597D15F00C265F7 /* Camera.swift */,
+				3899A0932597D1F400C265F7 /* Model.swift */,
+				3899A0982597D41400C265F7 /* Mesh.swift */,
+				3899A09D2597D45C00C265F7 /* Submesh.swift */,
+				3899A0A22597D4D200C265F7 /* VertexDescriptor.swift */,
+				3899A0A92597E3AA00C265F7 /* Models */,
 				38999E8525927DDD00C265F7 /* Utility */,
 			);
 			path = SolarSystem;
@@ -218,7 +258,9 @@
 			files = (
 				38999E4F25927A2C00C265F7 /* LaunchScreen.storyboard in Resources */,
 				38999E4C25927A2C00C265F7 /* Assets.xcassets in Resources */,
+				3899A0AC2597E3AA00C265F7 /* sphere.obj in Resources */,
 				38999E4A25927A2B00C265F7 /* Main.storyboard in Resources */,
+				3899A0AE2597E3AA00C265F7 /* sphere.mtl in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -226,7 +268,9 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3899A0AF2597E3AA00C265F7 /* sphere.mtl in Resources */,
 				38999E6125927A4D00C265F7 /* Assets.xcassets in Resources */,
+				3899A0AD2597E3AA00C265F7 /* sphere.obj in Resources */,
 				38999E6425927A4D00C265F7 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -239,12 +283,18 @@
 			buildActionMask = 2147483647;
 			files = (
 				38999E7725927CFC00C265F7 /* ViewController.swift in Sources */,
+				3899A0992597D41400C265F7 /* Mesh.swift in Sources */,
 				38999E8725927DDD00C265F7 /* MathLibrary.swift in Sources */,
 				38999E7525927CFC00C265F7 /* Renderer.swift in Sources */,
+				3899A0A32597D4D200C265F7 /* VertexDescriptor.swift in Sources */,
+				3899A0882597D0D900C265F7 /* Node.swift in Sources */,
 				38999E7425927CFC00C265F7 /* Shaders.metal in Sources */,
+				3899A0942597D1F400C265F7 /* Model.swift in Sources */,
+				3899A09E2597D45C00C265F7 /* Submesh.swift in Sources */,
 				38999E4325927A2B00C265F7 /* AppDelegate.swift in Sources */,
 				38999E4525927A2B00C265F7 /* SceneDelegate.swift in Sources */,
 				38999E7625927CFC00C265F7 /* Primitive.swift in Sources */,
+				3899A08D2597D15F00C265F7 /* Camera.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -252,12 +302,18 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3899A09F2597D45C00C265F7 /* Submesh.swift in Sources */,
+				3899A0952597D1F400C265F7 /* Model.swift in Sources */,
+				3899A08E2597D15F00C265F7 /* Camera.swift in Sources */,
 				38999E7B25927CFC00C265F7 /* ViewController.swift in Sources */,
 				38999E7825927CFC00C265F7 /* Shaders.metal in Sources */,
+				3899A09A2597D41400C265F7 /* Mesh.swift in Sources */,
+				3899A0A42597D4D200C265F7 /* VertexDescriptor.swift in Sources */,
 				38999E7925927CFC00C265F7 /* Renderer.swift in Sources */,
 				38999E5D25927A4C00C265F7 /* AppDelegate.swift in Sources */,
 				38999E7A25927CFC00C265F7 /* Primitive.swift in Sources */,
 				38999E8825927DDD00C265F7 /* MathLibrary.swift in Sources */,
+				3899A0892597D0DA00C265F7 /* Node.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

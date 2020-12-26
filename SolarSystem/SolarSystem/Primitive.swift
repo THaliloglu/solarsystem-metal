@@ -20,7 +20,7 @@ class Primitive {
     static func makeSphere(device: MTLDevice, size: Float) -> MDLMesh {
         let allocator = MTKMeshBufferAllocator(device: device)
         let mesh = MDLMesh(sphereWithExtent: [size, size, size],
-                           segments: [100, 100],
+                           segments: [50, 50],
                            inwardNormals: false,
                            geometryType: .lines,
                            allocator: allocator)
