@@ -41,6 +41,8 @@
 		3899A0AD2597E3AA00C265F7 /* sphere.obj in Resources */ = {isa = PBXBuildFile; fileRef = 3899A0AA2597E3AA00C265F7 /* sphere.obj */; };
 		3899A0AE2597E3AA00C265F7 /* sphere.mtl in Resources */ = {isa = PBXBuildFile; fileRef = 3899A0AB2597E3AA00C265F7 /* sphere.mtl */; };
 		3899A0AF2597E3AA00C265F7 /* sphere.mtl in Resources */ = {isa = PBXBuildFile; fileRef = 3899A0AB2597E3AA00C265F7 /* sphere.mtl */; };
+		3899A0B3259A513C00C265F7 /* ViewControllerExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3899A0B2259A513C00C265F7 /* ViewControllerExtension.swift */; };
+		3899A0B7259A51D200C265F7 /* ViewControllerExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3899A0B6259A51D200C265F7 /* ViewControllerExtension.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -68,6 +70,8 @@
 		3899A0A22597D4D200C265F7 /* VertexDescriptor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VertexDescriptor.swift; sourceTree = "<group>"; };
 		3899A0AA2597E3AA00C265F7 /* sphere.obj */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = sphere.obj; sourceTree = "<group>"; };
 		3899A0AB2597E3AA00C265F7 /* sphere.mtl */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = sphere.mtl; sourceTree = "<group>"; };
+		3899A0B2259A513C00C265F7 /* ViewControllerExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewControllerExtension.swift; sourceTree = "<group>"; };
+		3899A0B6259A51D200C265F7 /* ViewControllerExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewControllerExtension.swift; sourceTree = "<group>"; };
 		FD057A5F258F7B6100C67DEF /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		FD057A76258F7E0500C67DEF /* Renderer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Renderer.swift; sourceTree = "<group>"; };
 		FD057A7A258F84DE00C67DEF /* Primitive.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Primitive.swift; sourceTree = "<group>"; };
@@ -99,6 +103,7 @@
 			children = (
 				38999E4225927A2B00C265F7 /* AppDelegate.swift */,
 				38999E4425927A2B00C265F7 /* SceneDelegate.swift */,
+				3899A0B2259A513C00C265F7 /* ViewControllerExtension.swift */,
 				38999E4B25927A2C00C265F7 /* Assets.xcassets */,
 				38999E4825927A2B00C265F7 /* Main.storyboard */,
 				38999E4D25927A2C00C265F7 /* LaunchScreen.storyboard */,
@@ -112,6 +117,7 @@
 			isa = PBXGroup;
 			children = (
 				38999E5C25927A4C00C265F7 /* AppDelegate.swift */,
+				3899A0B6259A51D200C265F7 /* ViewControllerExtension.swift */,
 				38999E6025927A4D00C265F7 /* Assets.xcassets */,
 				38999E6225927A4D00C265F7 /* Main.storyboard */,
 				38999E6525927A4D00C265F7 /* Info.plist */,
@@ -284,6 +290,7 @@
 			files = (
 				38999E7725927CFC00C265F7 /* ViewController.swift in Sources */,
 				3899A0992597D41400C265F7 /* Mesh.swift in Sources */,
+				3899A0B3259A513C00C265F7 /* ViewControllerExtension.swift in Sources */,
 				38999E8725927DDD00C265F7 /* MathLibrary.swift in Sources */,
 				38999E7525927CFC00C265F7 /* Renderer.swift in Sources */,
 				3899A0A32597D4D200C265F7 /* VertexDescriptor.swift in Sources */,
@@ -302,6 +309,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3899A0B7259A51D200C265F7 /* ViewControllerExtension.swift in Sources */,
 				3899A09F2597D45C00C265F7 /* Submesh.swift in Sources */,
 				3899A0952597D1F400C265F7 /* Model.swift in Sources */,
 				3899A08E2597D15F00C265F7 /* Camera.swift in Sources */,

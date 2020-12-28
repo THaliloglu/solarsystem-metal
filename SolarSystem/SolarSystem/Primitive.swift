@@ -22,7 +22,7 @@ class Primitive {
         let mesh = MDLMesh(sphereWithExtent: [size, size, size],
                            segments: [50, 50],
                            inwardNormals: false,
-                           geometryType: .lines,
+                           geometryType: .triangles,
                            allocator: allocator)
         return mesh
     }

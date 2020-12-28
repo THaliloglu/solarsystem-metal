@@ -57,7 +57,7 @@ class Model: Node {
         let vertexDescriptor = MDLVertexDescriptor.defaultVertexDescriptor
         pipelineDescriptor.vertexDescriptor = MTKMetalVertexDescriptorFromModelIO(vertexDescriptor)
         pipelineDescriptor.colorAttachments[0].pixelFormat = .bgra8Unorm
-//        pipelineDescriptor.depthAttachmentPixelFormat = .depth32Float
+        pipelineDescriptor.depthAttachmentPixelFormat = .depth32Float
         do {
             pipelineState = try Renderer.device.makeRenderPipelineState(descriptor: pipelineDescriptor)
         } catch let error {

@@ -20,6 +20,7 @@ class ViewController: LocalViewController {
         }
         
         renderer = Renderer(metalView: metalView)
+        addGestureRecognizers(to: metalView)
     }
 }
 

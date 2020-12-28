@@ -16,7 +16,6 @@ extension MDLVertexDescriptor {
                                                             offset: 0, bufferIndex: 0)
         offset += MemoryLayout<float3>.stride
         
-        // add the normal attribute here
         vertexDescriptor.attributes[1] = MDLVertexAttribute(name: MDLVertexAttributeNormal,
                                                             format: .float3,
                                                             offset: offset, bufferIndex: 0)

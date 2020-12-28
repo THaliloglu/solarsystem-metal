@@ -12,11 +12,18 @@ class Renderer: NSObject {
     static var commandQueue: MTLCommandQueue!
     static var library: MTLLibrary!
     
+    let depthStencilState: MTLDepthStencilState
+    static func buildDepthStencilState() -> MTLDepthStencilState? {
+        let descriptor = MTLDepthStencilDescriptor()
+        descriptor.depthCompareFunction = .less
+        descriptor.isDepthWriteEnabled = true
+        return Renderer.device.makeDepthStencilState(descriptor: descriptor)
+    }
+    
     // Array of Models allows for rendering multiple models
     var models: [Model] = []
     
     var timer: Float = 0
-    public var lightGrayColor: float4 = [1, 0, 0, 1]
     var uniforms = Uniforms()
     
     // Camera holds view and projection matrices
@@ -39,6 +46,8 @@ class Renderer: NSObject {
         Renderer.commandQueue = commandQueue
         Renderer.library = device.makeDefaultLibrary()
         metalView.device = device
+        metalView.depthStencilPixelFormat = .depth32Float
+        depthStencilState = Renderer.buildDepthStencilState()!
         
         super.init()
         
@@ -72,6 +81,8 @@ extension Renderer: MTKViewDelegate {
             return
         }
         
+        renderEncoder.setDepthStencilState(depthStencilState)
+        
         // drawing code goes here
         uniforms.projectionMatrix = camera.projectionMatrix
         uniforms.viewMatrix = camera.viewMatrix
@@ -96,11 +107,9 @@ extension Renderer: MTKViewDelegate {
                 let vertexBuffer = mesh.mtkMesh.vertexBuffers[0].buffer
                 renderEncoder.setVertexBuffer(vertexBuffer, offset: 0, index: 0)
                 
-                renderEncoder.setFragmentBytes(&lightGrayColor, length: MemoryLayout<SIMD4<Float>>.stride, index: 0)
-                
                 for submesh in mesh.submeshes {
                     let mtkSubmesh = submesh.mtkSubmesh
-                    renderEncoder.drawIndexedPrimitives(type: .line,
+                    renderEncoder.drawIndexedPrimitives(type: .triangle,
                                                         indexCount: mtkSubmesh.indexCount,
                                                         indexType: mtkSubmesh.indexType,
                                                         indexBuffer: mtkSubmesh.indexBuffer.buffer,
