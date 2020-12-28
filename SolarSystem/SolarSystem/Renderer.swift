@@ -20,10 +20,31 @@ class Renderer: NSObject {
         return Renderer.device.makeDepthStencilState(descriptor: descriptor)
     }
     
+    lazy var sunlight: Light = {
+        var light = buildDefaultLight()
+        light.position = [0, 2, -2]
+        return light
+    }()
+    
+    var lights: [Light] = []
+    
+    func buildDefaultLight() -> Light {
+        var light = Light()
+        light.position = [0, 0, 0]
+        light.color = [1, 1, 1]
+        light.specularColor = [0.6, 0.6, 0.6]
+        light.intensity = 1
+        light.attenuation = float3(1, 0, 0)
+        light.type = Sunlight
+        return light
+    }
+    
     // Array of Models allows for rendering multiple models
     var models: [Model] = []
     
     var timer: Float = 0
+    
+    var fragmentUniforms = FragmentUniforms()
     var uniforms = Uniforms()
     
     // Camera holds view and projection matrices
@@ -55,14 +76,24 @@ class Renderer: NSObject {
                                              blue: 0.8, alpha: 1.0)
         metalView.delegate = self
         
-        let spherePrimitive = Model(sphere: 1)
+        // TODO: Primitive mesh has problems about normals, needs to check
+//        let spherePrimitive = Model(sphere: 1)
+//        spherePrimitive.position = [0, 0, 0]
+//        models.append(spherePrimitive)
+        
+        let spherePrimitive = Model(name: "sphere.obj")
         spherePrimitive.position = [0, 0, 0]
+        spherePrimitive.name = "SpherePrimitive"
         models.append(spherePrimitive)
         
         let sphere = Model(name: "sphere.obj")
         sphere.position = [0, 0, 0]
         sphere.scale = [0.25, 0.25, 0.25]
         models.append(sphere)
+        
+        lights.append(sunlight)
+        
+        fragmentUniforms.lightCount = UInt32(lights.count)
         
         mtkView(metalView, drawableSizeWillChange: metalView.bounds.size)
     }
@@ -87,6 +118,9 @@ extension Renderer: MTKViewDelegate {
         uniforms.projectionMatrix = camera.projectionMatrix
         uniforms.viewMatrix = camera.viewMatrix
         
+        renderEncoder.setFragmentBytes(&lights, length: MemoryLayout<Light>.stride * lights.count, index: 2)
+        renderEncoder.setFragmentBytes(&fragmentUniforms, length: MemoryLayout<FragmentUniforms>.stride, index: 3)
+        
         // render all the models in the array
         for model in models {
             
@@ -99,6 +133,7 @@ extension Renderer: MTKViewDelegate {
             }
             
             uniforms.modelMatrix = model.modelMatrix
+            uniforms.normalMatrix = uniforms.modelMatrix.upperLeft
             
             renderEncoder.setVertexBytes(&uniforms, length: MemoryLayout<Uniforms>.stride, index: 1)
             renderEncoder.setRenderPipelineState(model.pipelineState)
