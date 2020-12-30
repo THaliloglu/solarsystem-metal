@@ -26,6 +26,35 @@ class Renderer: NSObject {
         return light
     }()
     
+    lazy var ambientLight: Light = {
+        var light = buildDefaultLight()
+        light.color = [0.5, 1, 0]
+        light.intensity = 0.2
+        light.type = Ambientlight
+        return light
+    }()
+    
+    lazy var redLight: Light = {
+        var light = buildDefaultLight()
+        light.position = [-1.4, 0, 0]
+        light.color = [1, 0, 0]
+        light.attenuation = float3(1, 3, 4)
+        light.type = Pointlight
+        return light
+    }()
+    
+    lazy var spotlight: Light = {
+        var light = buildDefaultLight()
+        light.position = [1.4, 0, 0]
+        light.color = [1, 0, 1]
+        light.attenuation = float3(1, 0.5, 0)
+        light.type = Spotlight
+        light.coneAngle = Float(40).degreesToRadians
+        light.coneDirection = [-2, 0, -1.5]
+        light.coneAttenuation = 12
+        return light
+    }()
+    
     var lights: [Light] = []
     
     func buildDefaultLight() -> Light {
@@ -41,6 +70,11 @@ class Renderer: NSObject {
     
     // Array of Models allows for rendering multiple models
     var models: [Model] = []
+    
+    // Debug drawing of lights
+    lazy var lightPipelineState: MTLRenderPipelineState = {
+        return buildLightPipelineState()
+    }()
     
     var timer: Float = 0
     
@@ -92,6 +126,9 @@ class Renderer: NSObject {
         models.append(sphere)
         
         lights.append(sunlight)
+        lights.append(ambientLight)
+        lights.append(redLight)
+        lights.append(spotlight)
         
         fragmentUniforms.lightCount = UInt32(lights.count)
         
@@ -117,6 +154,7 @@ extension Renderer: MTKViewDelegate {
         // drawing code goes here
         uniforms.projectionMatrix = camera.projectionMatrix
         uniforms.viewMatrix = camera.viewMatrix
+        fragmentUniforms.cameraPosition = camera.position
         
         renderEncoder.setFragmentBytes(&lights, length: MemoryLayout<Light>.stride * lights.count, index: 2)
         renderEncoder.setFragmentBytes(&fragmentUniforms, length: MemoryLayout<FragmentUniforms>.stride, index: 3)
@@ -152,6 +190,10 @@ extension Renderer: MTKViewDelegate {
                 }
             }
         }
+        
+        //        debugLights(renderEncoder: renderEncoder, lightType: Sunlight)
+        debugLights(renderEncoder: renderEncoder, lightType: Pointlight)
+        debugLights(renderEncoder: renderEncoder, lightType: Spotlight)
         
         renderEncoder.endEncoding()
         guard let drawable = view.currentDrawable else {
