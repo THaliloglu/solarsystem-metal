@@ -181,6 +181,7 @@ extension Renderer: MTKViewDelegate {
                 renderEncoder.setVertexBuffer(vertexBuffer, offset: 0, index: 0)
                 
                 for submesh in mesh.submeshes {
+                    renderEncoder.setFragmentTexture(submesh.textures.baseColor, index: Int(BaseColorTexture.rawValue))
                     let mtkSubmesh = submesh.mtkSubmesh
                     renderEncoder.drawIndexedPrimitives(type: .triangle,
                                                         indexCount: mtkSubmesh.indexCount,
