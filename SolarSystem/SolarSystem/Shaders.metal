@@ -31,7 +31,7 @@ vertex VertexOut vertex_main(const VertexIn vertexIn [[stage_in]],
                         * uniforms.modelMatrix * vertexIn.position,
         .worldPosition = (uniforms.modelMatrix * vertexIn.position).xyz,
         .worldNormal = uniforms.normalMatrix * vertexIn.normal,
-        .uv = float2(1-vertexIn.uv.x, vertexIn.uv.y)
+        .uv = vertexIn.uv
     };
     return out;
 }
