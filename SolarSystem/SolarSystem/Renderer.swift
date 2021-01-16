@@ -156,8 +156,8 @@ extension Renderer: MTKViewDelegate {
         uniforms.viewMatrix = camera.viewMatrix
         fragmentUniforms.cameraPosition = camera.position
         
-        renderEncoder.setFragmentBytes(&lights, length: MemoryLayout<Light>.stride * lights.count, index: 2)
-        renderEncoder.setFragmentBytes(&fragmentUniforms, length: MemoryLayout<FragmentUniforms>.stride, index: 3)
+        renderEncoder.setFragmentBytes(&lights, length: MemoryLayout<Light>.stride * lights.count, index: Int(BufferIndexLights.rawValue))
+        
         
         // render all the models in the array
         for model in models {
@@ -173,7 +173,11 @@ extension Renderer: MTKViewDelegate {
             uniforms.modelMatrix = model.modelMatrix
             uniforms.normalMatrix = uniforms.modelMatrix.upperLeft
             
-            renderEncoder.setVertexBytes(&uniforms, length: MemoryLayout<Uniforms>.stride, index: 1)
+            fragmentUniforms.tiling = model.tiling
+            renderEncoder.setFragmentSamplerState(model.samplerState, index: 0)
+            
+            renderEncoder.setFragmentBytes(&fragmentUniforms, length: MemoryLayout<FragmentUniforms>.stride, index: Int(BufferIndexFragmentUniforms.rawValue))
+            renderEncoder.setVertexBytes(&uniforms, length: MemoryLayout<Uniforms>.stride, index: Int(BufferIndexUniforms.rawValue))
             renderEncoder.setRenderPipelineState(model.pipelineState)
             
             for mesh in model.meshes {

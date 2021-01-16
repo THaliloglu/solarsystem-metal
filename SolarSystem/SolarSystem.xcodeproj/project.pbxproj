@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		38040C6725B31B8200AED8C8 /* Textures.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 38040C6625B31B8200AED8C8 /* Textures.xcassets */; };
+		38040C6825B31B8300AED8C8 /* Textures.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 38040C6625B31B8200AED8C8 /* Textures.xcassets */; };
 		3809898C259F5CF800F311C5 /* Texturable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3809898B259F5CF800F311C5 /* Texturable.swift */; };
 		3809898D259F5CF800F311C5 /* Texturable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3809898B259F5CF800F311C5 /* Texturable.swift */; };
 		38999E4325927A2B00C265F7 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38999E4225927A2B00C265F7 /* AppDelegate.swift */; };
@@ -49,11 +51,10 @@
 		3899A0BF259C95F900C265F7 /* DebugLights.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3899A0BD259C95F900C265F7 /* DebugLights.swift */; };
 		3899A0C3259C961400C265F7 /* DebugLights.metal in Sources */ = {isa = PBXBuildFile; fileRef = 3899A0C2259C961400C265F7 /* DebugLights.metal */; };
 		3899A0C4259C961400C265F7 /* DebugLights.metal in Sources */ = {isa = PBXBuildFile; fileRef = 3899A0C2259C961400C265F7 /* DebugLights.metal */; };
-		38B93C30259F597000C8C2C5 /* earthDiffuse.png in Resources */ = {isa = PBXBuildFile; fileRef = 38B93C2F259F597000C8C2C5 /* earthDiffuse.png */; };
-		38B93C31259F597000C8C2C5 /* earthDiffuse.png in Resources */ = {isa = PBXBuildFile; fileRef = 38B93C2F259F597000C8C2C5 /* earthDiffuse.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		38040C6625B31B8200AED8C8 /* Textures.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Textures.xcassets; sourceTree = "<group>"; };
 		3809898B259F5CF800F311C5 /* Texturable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Texturable.swift; sourceTree = "<group>"; };
 		38999E4025927A2B00C265F7 /* SolarSystem-iOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "SolarSystem-iOS.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		38999E4225927A2B00C265F7 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -83,7 +84,6 @@
 		3899A0B6259A51D200C265F7 /* ViewControllerExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewControllerExtension.swift; sourceTree = "<group>"; };
 		3899A0BD259C95F900C265F7 /* DebugLights.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DebugLights.swift; sourceTree = "<group>"; };
 		3899A0C2259C961400C265F7 /* DebugLights.metal */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.metal; path = DebugLights.metal; sourceTree = "<group>"; };
-		38B93C2F259F597000C8C2C5 /* earthDiffuse.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = earthDiffuse.png; sourceTree = "<group>"; };
 		FD057A5F258F7B6100C67DEF /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		FD057A76258F7E0500C67DEF /* Renderer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Renderer.swift; sourceTree = "<group>"; };
 		FD057A7A258F84DE00C67DEF /* Primitive.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Primitive.swift; sourceTree = "<group>"; };
@@ -151,7 +151,6 @@
 		3899A0A92597E3AA00C265F7 /* Models */ = {
 			isa = PBXGroup;
 			children = (
-				38B93C2F259F597000C8C2C5 /* earthDiffuse.png */,
 				3899A0AA2597E3AA00C265F7 /* sphere.obj */,
 				3899A0AB2597E3AA00C265F7 /* sphere.mtl */,
 			);
@@ -194,6 +193,7 @@
 				3899A0982597D41400C265F7 /* Mesh.swift */,
 				3899A09D2597D45C00C265F7 /* Submesh.swift */,
 				3899A0A22597D4D200C265F7 /* VertexDescriptor.swift */,
+				38040C6625B31B8200AED8C8 /* Textures.xcassets */,
 				3899A0A92597E3AA00C265F7 /* Models */,
 				38999E8525927DDD00C265F7 /* Utility */,
 			);
@@ -282,8 +282,8 @@
 				38999E4C25927A2C00C265F7 /* Assets.xcassets in Resources */,
 				3899A0AC2597E3AA00C265F7 /* sphere.obj in Resources */,
 				38999E4A25927A2B00C265F7 /* Main.storyboard in Resources */,
+				38040C6725B31B8200AED8C8 /* Textures.xcassets in Resources */,
 				3899A0AE2597E3AA00C265F7 /* sphere.mtl in Resources */,
-				38B93C30259F597000C8C2C5 /* earthDiffuse.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -292,8 +292,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				3899A0AF2597E3AA00C265F7 /* sphere.mtl in Resources */,
-				38B93C31259F597000C8C2C5 /* earthDiffuse.png in Resources */,
 				38999E6125927A4D00C265F7 /* Assets.xcassets in Resources */,
+				38040C6825B31B8300AED8C8 /* Textures.xcassets in Resources */,
 				3899A0AD2597E3AA00C265F7 /* sphere.obj in Resources */,
 				38999E6425927A4D00C265F7 /* Main.storyboard in Resources */,
 			);

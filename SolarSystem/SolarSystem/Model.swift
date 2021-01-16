@@ -11,9 +11,12 @@ class Model: Node {
     
     let pipelineState: MTLRenderPipelineState
     let meshes: [Mesh]
+    var tiling: UInt32 = 1
+    let samplerState: MTLSamplerState?
     
     private init(name: String, meshes: [Mesh]) {
         pipelineState = Model.buildPipelineState()
+        samplerState = Model.buildSamplerState()
         self.meshes = meshes
         super.init()
         self.name = name
@@ -64,5 +67,15 @@ class Model: Node {
             fatalError(error.localizedDescription)
         }
         return pipelineState
+    }
+    
+    private static func buildSamplerState() -> MTLSamplerState? {
+        let descriptor = MTLSamplerDescriptor()
+        descriptor.sAddressMode = .repeat
+        descriptor.tAddressMode = .repeat
+        descriptor.mipFilter = .linear
+        descriptor.maxAnisotropy = 8
+        let samplerState = Renderer.device.makeSamplerState(descriptor: descriptor)
+        return samplerState
     }
 }
