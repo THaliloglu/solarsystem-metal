@@ -9,13 +9,12 @@ import MetalKit
 
 class Model: Node {
     
-    let pipelineState: MTLRenderPipelineState
     let meshes: [Mesh]
     var tiling: UInt32 = 1
     let samplerState: MTLSamplerState?
+    static var vertexDescriptor: MDLVertexDescriptor = MDLVertexDescriptor.defaultVertexDescriptor
     
     private init(name: String, meshes: [Mesh]) {
-        pipelineState = Model.buildPipelineState()
         samplerState = Model.buildSamplerState()
         self.meshes = meshes
         super.init()
@@ -31,8 +30,17 @@ class Model: Node {
         let asset = MDLAsset(url: assetUrl,
                              vertexDescriptor: MDLVertexDescriptor.defaultVertexDescriptor,
                              bufferAllocator: allocator)
-        let (mdlMeshes, mtkMeshes) = try! MTKMesh.newMeshes(asset: asset,
-                                                            device: Renderer.device)
+        
+        var mtkMeshes: [MTKMesh] = []
+        let mdlMeshes = asset.childObjects(of: MDLMesh.self) as! [MDLMesh]
+        _ = mdlMeshes.map { mdlMesh in
+            mdlMesh.addTangentBasis(forTextureCoordinateAttributeNamed: MDLVertexAttributeTextureCoordinate,
+                                    tangentAttributeNamed: MDLVertexAttributeTangent,
+                                    bitangentAttributeNamed: MDLVertexAttributeBitangent)
+            Model.vertexDescriptor = mdlMesh.vertexDescriptor
+            mtkMeshes.append(try! MTKMesh(mesh: mdlMesh, device: Renderer.device))
+        }
+        
         let meshes = zip(mdlMeshes, mtkMeshes).map {
             Mesh(mdlMesh: $0.0, mtkMesh: $0.1)
         }
@@ -46,27 +54,6 @@ class Model: Node {
         let meshes = [Mesh(mdlMesh: mdlMesh, mtkMesh: mtkMesh)]
         
         self.init(name: "SpherePrimitive", meshes: meshes)
-    }
-    
-    private static func buildPipelineState() -> MTLRenderPipelineState {
-        let library = Renderer.library
-        let vertexFunction = library?.makeFunction(name: "vertex_main")
-        let fragmentFunction = library?.makeFunction(name: "fragment_main")
-        
-        var pipelineState: MTLRenderPipelineState
-        let pipelineDescriptor = MTLRenderPipelineDescriptor()
-        pipelineDescriptor.vertexFunction = vertexFunction
-        pipelineDescriptor.fragmentFunction = fragmentFunction
-        let vertexDescriptor = MDLVertexDescriptor.defaultVertexDescriptor
-        pipelineDescriptor.vertexDescriptor = MTKMetalVertexDescriptorFromModelIO(vertexDescriptor)
-        pipelineDescriptor.colorAttachments[0].pixelFormat = .bgra8Unorm
-        pipelineDescriptor.depthAttachmentPixelFormat = .depth32Float
-        do {
-            pipelineState = try Renderer.device.makeRenderPipelineState(descriptor: pipelineDescriptor)
-        } catch let error {
-            fatalError(error.localizedDescription)
-        }
-        return pipelineState
     }
     
     private static func buildSamplerState() -> MTLSamplerState? {

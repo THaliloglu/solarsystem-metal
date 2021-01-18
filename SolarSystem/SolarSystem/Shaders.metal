@@ -10,10 +10,15 @@ using namespace metal;
 
 #import "Common.h"
 
+constant bool hasColorTexture [[function_constant(0)]];
+constant bool hasNormalTexture [[function_constant(1)]];
+
 struct VertexIn {
     float4 position [[attribute(0)]];
     float3 normal [[attribute(1)]];
     float2 uv [[attribute(UV)]];
+    float3 tangent [[attribute(Tangent)]];
+    float3 bitangent [[attribute(Bitangent)]];
 };
 
 struct VertexOut {
@@ -21,36 +26,59 @@ struct VertexOut {
     float3 worldPosition;
     float3 worldNormal;
     float2 uv;
+    float3 worldTangent;
+    float3 worldBitangent;
 };
 
 vertex VertexOut vertex_main(const VertexIn vertexIn [[stage_in]],
-                             constant Uniforms &uniforms [[buffer(1)]])
+                             constant Uniforms &uniforms [[buffer(BufferIndexUniforms)]])
 {
     VertexOut out {
         .position = uniforms.projectionMatrix * uniforms.viewMatrix
-                        * uniforms.modelMatrix * vertexIn.position,
+        * uniforms.modelMatrix * vertexIn.position,
         .worldPosition = (uniforms.modelMatrix * vertexIn.position).xyz,
         .worldNormal = uniforms.normalMatrix * vertexIn.normal,
-        .uv = vertexIn.uv
+        .uv = vertexIn.uv,
+        .worldTangent = uniforms.normalMatrix * vertexIn.tangent,
+        .worldBitangent = uniforms.normalMatrix * vertexIn.bitangent,
     };
     return out;
 }
 
 fragment float4 fragment_main(VertexOut in [[stage_in]],
+                              texture2d<float> baseColorTexture [[texture(BaseColorTexture), function_constant(hasColorTexture)]],
+                              texture2d<float> normalTexture [[texture(NormalTexture), function_constant(hasNormalTexture)]],
                               constant Light *lights [[buffer(BufferIndexLights)]],
                               constant FragmentUniforms &fragmentUniforms [[buffer(BufferIndexFragmentUniforms)]],
-                              texture2d<float> baseColorTexture [[texture(BaseColorTexture)]],
-                              sampler textureSampler [[sampler(0)]]) {    
-    float3 baseColor = baseColorTexture.sample(textureSampler, in.uv * fragmentUniforms.tiling).rgb;
+                              constant Material &material [[buffer(BufferIndexMaterials)]],
+                              sampler textureSampler [[sampler(0)]]) {
+    float3 baseColor;
+    if (hasColorTexture) {
+        baseColor = baseColorTexture.sample(textureSampler, in.uv * fragmentUniforms.tiling).rgb;
+    } else {
+        baseColor = material.baseColor;
+    }
     
+    float3 normalValue;
+    if (hasNormalTexture) {
+        normalValue = normalTexture.sample(textureSampler, in.uv * fragmentUniforms.tiling).rgb;
+        normalValue = normalValue * 2 - 1;
+    } else {
+        normalValue = in.worldNormal;
+    }
+    normalValue = normalize(normalValue);
+        
     float3 diffuseColor = 0;
     float3 ambientColor = 0;
-    
     float3 specularColor = 0;
     float materialShininess = 32;
     float3 materialSpecularColor = float3(1, 1, 1);
     
-    float3 normalDirection = normalize(in.worldNormal);
+    float3 normalDirection = float3x3(in.worldTangent, in.worldBitangent, in.worldNormal) * normalValue;
+    normalDirection = normalize(normalDirection);
+    
+    materialSpecularColor = material.specularColor;
+    materialShininess = material.shininess;
     
     for (uint i = 0; i < fragmentUniforms.lightCount; i++) {
         Light light = lights[i];

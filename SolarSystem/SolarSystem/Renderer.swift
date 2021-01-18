@@ -11,6 +11,7 @@ class Renderer: NSObject {
     static var device: MTLDevice!
     static var commandQueue: MTLCommandQueue!
     static var library: MTLLibrary!
+    static var colorPixelFormat: MTLPixelFormat!
     
     let depthStencilState: MTLDepthStencilState
     static func buildDepthStencilState() -> MTLDepthStencilState? {
@@ -100,6 +101,7 @@ class Renderer: NSObject {
         Renderer.device = device
         Renderer.commandQueue = commandQueue
         Renderer.library = device.makeDefaultLibrary()
+        Renderer.colorPixelFormat = metalView.colorPixelFormat
         metalView.device = device
         metalView.depthStencilPixelFormat = .depth32Float
         depthStencilState = Renderer.buildDepthStencilState()!
@@ -178,14 +180,24 @@ extension Renderer: MTKViewDelegate {
             
             renderEncoder.setFragmentBytes(&fragmentUniforms, length: MemoryLayout<FragmentUniforms>.stride, index: Int(BufferIndexFragmentUniforms.rawValue))
             renderEncoder.setVertexBytes(&uniforms, length: MemoryLayout<Uniforms>.stride, index: Int(BufferIndexUniforms.rawValue))
-            renderEncoder.setRenderPipelineState(model.pipelineState)
             
-            for mesh in model.meshes {
-                let vertexBuffer = mesh.mtkMesh.vertexBuffers[0].buffer
-                renderEncoder.setVertexBuffer(vertexBuffer, offset: 0, index: 0)
+            for mesh in model.meshes {                
+                for (index, vertexBuffer) in mesh.mtkMesh.vertexBuffers.enumerated() {
+                    renderEncoder.setVertexBuffer(vertexBuffer.buffer, offset: 0, index: index)
+                }
                 
                 for submesh in mesh.submeshes {
+                    renderEncoder.setRenderPipelineState(submesh.pipelineState)
+                    
                     renderEncoder.setFragmentTexture(submesh.textures.baseColor, index: Int(BaseColorTexture.rawValue))
+                    renderEncoder.setFragmentTexture(submesh.textures.normal, index: Int(NormalTexture.rawValue))
+                    renderEncoder.setFragmentTexture(submesh.textures.roughness, index: Int(RoughnessTexture.rawValue))
+                    
+                    var material = submesh.material
+                    renderEncoder.setFragmentBytes(&material,
+                                                   length: MemoryLayout<Material>.stride,
+                                                   index: Int(BufferIndexMaterials.rawValue))
+                    
                     let mtkSubmesh = submesh.mtkSubmesh
                     renderEncoder.drawIndexedPrimitives(type: .triangle,
                                                         indexCount: mtkSubmesh.indexCount,

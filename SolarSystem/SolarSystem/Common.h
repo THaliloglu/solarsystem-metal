@@ -46,18 +46,32 @@ typedef struct {
 typedef enum {
     Position = 0,
     Normal = 1,
-    UV = 2
+    UV = 2,
+    Tangent = 3,
+    Bitangent = 4
 } Attributes;
 
 typedef enum {
     BufferIndexVertices = 0,
-    BufferIndexUniforms = 1,
-    BufferIndexLights = 2,
-    BufferIndexFragmentUniforms = 3
+    BufferIndexUniforms = 11,
+    BufferIndexLights = 12,
+    BufferIndexFragmentUniforms = 13,
+    BufferIndexMaterials = 14
 } BufferIndices;
 
 typedef enum {
-    BaseColorTexture = 0
+    BaseColorTexture = 0,
+    NormalTexture = 1,
+    RoughnessTexture = 2
 } Textures;
+
+typedef struct {
+    vector_float3 baseColor;
+    vector_float3 specularColor;
+    float roughness;
+    float metallic;
+    vector_float3 ambientOcclusion;
+    float shininess;
+} Material;
 
 #endif /* Common_h */
