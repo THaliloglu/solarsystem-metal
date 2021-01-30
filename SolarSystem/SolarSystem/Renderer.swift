@@ -21,54 +21,6 @@ class Renderer: NSObject {
         return Renderer.device.makeDepthStencilState(descriptor: descriptor)
     }
     
-    lazy var sunlight: Light = {
-        var light = buildDefaultLight()
-        light.position = [0, 2, -2]
-        return light
-    }()
-    
-    lazy var ambientLight: Light = {
-        var light = buildDefaultLight()
-        light.color = [0.5, 1, 0]
-        light.intensity = 0.2
-        light.type = Ambientlight
-        return light
-    }()
-    
-    lazy var redLight: Light = {
-        var light = buildDefaultLight()
-        light.position = [-1.4, 0, 0]
-        light.color = [1, 0, 0]
-        light.attenuation = float3(1, 3, 4)
-        light.type = Pointlight
-        return light
-    }()
-    
-    lazy var spotlight: Light = {
-        var light = buildDefaultLight()
-        light.position = [1.4, 0, 0]
-        light.color = [1, 0, 1]
-        light.attenuation = float3(1, 0.5, 0)
-        light.type = Spotlight
-        light.coneAngle = Float(40).degreesToRadians
-        light.coneDirection = [-2, 0, -1.5]
-        light.coneAttenuation = 12
-        return light
-    }()
-    
-    var lights: [Light] = []
-    
-    func buildDefaultLight() -> Light {
-        var light = Light()
-        light.position = [0, 0, 0]
-        light.color = [1, 1, 1]
-        light.specularColor = [0.6, 0.6, 0.6]
-        light.intensity = 1
-        light.attenuation = float3(1, 0, 0)
-        light.type = Sunlight
-        return light
-    }
-    
     // Array of Models allows for rendering multiple models
     var models: [Model] = []
     
@@ -81,6 +33,7 @@ class Renderer: NSObject {
     
     var fragmentUniforms = FragmentUniforms()
     var uniforms = Uniforms()
+    let lighting = Lighting()
     
     // Camera holds view and projection matrices
     lazy var camera: Camera = {
@@ -111,6 +64,7 @@ class Renderer: NSObject {
         metalView.clearColor = MTLClearColor(red: 1.0, green: 1.0,
                                              blue: 0.8, alpha: 1.0)
         metalView.delegate = self
+        mtkView(metalView, drawableSizeWillChange: metalView.bounds.size)
         
         // TODO: Primitive mesh has problems about normals, needs to check
 //        let spherePrimitive = Model(sphere: 1)
@@ -127,14 +81,7 @@ class Renderer: NSObject {
         sphere.scale = [0.25, 0.25, 0.25]
         models.append(sphere)
         
-        lights.append(sunlight)
-        lights.append(ambientLight)
-        lights.append(redLight)
-        lights.append(spotlight)
-        
-        fragmentUniforms.lightCount = UInt32(lights.count)
-        
-        mtkView(metalView, drawableSizeWillChange: metalView.bounds.size)
+        fragmentUniforms.lightCount = lighting.count
     }
 }
 
@@ -158,11 +105,13 @@ extension Renderer: MTKViewDelegate {
         uniforms.viewMatrix = camera.viewMatrix
         fragmentUniforms.cameraPosition = camera.position
         
+        var lights = lighting.lights
         renderEncoder.setFragmentBytes(&lights, length: MemoryLayout<Light>.stride * lights.count, index: Int(BufferIndexLights.rawValue))
-        
         
         // render all the models in the array
         for model in models {
+            
+            renderEncoder.pushDebugGroup(model.name)
             
             if model.name != "SpherePrimitive" {
                 timer += 0.005
@@ -172,40 +121,9 @@ extension Renderer: MTKViewDelegate {
                 model.rotation = [0, timer, 0]
             }
             
-            uniforms.modelMatrix = model.modelMatrix
-            uniforms.normalMatrix = uniforms.modelMatrix.upperLeft
+            model.render(renderEncoder: renderEncoder, uniforms: uniforms, fragmentUniforms: fragmentUniforms)
             
-            fragmentUniforms.tiling = model.tiling
-            renderEncoder.setFragmentSamplerState(model.samplerState, index: 0)
-            
-            renderEncoder.setFragmentBytes(&fragmentUniforms, length: MemoryLayout<FragmentUniforms>.stride, index: Int(BufferIndexFragmentUniforms.rawValue))
-            renderEncoder.setVertexBytes(&uniforms, length: MemoryLayout<Uniforms>.stride, index: Int(BufferIndexUniforms.rawValue))
-            
-            for mesh in model.meshes {                
-                for (index, vertexBuffer) in mesh.mtkMesh.vertexBuffers.enumerated() {
-                    renderEncoder.setVertexBuffer(vertexBuffer.buffer, offset: 0, index: index)
-                }
-                
-                for submesh in mesh.submeshes {
-                    renderEncoder.setRenderPipelineState(submesh.pipelineState)
-                    
-                    renderEncoder.setFragmentTexture(submesh.textures.baseColor, index: Int(BaseColorTexture.rawValue))
-                    renderEncoder.setFragmentTexture(submesh.textures.normal, index: Int(NormalTexture.rawValue))
-                    renderEncoder.setFragmentTexture(submesh.textures.roughness, index: Int(RoughnessTexture.rawValue))
-                    
-                    var material = submesh.material
-                    renderEncoder.setFragmentBytes(&material,
-                                                   length: MemoryLayout<Material>.stride,
-                                                   index: Int(BufferIndexMaterials.rawValue))
-                    
-                    let mtkSubmesh = submesh.mtkSubmesh
-                    renderEncoder.drawIndexedPrimitives(type: .triangle,
-                                                        indexCount: mtkSubmesh.indexCount,
-                                                        indexType: mtkSubmesh.indexType,
-                                                        indexBuffer: mtkSubmesh.indexBuffer.buffer,
-                                                        indexBufferOffset: mtkSubmesh.indexBuffer.offset)
-                }
-            }
+            renderEncoder.popDebugGroup()
         }
         
         //        debugLights(renderEncoder: renderEncoder, lightType: Sunlight)

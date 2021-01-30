@@ -11,6 +11,10 @@
 		38040C6825B31B8300AED8C8 /* Textures.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 38040C6625B31B8200AED8C8 /* Textures.xcassets */; };
 		3809898C259F5CF800F311C5 /* Texturable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3809898B259F5CF800F311C5 /* Texturable.swift */; };
 		3809898D259F5CF800F311C5 /* Texturable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3809898B259F5CF800F311C5 /* Texturable.swift */; };
+		388B128825C5741400B821C2 /* Renderable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 388B128725C5741400B821C2 /* Renderable.swift */; };
+		388B128925C5741400B821C2 /* Renderable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 388B128725C5741400B821C2 /* Renderable.swift */; };
+		388B128D25C578B300B821C2 /* Lighting.swift in Sources */ = {isa = PBXBuildFile; fileRef = 388B128C25C578B300B821C2 /* Lighting.swift */; };
+		388B128E25C578B300B821C2 /* Lighting.swift in Sources */ = {isa = PBXBuildFile; fileRef = 388B128C25C578B300B821C2 /* Lighting.swift */; };
 		38999E4325927A2B00C265F7 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38999E4225927A2B00C265F7 /* AppDelegate.swift */; };
 		38999E4525927A2B00C265F7 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38999E4425927A2B00C265F7 /* SceneDelegate.swift */; };
 		38999E4A25927A2B00C265F7 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 38999E4825927A2B00C265F7 /* Main.storyboard */; };
@@ -58,6 +62,8 @@
 /* Begin PBXFileReference section */
 		38040C6625B31B8200AED8C8 /* Textures.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Textures.xcassets; sourceTree = "<group>"; };
 		3809898B259F5CF800F311C5 /* Texturable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Texturable.swift; sourceTree = "<group>"; };
+		388B128725C5741400B821C2 /* Renderable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Renderable.swift; sourceTree = "<group>"; };
+		388B128C25C578B300B821C2 /* Lighting.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Lighting.swift; sourceTree = "<group>"; };
 		38999E4025927A2B00C265F7 /* SolarSystem-iOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "SolarSystem-iOS.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		38999E4225927A2B00C265F7 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		38999E4425927A2B00C265F7 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -192,8 +198,10 @@
 				38999E8B25927E5C00C265F7 /* Common.h */,
 				3899A0872597D0D900C265F7 /* Node.swift */,
 				3899A08C2597D15F00C265F7 /* Camera.swift */,
+				388B128C25C578B300B821C2 /* Lighting.swift */,
 				3899A0932597D1F400C265F7 /* Model.swift */,
 				3809898B259F5CF800F311C5 /* Texturable.swift */,
+				388B128725C5741400B821C2 /* Renderable.swift */,
 				3899A0982597D41400C265F7 /* Mesh.swift */,
 				3899A09D2597D45C00C265F7 /* Submesh.swift */,
 				3899A0A22597D4D200C265F7 /* VertexDescriptor.swift */,
@@ -314,12 +322,14 @@
 				3899A0992597D41400C265F7 /* Mesh.swift in Sources */,
 				3899A0B3259A513C00C265F7 /* ViewControllerExtension.swift in Sources */,
 				38999E8725927DDD00C265F7 /* MathLibrary.swift in Sources */,
+				388B128825C5741400B821C2 /* Renderable.swift in Sources */,
 				3899A0C3259C961400C265F7 /* DebugLights.metal in Sources */,
 				3899A0BE259C95F900C265F7 /* DebugLights.swift in Sources */,
 				38999E7525927CFC00C265F7 /* Renderer.swift in Sources */,
 				3899A0A32597D4D200C265F7 /* VertexDescriptor.swift in Sources */,
 				3899A0882597D0D900C265F7 /* Node.swift in Sources */,
 				3809898C259F5CF800F311C5 /* Texturable.swift in Sources */,
+				388B128D25C578B300B821C2 /* Lighting.swift in Sources */,
 				38E7B5C525B61C6000D32001 /* PBR.metal in Sources */,
 				38999E7425927CFC00C265F7 /* Shaders.metal in Sources */,
 				3899A0942597D1F400C265F7 /* Model.swift in Sources */,
@@ -338,8 +348,10 @@
 				38E7B5C625B61C6000D32001 /* PBR.metal in Sources */,
 				3899A0B7259A51D200C265F7 /* ViewControllerExtension.swift in Sources */,
 				3899A09F2597D45C00C265F7 /* Submesh.swift in Sources */,
+				388B128925C5741400B821C2 /* Renderable.swift in Sources */,
 				3899A0952597D1F400C265F7 /* Model.swift in Sources */,
 				3899A08E2597D15F00C265F7 /* Camera.swift in Sources */,
+				388B128E25C578B300B821C2 /* Lighting.swift in Sources */,
 				38999E7B25927CFC00C265F7 /* ViewController.swift in Sources */,
 				38999E7825927CFC00C265F7 /* Shaders.metal in Sources */,
 				3899A09A2597D41400C265F7 /* Mesh.swift in Sources */,

@@ -66,3 +66,62 @@ class Model: Node {
         return samplerState
     }
 }
+
+extension Model: Renderable {
+    func render(renderEncoder: MTLRenderCommandEncoder, submesh: Submesh) {
+        let mtkSubmesh = submesh.mtkSubmesh
+        renderEncoder.drawIndexedPrimitives(type: .triangle,
+                                            indexCount: mtkSubmesh.indexCount,
+                                            indexType: mtkSubmesh.indexType,
+                                            indexBuffer: mtkSubmesh.indexBuffer.buffer,
+                                            indexBufferOffset: mtkSubmesh.indexBuffer.offset)
+    }
+    
+    func render(renderEncoder: MTLRenderCommandEncoder,
+                uniforms vertex: Uniforms,
+                fragmentUniforms fragment: FragmentUniforms) {
+        var uniforms = vertex
+        
+        var fragmentUniforms = fragment
+        fragmentUniforms.tiling = tiling
+        renderEncoder.setFragmentBytes(&fragmentUniforms,
+                                       length: MemoryLayout<FragmentUniforms>.stride,
+                                       index: Int(BufferIndexFragmentUniforms.rawValue))
+        renderEncoder.setFragmentSamplerState(samplerState, index: 0)
+        
+        for mesh in meshes {
+            uniforms.modelMatrix = modelMatrix
+            uniforms.normalMatrix = uniforms.modelMatrix.upperLeft
+            renderEncoder.setVertexBytes(&uniforms,
+                                         length: MemoryLayout<Uniforms>.stride,
+                                         index: Int(BufferIndexUniforms.rawValue))
+            
+            for (index, vertexBuffer) in mesh.mtkMesh.vertexBuffers.enumerated() {
+                renderEncoder.setVertexBuffer(vertexBuffer.buffer,
+                                              offset: 0, index: index)
+            }
+            
+            for submesh in mesh.submeshes {
+                // textures
+                renderEncoder.setFragmentTexture(submesh.textures.baseColor,
+                                                 index: Int(BaseColorTexture.rawValue))
+                renderEncoder.setFragmentTexture(submesh.textures.normal,
+                                                 index: Int(NormalTexture.rawValue))
+                renderEncoder.setFragmentTexture(submesh.textures.roughness,
+                                                 index: Int(RoughnessTexture.rawValue))
+                // For PBR shading
+//                renderEncoder.setFragmentTexture(submesh.textures.metallic,
+//                                                 index: Int(MetallicTexture.rawValue))
+//                renderEncoder.setFragmentTexture(submesh.textures.ao,
+//                                                 index: Int(AOTexture.rawValue))
+                
+                renderEncoder.setRenderPipelineState(submesh.pipelineState)
+                var material = submesh.material
+                renderEncoder.setFragmentBytes(&material,
+                                               length: MemoryLayout<Material>.stride,
+                                               index: Int(BufferIndexMaterials.rawValue))
+                render(renderEncoder: renderEncoder, submesh: submesh)
+            }
+        }
+    }
+}
