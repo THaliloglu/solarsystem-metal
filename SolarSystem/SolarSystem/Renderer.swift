@@ -29,7 +29,45 @@ class Renderer: NSObject {
         return buildLightPipelineState()
     }()
     
-    var timer: Float = 0
+    static var fps: Int!
+        
+    var currentTime: Float = 0
+//    var ballVelocity: Float = 0
+    func update(deltaTime: Float) {
+        currentTime += deltaTime
+        
+//        let gravity: Float = 9.8 // meter / sec2
+//        let mass: Float = 0.05
+//        let acceleration = gravity / mass
+//        let airFriction: Float = 0.2
+//        let bounciness: Float = 0.9
+//        let timeStep: Float = 1 / 600
+//
+//        ballVelocity += (acceleration * timeStep) / airFriction
+//        ball.position.y -= ballVelocity * timeStep
+//        if ball.position.y <= 0.35 { // collision with ground
+//            ball.position.y = 0.35
+//            ballVelocity = ballVelocity * -1 * bounciness
+//        }
+        
+        for model in models {
+            if model.name != "SpherePrimitive" {
+                currentTime += 0.005
+                
+//                var animation = Animation()
+//                animation.translations = generateSphereTranslations()
+//                model.position = animation.getTranslation(at: currentTime) ?? [0, 0, 0]
+                model.position = [sin(currentTime) * 2, model.position.y, -cos(currentTime) * 2]
+                
+//                var animation = Animation()
+//                animation.rotations = generateSphereRotations()
+//                model.quaternion = animation.getRotation(at: currentTime) ?? simd_quatf()
+                model.rotation = [0, currentTime * 2, 0]
+            } else {
+                model.rotation = [0, currentTime, 0]
+            }
+        }
+    }
     
     var fragmentUniforms = FragmentUniforms()
     var uniforms = Uniforms()
@@ -55,6 +93,7 @@ class Renderer: NSObject {
         Renderer.commandQueue = commandQueue
         Renderer.library = device.makeDefaultLibrary()
         Renderer.colorPixelFormat = metalView.colorPixelFormat
+        Renderer.fps = metalView.preferredFramesPerSecond // default 60 fps (11.6ms)
         metalView.device = device
         metalView.depthStencilPixelFormat = .depth32Float
         depthStencilState = Renderer.buildDepthStencilState()!
@@ -97,6 +136,14 @@ extension Renderer: MTKViewDelegate {
             let renderEncoder = commandBuffer.makeRenderCommandEncoder( descriptor: descriptor) else {
             return
         }
+                
+        let deltaTime = 1 / Float(Renderer.fps)
+        update(deltaTime: deltaTime)
+        
+        // for later for each model that inherited from model class
+//        for model in models {
+//            model.update(deltaTime: deltaTime)
+//        }
         
         renderEncoder.setDepthStencilState(depthStencilState)
         
@@ -110,19 +157,8 @@ extension Renderer: MTKViewDelegate {
         
         // render all the models in the array
         for model in models {
-            
             renderEncoder.pushDebugGroup(model.name)
-            
-            if model.name != "SpherePrimitive" {
-                timer += 0.005
-                model.position = [sin(timer) * 2, model.position.y, -cos(timer) * 2]
-                model.rotation = [0, timer * 2, 0]
-            } else {
-                model.rotation = [0, timer, 0]
-            }
-            
             model.render(renderEncoder: renderEncoder, uniforms: uniforms, fragmentUniforms: fragmentUniforms)
-            
             renderEncoder.popDebugGroup()
         }
         

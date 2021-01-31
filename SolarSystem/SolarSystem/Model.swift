@@ -14,16 +14,9 @@ class Model: Node {
     let samplerState: MTLSamplerState?
     static var vertexDescriptor: MDLVertexDescriptor = MDLVertexDescriptor.defaultVertexDescriptor
     
-    private init(name: String, meshes: [Mesh]) {
-        samplerState = Model.buildSamplerState()
-        self.meshes = meshes
-        super.init()
-        self.name = name
-    }
-    
-    convenience init(name: String) {
+    init(name: String) {
         guard
-            let assetUrl = Bundle.main.url(forResource: name, withExtension: nil) else {
+          let assetUrl = Bundle.main.url(forResource: name, withExtension: nil) else {
             fatalError("Model: \(name) not found")
         }
         let allocator = MTKMeshBufferAllocator(device: Renderer.device)
@@ -31,29 +24,28 @@ class Model: Node {
                              vertexDescriptor: MDLVertexDescriptor.defaultVertexDescriptor,
                              bufferAllocator: allocator)
         
+        // load Model I/O textures
+        asset.loadTextures()
+        
         var mtkMeshes: [MTKMesh] = []
         let mdlMeshes = asset.childObjects(of: MDLMesh.self) as! [MDLMesh]
         _ = mdlMeshes.map { mdlMesh in
-            mdlMesh.addTangentBasis(forTextureCoordinateAttributeNamed: MDLVertexAttributeTextureCoordinate,
-                                    tangentAttributeNamed: MDLVertexAttributeTangent,
-                                    bitangentAttributeNamed: MDLVertexAttributeBitangent)
-            Model.vertexDescriptor = mdlMesh.vertexDescriptor
-            mtkMeshes.append(try! MTKMesh(mesh: mdlMesh, device: Renderer.device))
+          mdlMesh.addTangentBasis(forTextureCoordinateAttributeNamed:
+            MDLVertexAttributeTextureCoordinate,
+                                  tangentAttributeNamed: MDLVertexAttributeTangent,
+                                  bitangentAttributeNamed: MDLVertexAttributeBitangent)
+          Model.vertexDescriptor = mdlMesh.vertexDescriptor
+          mtkMeshes.append(try! MTKMesh(mesh: mdlMesh, device: Renderer.device))
+        }
+
+        meshes = zip(mdlMeshes, mtkMeshes).map {
+          Mesh(mdlMesh: $0.0, mtkMesh: $0.1)
         }
         
-        let meshes = zip(mdlMeshes, mtkMeshes).map {
-            Mesh(mdlMesh: $0.0, mtkMesh: $0.1)
-        }
-        
-        self.init(name: name, meshes: meshes)
-    }
-    
-    convenience init(sphere size: Float) {
-        let mdlMesh = Primitive.makeSphere(device: Renderer.device, size: size)
-        let mtkMesh = try! MTKMesh(mesh: mdlMesh, device: Renderer.device)
-        let meshes = [Mesh(mdlMesh: mdlMesh, mtkMesh: mtkMesh)]
-        
-        self.init(name: "SpherePrimitive", meshes: meshes)
+        samplerState = Model.buildSamplerState()
+        super.init()
+        self.name = name
+        self.boundingBox = asset.boundingBox
     }
     
     private static func buildSamplerState() -> MTLSamplerState? {

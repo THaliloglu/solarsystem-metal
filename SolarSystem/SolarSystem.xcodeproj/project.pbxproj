@@ -15,6 +15,10 @@
 		388B128925C5741400B821C2 /* Renderable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 388B128725C5741400B821C2 /* Renderable.swift */; };
 		388B128D25C578B300B821C2 /* Lighting.swift in Sources */ = {isa = PBXBuildFile; fileRef = 388B128C25C578B300B821C2 /* Lighting.swift */; };
 		388B128E25C578B300B821C2 /* Lighting.swift in Sources */ = {isa = PBXBuildFile; fileRef = 388B128C25C578B300B821C2 /* Lighting.swift */; };
+		388B129225C6C1E500B821C2 /* Animation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 388B129125C6C1E500B821C2 /* Animation.swift */; };
+		388B129325C6C1E500B821C2 /* Animation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 388B129125C6C1E500B821C2 /* Animation.swift */; };
+		388B129925C6CABA00B821C2 /* SphereAnimations.swift in Sources */ = {isa = PBXBuildFile; fileRef = 388B129825C6CAB900B821C2 /* SphereAnimations.swift */; };
+		388B129A25C6CABA00B821C2 /* SphereAnimations.swift in Sources */ = {isa = PBXBuildFile; fileRef = 388B129825C6CAB900B821C2 /* SphereAnimations.swift */; };
 		38999E4325927A2B00C265F7 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38999E4225927A2B00C265F7 /* AppDelegate.swift */; };
 		38999E4525927A2B00C265F7 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38999E4425927A2B00C265F7 /* SceneDelegate.swift */; };
 		38999E4A25927A2B00C265F7 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 38999E4825927A2B00C265F7 /* Main.storyboard */; };
@@ -64,6 +68,8 @@
 		3809898B259F5CF800F311C5 /* Texturable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Texturable.swift; sourceTree = "<group>"; };
 		388B128725C5741400B821C2 /* Renderable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Renderable.swift; sourceTree = "<group>"; };
 		388B128C25C578B300B821C2 /* Lighting.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Lighting.swift; sourceTree = "<group>"; };
+		388B129125C6C1E500B821C2 /* Animation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Animation.swift; sourceTree = "<group>"; };
+		388B129825C6CAB900B821C2 /* SphereAnimations.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SphereAnimations.swift; sourceTree = "<group>"; };
 		38999E4025927A2B00C265F7 /* SolarSystem-iOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "SolarSystem-iOS.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		38999E4225927A2B00C265F7 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		38999E4425927A2B00C265F7 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -153,6 +159,7 @@
 				38999E8625927DDD00C265F7 /* MathLibrary.swift */,
 				3899A0BD259C95F900C265F7 /* DebugLights.swift */,
 				3899A0C2259C961400C265F7 /* DebugLights.metal */,
+				388B129825C6CAB900B821C2 /* SphereAnimations.swift */,
 			);
 			path = Utility;
 			sourceTree = "<group>";
@@ -191,6 +198,7 @@
 			isa = PBXGroup;
 			children = (
 				FD057A5F258F7B6100C67DEF /* ViewController.swift */,
+				388B129125C6C1E500B821C2 /* Animation.swift */,
 				FD057A76258F7E0500C67DEF /* Renderer.swift */,
 				FD057A7D258F895200C67DEF /* Shaders.metal */,
 				38E7B5C425B61C6000D32001 /* PBR.metal */,
@@ -325,6 +333,7 @@
 				388B128825C5741400B821C2 /* Renderable.swift in Sources */,
 				3899A0C3259C961400C265F7 /* DebugLights.metal in Sources */,
 				3899A0BE259C95F900C265F7 /* DebugLights.swift in Sources */,
+				388B129925C6CABA00B821C2 /* SphereAnimations.swift in Sources */,
 				38999E7525927CFC00C265F7 /* Renderer.swift in Sources */,
 				3899A0A32597D4D200C265F7 /* VertexDescriptor.swift in Sources */,
 				3899A0882597D0D900C265F7 /* Node.swift in Sources */,
@@ -337,6 +346,7 @@
 				38999E4325927A2B00C265F7 /* AppDelegate.swift in Sources */,
 				38999E4525927A2B00C265F7 /* SceneDelegate.swift in Sources */,
 				38999E7625927CFC00C265F7 /* Primitive.swift in Sources */,
+				388B129225C6C1E500B821C2 /* Animation.swift in Sources */,
 				3899A08D2597D15F00C265F7 /* Camera.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -359,10 +369,12 @@
 				3899A0A42597D4D200C265F7 /* VertexDescriptor.swift in Sources */,
 				38999E7925927CFC00C265F7 /* Renderer.swift in Sources */,
 				38999E5D25927A4C00C265F7 /* AppDelegate.swift in Sources */,
+				388B129A25C6CABA00B821C2 /* SphereAnimations.swift in Sources */,
 				3809898D259F5CF800F311C5 /* Texturable.swift in Sources */,
 				38999E7A25927CFC00C265F7 /* Primitive.swift in Sources */,
 				38999E8825927DDD00C265F7 /* MathLibrary.swift in Sources */,
 				3899A0BF259C95F900C265F7 /* DebugLights.swift in Sources */,
+				388B129325C6C1E500B821C2 /* Animation.swift in Sources */,
 				3899A0892597D0DA00C265F7 /* Node.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
