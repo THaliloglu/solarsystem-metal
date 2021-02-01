@@ -34,7 +34,7 @@ class Renderer: NSObject {
     var currentTime: Float = 0
 //    var ballVelocity: Float = 0
     func update(deltaTime: Float) {
-        currentTime += deltaTime
+        currentTime += deltaTime / 2
         
 //        let gravity: Float = 9.8 // meter / sec2
 //        let mass: Float = 0.05

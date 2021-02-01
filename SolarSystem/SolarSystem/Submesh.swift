@@ -15,6 +15,8 @@ class Submesh {
     struct Textures {
         let baseColor: MTLTexture?
         let normal: MTLTexture?
+        let ambient: MTLTexture?
+        let specular: MTLTexture?
         let roughness: MTLTexture?
     }
     
@@ -73,10 +75,20 @@ private extension Submesh {
                                            type: .bool,
                                            index: 1)
         
-        property = textures.roughness != nil
+        property = textures.ambient != nil
         functionConstants.setConstantValue(&property,
                                            type: .bool,
                                            index: 2)
+        
+        property = textures.specular != nil
+        functionConstants.setConstantValue(&property,
+                                           type: .bool,
+                                           index: 3)
+        
+        property = textures.roughness != nil
+        functionConstants.setConstantValue(&property,
+                                           type: .bool,
+                                           index: 4)
         
         // MARK: - For PBR shading
         // - hasMetallicTexture
@@ -110,6 +122,8 @@ private extension Submesh.Textures {
         }
         baseColor = property(with: .baseColor)
         normal = property(with: .tangentSpaceNormal)
+        ambient = property(with: .ambientOcclusion)
+        specular = property(with: .specular)
         roughness = property(with: .roughness)
     }
 }
@@ -121,6 +135,10 @@ private extension Material {
         if let baseColor = material?.property(with: .baseColor),
            baseColor.type == .float3 {
             self.baseColor = baseColor.float3Value
+        }
+        if let ambient = material?.property(with: .ambientOcclusion),
+           ambient.type == .float3 {
+            self.ambientOcclusion = ambient.float3Value
         }
         if let specular = material?.property(with: .specular),
            specular.type == .float3 {

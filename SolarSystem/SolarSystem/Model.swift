@@ -99,6 +99,10 @@ extension Model: Renderable {
                                                  index: Int(BaseColorTexture.rawValue))
                 renderEncoder.setFragmentTexture(submesh.textures.normal,
                                                  index: Int(NormalTexture.rawValue))
+                renderEncoder.setFragmentTexture(submesh.textures.ambient,
+                                                 index: Int(AmbientTexture.rawValue))
+                renderEncoder.setFragmentTexture(submesh.textures.specular,
+                                                 index: Int(SpecularTexture.rawValue))
                 renderEncoder.setFragmentTexture(submesh.textures.roughness,
                                                  index: Int(RoughnessTexture.rawValue))
                 // For PBR shading

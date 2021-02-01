@@ -10,7 +10,7 @@ import Foundation
 struct Lighting {
     let sunlight: Light = {
         var light = buildDefaultLight()
-        light.position = [0, 2, -2]
+        light.position = [0, 1, -2]
         return light
     }()
     

@@ -12,6 +12,9 @@ using namespace metal;
 
 constant bool hasColorTexture [[function_constant(0)]];
 constant bool hasNormalTexture [[function_constant(1)]];
+constant bool hasAmbientTexture [[function_constant(2)]];
+constant bool hasSpecularTexture [[function_constant(3)]];
+constant bool hasRoughnessTexture [[function_constant(4)]];
 
 struct VertexIn {
     float4 position [[attribute(0)]];
@@ -48,6 +51,9 @@ vertex VertexOut vertex_main(const VertexIn vertexIn [[stage_in]],
 fragment float4 fragment_main(VertexOut in [[stage_in]],
                               texture2d<float> baseColorTexture [[texture(BaseColorTexture), function_constant(hasColorTexture)]],
                               texture2d<float> normalTexture [[texture(NormalTexture), function_constant(hasNormalTexture)]],
+                              texture2d<float> ambientTexture [[texture(AmbientTexture), function_constant(hasAmbientTexture)]],
+                              texture2d<float> specularTexture [[texture(SpecularTexture), function_constant(hasSpecularTexture)]],
+                              texture2d<float> RoughnessTexture [[texture(RoughnessTexture), function_constant(hasRoughnessTexture)]],
                               constant Light *lights [[buffer(BufferIndexLights)]],
                               constant FragmentUniforms &fragmentUniforms [[buffer(BufferIndexFragmentUniforms)]],
                               constant Material &material [[buffer(BufferIndexMaterials)]],
@@ -67,19 +73,16 @@ fragment float4 fragment_main(VertexOut in [[stage_in]],
         normalValue = in.worldNormal;
     }
     normalValue = normalize(normalValue);
-        
-    float3 diffuseColor = 0;
+    
     float3 ambientColor = 0;
     float3 specularColor = 0;
-    float materialShininess = 32;
-    float3 materialSpecularColor = float3(1, 1, 1);
+    float materialShininess = material.shininess;
+        
+    float3 diffuseColor = 0;
     
     float3 normalDirection = float3x3(in.worldTangent, in.worldBitangent, in.worldNormal) * normalValue;
     normalDirection = normalize(normalDirection);
-    
-    materialSpecularColor = material.specularColor;
-    materialShininess = material.shininess;
-    
+
     for (uint i = 0; i < fragmentUniforms.lightCount; i++) {
         Light light = lights[i];
         if (light.type == Sunlight) {
@@ -91,7 +94,20 @@ fragment float4 fragment_main(VertexOut in [[stage_in]],
                 float3 reflection = reflect(lightDirection, normalDirection);
                 float3 cameraDirection = normalize(in.worldPosition - fragmentUniforms.cameraPosition);
                 float specularIntensity = pow(saturate(-dot(reflection, cameraDirection)), materialShininess);
+                
+                float3 materialSpecularColor;
+                if (hasSpecularTexture) {
+                    materialSpecularColor = specularTexture.sample(textureSampler, in.uv * fragmentUniforms.tiling).rgb;
+                } else {
+                    materialSpecularColor = material.specularColor;
+                }
                 specularColor += light.specularColor * materialSpecularColor * specularIntensity;
+            } else {
+                if (hasAmbientTexture) {
+                    ambientColor = ambientTexture.sample(textureSampler, in.uv * fragmentUniforms.tiling).rgb;
+                } else {
+                    ambientColor = material.ambientOcclusion;
+                }
             }
         } else if (light.type == Ambientlight) {
             ambientColor += light.color * light.intensity;
