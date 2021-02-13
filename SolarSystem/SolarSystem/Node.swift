@@ -10,6 +10,9 @@ import MetalKit
 class Node {
     var name: String = "untitled"
     
+    var parent: Node?
+    var children: [Node] = []
+    
     var position: float3 = [0, 0, 0]
     
     var quaternion = simd_quatf()
@@ -36,5 +39,25 @@ class Node {
     
     func update(deltaTime: Float) {
         // override this
+    }
+    
+    final func add(childNode: Node) {
+        children.append(childNode)
+        childNode.parent = self
+    }
+    
+    final func remove(childNode: Node) {
+        for child in childNode.children {
+            child.parent = self
+            children.append(child)
+        }
+        
+        childNode.children = []
+        guard let index = (children.firstIndex {
+            $0 === childNode
+        }) else { return }
+        
+        children.remove(at: index)
+        childNode.parent = nil
     }
 }

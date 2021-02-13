@@ -20,6 +20,9 @@ class ViewController: LocalViewController {
         }
         
         renderer = Renderer(metalView: metalView)
+        let scene = DemoScene(sceneSize: metalView.bounds.size)
+        renderer?.scene = scene
+        
         addGestureRecognizers(to: metalView)
     }
 }

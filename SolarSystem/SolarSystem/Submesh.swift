@@ -110,12 +110,16 @@ extension Submesh: Texturable {}
 private extension Submesh.Textures {
     init(material: MDLMaterial?) {
         func property(with semantic: MDLMaterialSemantic) -> MTLTexture? {
-            guard
-                let property = material?.property(with: semantic),
-                property.type == .string,
-                let filename = property.stringValue,
-                let texture = try? Submesh.loadTexture(imageName: filename)
+            guard let property = material?.property(with: semantic),
+                  property.type == .string,
+                  let filename = property.stringValue,
+                  let texture = try? Submesh.loadTexture(imageName: filename)
             else {
+                if let property = material?.property(with: semantic),
+                   property.type == .texture,
+                   let mdlTexture = property.textureSamplerValue?.texture {
+                    return try? Submesh.loadTexture(texture: mdlTexture)
+                }
                 return nil
             }
             return texture
@@ -149,7 +153,7 @@ private extension Material {
             self.shininess = shininess.floatValue
         }
         if let roughness = material?.property(with: .roughness),
-            roughness.type == .float3 {
+           roughness.type == .float3 {
             self.roughness = roughness.floatValue
         }
     }

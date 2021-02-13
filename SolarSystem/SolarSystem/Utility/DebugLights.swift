@@ -32,7 +32,9 @@ extension Renderer {
     // uncomment when you have defined `lights`
     
     func debugLights(renderEncoder: MTLRenderCommandEncoder, lightType: LightType) {
-        for light in lighting.lights where light.type == lightType {
+        guard let scene = scene else { return }
+        
+        for light in scene.lighting.lights where light.type == lightType {
             switch light.type {
             case Pointlight:
                 drawPointLight(renderEncoder: renderEncoder, position: light.position,
@@ -53,12 +55,14 @@ extension Renderer {
     }
     
     func drawPointLight(renderEncoder: MTLRenderCommandEncoder, position: float3, color: float3) {
+        guard let scene = scene else { return }
+        
         var vertices = [position]
         let buffer = Renderer.device.makeBuffer(bytes: &vertices,
                                                 length: MemoryLayout<float3>.stride * vertices.count,
                                                 options: [])
-        uniforms.modelMatrix = float4x4.identity()
-        renderEncoder.setVertexBytes(&uniforms,
+        scene.uniforms.modelMatrix = float4x4.identity()
+        renderEncoder.setVertexBytes(&scene.uniforms,
                                      length: MemoryLayout<Uniforms>.stride, index: 1)
         var lightColor = color
         renderEncoder.setFragmentBytes(&lightColor, length: MemoryLayout<float3>.stride, index: 1)
@@ -72,6 +76,8 @@ extension Renderer {
     func drawDirectionalLight (renderEncoder: MTLRenderCommandEncoder,
                                direction: float3,
                                color: float3, count: Int) {
+        guard let scene = scene else { return }
+        
         var vertices: [float3] = []
         for i in -count..<count {
             let value = Float(i) * 0.4
@@ -82,8 +88,8 @@ extension Renderer {
         let buffer = Renderer.device.makeBuffer(bytes: &vertices,
                                                 length: MemoryLayout<float3>.stride * vertices.count,
                                                 options: [])
-        uniforms.modelMatrix = float4x4.identity()
-        renderEncoder.setVertexBytes(&uniforms,
+        scene.uniforms.modelMatrix = float4x4.identity()
+        renderEncoder.setVertexBytes(&scene.uniforms,
                                      length: MemoryLayout<Uniforms>.stride, index: 1)
         var lightColor = color
         renderEncoder.setFragmentBytes(&lightColor, length: MemoryLayout<float3>.stride, index: 1)
@@ -96,14 +102,16 @@ extension Renderer {
     }
     
     func drawSpotLight(renderEncoder: MTLRenderCommandEncoder, position: float3, direction: float3, color: float3) {
+        guard let scene = scene else { return }
+        
         var vertices: [float3] = []
         vertices.append(position)
         vertices.append(float3(position.x + direction.x, position.y + direction.y, position.z + direction.z))
         let buffer = Renderer.device.makeBuffer(bytes: &vertices,
                                                 length: MemoryLayout<float3>.stride * vertices.count,
                                                 options: [])
-        uniforms.modelMatrix = float4x4.identity()
-        renderEncoder.setVertexBytes(&uniforms,
+        scene.uniforms.modelMatrix = float4x4.identity()
+        renderEncoder.setVertexBytes(&scene.uniforms,
                                      length: MemoryLayout<Uniforms>.stride, index: 1)
         var lightColor = color
         renderEncoder.setFragmentBytes(&lightColor, length: MemoryLayout<float3>.stride, index: 1)

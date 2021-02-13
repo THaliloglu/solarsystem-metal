@@ -24,14 +24,14 @@ extension ViewController {
         let translation = gesture.translation(in: gesture.view)
         let delta = float2(Float(translation.x), Float(-translation.y))
         
-        renderer?.camera.rotate(delta: delta)
+        renderer?.scene?.camera.rotate(delta: delta)
         gesture.setTranslation(.zero, in: gesture.view)
     }
     
     @objc func handlePinch(gesture: UIPinchGestureRecognizer) {
         let sensitivity: Float = 3
         let delta = Float(gesture.scale - ViewController.previousScale) * sensitivity
-        renderer?.camera.zoom(delta: delta)
+        renderer?.scene?.camera.zoom(delta: delta)
         ViewController.previousScale = gesture.scale
         if gesture.state == .ended {
             ViewController.previousScale = 1

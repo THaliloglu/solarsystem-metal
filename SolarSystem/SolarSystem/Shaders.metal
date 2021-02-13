@@ -41,7 +41,7 @@ vertex VertexOut vertex_main(const VertexIn vertexIn [[stage_in]],
         * uniforms.modelMatrix * vertexIn.position,
         .worldPosition = (uniforms.modelMatrix * vertexIn.position).xyz,
         .worldNormal = uniforms.normalMatrix * vertexIn.normal,
-        .uv = vertexIn.uv,
+        .uv = float2(1-vertexIn.uv.x, vertexIn.uv.y), // for blender objects
         .worldTangent = uniforms.normalMatrix * vertexIn.tangent,
         .worldBitangent = uniforms.normalMatrix * vertexIn.bitangent,
     };
