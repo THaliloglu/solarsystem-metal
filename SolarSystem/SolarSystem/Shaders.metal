@@ -80,7 +80,12 @@ fragment float4 fragment_main(VertexOut in [[stage_in]],
         
     float3 diffuseColor = 0;
     
-    float3 normalDirection = float3x3(in.worldTangent, in.worldBitangent, in.worldNormal) * normalValue;
+    float3 normalDirection;
+    if (hasNormalTexture) {
+        normalDirection = float3x3(in.worldTangent, in.worldBitangent, in.worldNormal) * normalValue;
+    } else {
+        normalDirection = normalValue;
+    }
     normalDirection = normalize(normalDirection);
 
     for (uint i = 0; i < fragmentUniforms.lightCount; i++) {

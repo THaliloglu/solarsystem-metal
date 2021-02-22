@@ -32,6 +32,13 @@ class Node {
         return translateMatrix * rotateMatrix * scaleMatrix
     }
     
+    var worldTransform: float4x4 {
+        if let parent = parent {
+            return parent.worldTransform * self.modelMatrix
+        }
+        return modelMatrix
+    }
+    
     var boundingBox = MDLAxisAlignedBoundingBox()
     var size: float3 {
         return boundingBox.maxBounds - boundingBox.minBounds

@@ -72,6 +72,22 @@
 		38D39D5925D870E6001EACC8 /* moon.mtl in Resources */ = {isa = PBXBuildFile; fileRef = 38D39D5625D870E6001EACC8 /* moon.mtl */; };
 		38D39D5A25D870E6001EACC8 /* moon.obj in Resources */ = {isa = PBXBuildFile; fileRef = 38D39D5725D870E6001EACC8 /* moon.obj */; };
 		38D39D5B25D870E6001EACC8 /* moon.obj in Resources */ = {isa = PBXBuildFile; fileRef = 38D39D5725D870E6001EACC8 /* moon.obj */; };
+		38D39DD025DD92E3001EACC8 /* sun.obj in Resources */ = {isa = PBXBuildFile; fileRef = 38D39DCE25DD92E2001EACC8 /* sun.obj */; };
+		38D39DD125DD92E3001EACC8 /* sun.obj in Resources */ = {isa = PBXBuildFile; fileRef = 38D39DCE25DD92E2001EACC8 /* sun.obj */; };
+		38D39DD225DD92E3001EACC8 /* sun.mtl in Resources */ = {isa = PBXBuildFile; fileRef = 38D39DCF25DD92E3001EACC8 /* sun.mtl */; };
+		38D39DD325DD92E3001EACC8 /* sun.mtl in Resources */ = {isa = PBXBuildFile; fileRef = 38D39DCF25DD92E3001EACC8 /* sun.mtl */; };
+		38D39DDD25DD99BD001EACC8 /* mercury.mtl in Resources */ = {isa = PBXBuildFile; fileRef = 38D39DDB25DD99BD001EACC8 /* mercury.mtl */; };
+		38D39DDE25DD99BD001EACC8 /* mercury.mtl in Resources */ = {isa = PBXBuildFile; fileRef = 38D39DDB25DD99BD001EACC8 /* mercury.mtl */; };
+		38D39DDF25DD99BD001EACC8 /* mercury.obj in Resources */ = {isa = PBXBuildFile; fileRef = 38D39DDC25DD99BD001EACC8 /* mercury.obj */; };
+		38D39DE025DD99BD001EACC8 /* mercury.obj in Resources */ = {isa = PBXBuildFile; fileRef = 38D39DDC25DD99BD001EACC8 /* mercury.obj */; };
+		38D39DEA25DD9CBC001EACC8 /* venus.obj in Resources */ = {isa = PBXBuildFile; fileRef = 38D39DE825DD9CBC001EACC8 /* venus.obj */; };
+		38D39DEB25DD9CBC001EACC8 /* venus.obj in Resources */ = {isa = PBXBuildFile; fileRef = 38D39DE825DD9CBC001EACC8 /* venus.obj */; };
+		38D39DEC25DD9CBC001EACC8 /* venus.mtl in Resources */ = {isa = PBXBuildFile; fileRef = 38D39DE925DD9CBC001EACC8 /* venus.mtl */; };
+		38D39DED25DD9CBC001EACC8 /* venus.mtl in Resources */ = {isa = PBXBuildFile; fileRef = 38D39DE925DD9CBC001EACC8 /* venus.mtl */; };
+		38D39DF525DD9E95001EACC8 /* mars.obj in Resources */ = {isa = PBXBuildFile; fileRef = 38D39DF325DD9E95001EACC8 /* mars.obj */; };
+		38D39DF625DD9E95001EACC8 /* mars.obj in Resources */ = {isa = PBXBuildFile; fileRef = 38D39DF325DD9E95001EACC8 /* mars.obj */; };
+		38D39DF725DD9E95001EACC8 /* mars.mtl in Resources */ = {isa = PBXBuildFile; fileRef = 38D39DF425DD9E95001EACC8 /* mars.mtl */; };
+		38D39DF825DD9E95001EACC8 /* mars.mtl in Resources */ = {isa = PBXBuildFile; fileRef = 38D39DF425DD9E95001EACC8 /* mars.mtl */; };
 		38E7B5C525B61C6000D32001 /* PBR.metal in Sources */ = {isa = PBXBuildFile; fileRef = 38E7B5C425B61C6000D32001 /* PBR.metal */; };
 		38E7B5C625B61C6000D32001 /* PBR.metal in Sources */ = {isa = PBXBuildFile; fileRef = 38E7B5C425B61C6000D32001 /* PBR.metal */; };
 /* End PBXBuildFile section */
@@ -120,6 +136,14 @@
 		38D39D3925D85FD9001EACC8 /* earth.obj */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = earth.obj; sourceTree = "<group>"; };
 		38D39D5625D870E6001EACC8 /* moon.mtl */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = moon.mtl; sourceTree = "<group>"; };
 		38D39D5725D870E6001EACC8 /* moon.obj */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = moon.obj; sourceTree = "<group>"; };
+		38D39DCE25DD92E2001EACC8 /* sun.obj */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = sun.obj; sourceTree = "<group>"; };
+		38D39DCF25DD92E3001EACC8 /* sun.mtl */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = sun.mtl; sourceTree = "<group>"; };
+		38D39DDB25DD99BD001EACC8 /* mercury.mtl */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = mercury.mtl; sourceTree = "<group>"; };
+		38D39DDC25DD99BD001EACC8 /* mercury.obj */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = mercury.obj; sourceTree = "<group>"; };
+		38D39DE825DD9CBC001EACC8 /* venus.obj */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = venus.obj; sourceTree = "<group>"; };
+		38D39DE925DD9CBC001EACC8 /* venus.mtl */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = venus.mtl; sourceTree = "<group>"; };
+		38D39DF325DD9E95001EACC8 /* mars.obj */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = mars.obj; sourceTree = "<group>"; };
+		38D39DF425DD9E95001EACC8 /* mars.mtl */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = mars.mtl; sourceTree = "<group>"; };
 		38E7B5C425B61C6000D32001 /* PBR.metal */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.metal; path = PBR.metal; sourceTree = "<group>"; };
 		FD057A5F258F7B6100C67DEF /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		FD057A76258F7E0500C67DEF /* Renderer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Renderer.swift; sourceTree = "<group>"; };
@@ -194,6 +218,10 @@
 		3899A0A92597E3AA00C265F7 /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				38D39DFB25DD9E98001EACC8 /* mars */,
+				38D39DF025DD9CC0001EACC8 /* venus */,
+				38D39DE325DD99C1001EACC8 /* mercury */,
+				38D39DD625DD92EB001EACC8 /* sun */,
 				38D39D5525D870E6001EACC8 /* moon */,
 				38D39D3525D85554001EACC8 /* earth */,
 			);
@@ -216,6 +244,42 @@
 				38D39D5725D870E6001EACC8 /* moon.obj */,
 			);
 			path = moon;
+			sourceTree = "<group>";
+		};
+		38D39DD625DD92EB001EACC8 /* sun */ = {
+			isa = PBXGroup;
+			children = (
+				38D39DCF25DD92E3001EACC8 /* sun.mtl */,
+				38D39DCE25DD92E2001EACC8 /* sun.obj */,
+			);
+			path = sun;
+			sourceTree = "<group>";
+		};
+		38D39DE325DD99C1001EACC8 /* mercury */ = {
+			isa = PBXGroup;
+			children = (
+				38D39DDB25DD99BD001EACC8 /* mercury.mtl */,
+				38D39DDC25DD99BD001EACC8 /* mercury.obj */,
+			);
+			path = mercury;
+			sourceTree = "<group>";
+		};
+		38D39DF025DD9CC0001EACC8 /* venus */ = {
+			isa = PBXGroup;
+			children = (
+				38D39DE925DD9CBC001EACC8 /* venus.mtl */,
+				38D39DE825DD9CBC001EACC8 /* venus.obj */,
+			);
+			path = venus;
+			sourceTree = "<group>";
+		};
+		38D39DFB25DD9E98001EACC8 /* mars */ = {
+			isa = PBXGroup;
+			children = (
+				38D39DF425DD9E95001EACC8 /* mars.mtl */,
+				38D39DF325DD9E95001EACC8 /* mars.obj */,
+			);
+			path = mars;
 			sourceTree = "<group>";
 		};
 		FD057A4F258F7B6100C67DEF = {
@@ -347,10 +411,18 @@
 			files = (
 				38D39D3A25D85FD9001EACC8 /* earth.mtl in Resources */,
 				38999E4F25927A2C00C265F7 /* LaunchScreen.storyboard in Resources */,
+				38D39DD225DD92E3001EACC8 /* sun.mtl in Resources */,
+				38D39DDF25DD99BD001EACC8 /* mercury.obj in Resources */,
+				38D39DEA25DD9CBC001EACC8 /* venus.obj in Resources */,
+				38D39DEC25DD9CBC001EACC8 /* venus.mtl in Resources */,
+				38D39DF725DD9E95001EACC8 /* mars.mtl in Resources */,
+				38D39DF525DD9E95001EACC8 /* mars.obj in Resources */,
 				38D39D5A25D870E6001EACC8 /* moon.obj in Resources */,
+				38D39DD025DD92E3001EACC8 /* sun.obj in Resources */,
 				38999E4C25927A2C00C265F7 /* Assets.xcassets in Resources */,
 				38999E4A25927A2B00C265F7 /* Main.storyboard in Resources */,
 				38040C6725B31B8200AED8C8 /* Textures.xcassets in Resources */,
+				38D39DDD25DD99BD001EACC8 /* mercury.mtl in Resources */,
 				38D39D5825D870E6001EACC8 /* moon.mtl in Resources */,
 				38D39D3C25D85FD9001EACC8 /* earth.obj in Resources */,
 			);
@@ -360,12 +432,20 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				38D39DED25DD9CBC001EACC8 /* venus.mtl in Resources */,
 				38D39D5925D870E6001EACC8 /* moon.mtl in Resources */,
+				38D39DDE25DD99BD001EACC8 /* mercury.mtl in Resources */,
 				38D39D3D25D85FD9001EACC8 /* earth.obj in Resources */,
+				38D39DE025DD99BD001EACC8 /* mercury.obj in Resources */,
 				38999E6125927A4D00C265F7 /* Assets.xcassets in Resources */,
+				38D39DF825DD9E95001EACC8 /* mars.mtl in Resources */,
+				38D39DD325DD92E3001EACC8 /* sun.mtl in Resources */,
 				38D39D3B25D85FD9001EACC8 /* earth.mtl in Resources */,
+				38D39DF625DD9E95001EACC8 /* mars.obj in Resources */,
+				38D39DEB25DD9CBC001EACC8 /* venus.obj in Resources */,
 				38040C6825B31B8300AED8C8 /* Textures.xcassets in Resources */,
 				38D39D5B25D870E6001EACC8 /* moon.obj in Resources */,
+				38D39DD125DD92E3001EACC8 /* sun.obj in Resources */,
 				38999E6425927A4D00C265F7 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

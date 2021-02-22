@@ -87,7 +87,7 @@ extension Model: Renderable {
         renderEncoder.setFragmentSamplerState(samplerState, index: 0)
         
         for mesh in meshes {
-            uniforms.modelMatrix = modelMatrix
+            uniforms.modelMatrix = worldTransform
             uniforms.normalMatrix = uniforms.modelMatrix.upperLeft
             renderEncoder.setVertexBytes(&uniforms,
                                          length: MemoryLayout<Uniforms>.stride,
