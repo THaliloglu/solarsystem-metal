@@ -11,9 +11,9 @@ import CoreGraphics
 class Scene {
     var sceneSize: CGSize
     
-    var cameras = [ArcballCamera()]
+    var cameras = [Camera()]
     var currentCameraIndex = 0
-    var camera: ArcballCamera  {
+    var camera: Camera  {
         return cameras[currentCameraIndex]
     }
     
@@ -22,6 +22,8 @@ class Scene {
     var uniforms = Uniforms()
     var fragmentUniforms = FragmentUniforms()
     let lighting = Lighting()
+    
+    let inputController = InputController()
     
     init(sceneSize: CGSize) {
         self.sceneSize = sceneSize
@@ -32,6 +34,7 @@ class Scene {
     }
     
     final func update(deltaTime: Float) {
+        updatePlayer(deltaTime: deltaTime)
         uniforms.projectionMatrix = camera.projectionMatrix
         uniforms.viewMatrix = camera.viewMatrix
         fragmentUniforms.cameraPosition = camera.position
@@ -53,6 +56,10 @@ class Scene {
     
     func updateScene(deltaTime: Float) {
         // override this to update your scene
+    }
+    
+    private func updatePlayer(deltaTime: Float) {
+        inputController.updatePlayer(deltaTime: deltaTime)
     }
     
     final func add(node: Node,

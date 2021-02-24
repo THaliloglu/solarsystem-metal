@@ -21,6 +21,9 @@ class DemoScene: Scene {
         (365 * day)/365
     }
     
+    var rocketCamEnabled = false
+    let orthoCamera = OrthographicCamera()
+    
     // Sun
     let sun = Model(name: "sun.obj")
     var sunSolarDay: Float {
@@ -118,38 +121,88 @@ class DemoScene: Scene {
         add(node: mars)
         
         // Camera
-        camera.distance = 15
-        camera.target = [0, 0, -2]
-        camera.rotation.x = Float(-25).degreesToRadians
-        camera.position = [0, 1.2, -4]
+        let archballCamera = ArcballCamera()
+        archballCamera.distance = 20
+        archballCamera.target = [0, 0, -2]
+        archballCamera.rotation.x = Float(-25).degreesToRadians
+        archballCamera.position = [0, 1.2, -4]
+        cameras.append(archballCamera)
+        currentCameraIndex = 1
+        
+        inputController.player = camera
+        inputController.keyboardDelegate = self
+        
+        orthoCamera.position = [0, 15, 0]
+        orthoCamera.rotation.x = .pi / 2
+        cameras.append(orthoCamera)
+        
+        let tpCamera = ThirdPersonCamera(focus: earth)
+        cameras.append(tpCamera)
     }
     
     override func updateScene(deltaTime: Float) {
         sun.rotation = [0,(earth.currentTime * sunSolarDay) * RotationDirection.counterclockwise.rawValue, 0]
-
+        
         mercury.rotation = [0, (mercury.currentTime * mercurySolarDay) * RotationDirection.counterclockwise.rawValue , 0]
         mercury.position = [ sin((mercuryStartAngle + mercury.currentTime) * mercuryOrbitalPeriod) * mercuryDistance,
-                            mercury.position.y,
-                            -cos((mercuryStartAngle + mercury.currentTime) * mercuryOrbitalPeriod) * mercuryDistance]
-
+                             mercury.position.y,
+                             -cos((mercuryStartAngle + mercury.currentTime) * mercuryOrbitalPeriod) * mercuryDistance]
+        
         venus.rotation = [0, (venus.currentTime * venusSolarDay) * RotationDirection.clockwise.rawValue, 0]
         venus.position = [ sin((venusStartAngle + venus.currentTime) * venusOrbitalPeriod) * venusDistance,
-                          venus.position.y,
-                          -cos((venusStartAngle + venus.currentTime) * venusOrbitalPeriod) * venusDistance]
-
+                           venus.position.y,
+                           -cos((venusStartAngle + venus.currentTime) * venusOrbitalPeriod) * venusDistance]
+        
         earth.rotation = [0, (earth.currentTime * earthSolarDay) * RotationDirection.counterclockwise.rawValue, 0]
         earth.position = [ sin((earthStartAngle + earth.currentTime) * earthOrbitalPeriod) * earthDistance,
-                          earth.position.y,
-                          -cos((earthStartAngle + earth.currentTime) * earthOrbitalPeriod) * earthDistance]
-
+                           earth.position.y,
+                           -cos((earthStartAngle + earth.currentTime) * earthOrbitalPeriod) * earthDistance]
+        
         moon.rotation = [0, (moon.currentTime * moonSolarDay) * RotationDirection.counterclockwise.rawValue, 0]
         moon.position = [sin(moon.currentTime * moonOrbitalPeriod) * moonDistance,
                          earth.position.y,
                          -cos(moon.currentTime * moonOrbitalPeriod) * moonDistance]
-
+        
         mars.rotation = [0, (mars.currentTime * marsSolarDay) * RotationDirection.counterclockwise.rawValue, 0]
         mars.position = [sin((marsStartAngle + mars.currentTime) * marsOrbitalPeriod) * marsDistance,
                          mars.position.y,
                          -cos((marsStartAngle + mars.currentTime) * marsOrbitalPeriod) * marsDistance]
     }
+    
+    override func sceneSizeWillChange(to size: CGSize) {
+        super.sceneSizeWillChange(to: size)
+        
+        let cameraSize: Float = 10
+        let ratio = Float(sceneSize.width / sceneSize.height)
+        let rect = Rectangle(left: -cameraSize * ratio,
+                             right: cameraSize * ratio,
+                             top: cameraSize,
+                             bottom: -cameraSize)
+        orthoCamera.rect = rect
+    }
 }
+
+extension DemoScene: KeyboardDelegate {
+    func keyPressed(key: KeyboardControl, state: InputState) -> Bool {
+        switch key {
+        case .c where state == .ended:
+            if rocketCamEnabled {
+                // TODO: Add When Rocket finished
+            } else {
+                // TODO: Revert cam
+            }
+            rocketCamEnabled = !rocketCamEnabled
+            return false
+        case .key1:
+            currentCameraIndex = 1
+        case .key2:
+            currentCameraIndex = 2
+        case .key3:
+            currentCameraIndex = 3
+        default:
+            break
+        }
+        return true
+    }
+}
+

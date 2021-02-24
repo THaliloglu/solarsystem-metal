@@ -67,4 +67,12 @@ class Node {
         children.remove(at: index)
         childNode.parent = nil
     }
+    
+    var forwardVector: float3 {
+        return normalize([sin(rotation.y), 0, cos(rotation.y)])
+    }
+    
+    var rightVector: float3 {
+        return [forwardVector.z, forwardVector.y, -forwardVector.x]
+    }
 }

@@ -28,7 +28,7 @@
  * THE SOFTWARE.
  */
 
-// Math Library v2.00
+// Math Library v2.01
 
 import simd
 
@@ -47,7 +47,14 @@ extension Float {
   }
 }
 
-// MARK:- float4
+struct Rectangle {
+  var left: Float = 0
+  var right: Float = 0
+  var top: Float = 0
+  var bottom: Float = 0
+}
+
+// MARK:- float4x4
 extension float4x4 {
   // MARK:- Translate
   init(translation: float3) {
@@ -169,6 +176,18 @@ extension float4x4 {
     let Z = float4(0, 0, 1 / (far - near), 0)
     let W = float4((left + right) / (left - right),
                    (top + bottom) / (bottom - top),
+                   near / (near - far),
+                   1)
+    self.init()
+    columns = (X, Y, Z, W)
+  }
+  
+  init(orthographic rect: Rectangle, near: Float, far: Float) {
+    let X = float4(2 / (rect.right - rect.left), 0, 0, 0)
+    let Y = float4(0, 2 / (rect.top - rect.bottom), 0, 0)
+    let Z = float4(0, 0, 1 / (far - near), 0)
+    let W = float4((rect.left + rect.right) / (rect.left - rect.right),
+                   (rect.top + rect.bottom) / (rect.bottom - rect.top),
                    near / (near - far),
                    1)
     self.init()

@@ -24,6 +24,10 @@ class ViewController: LocalViewController {
         renderer?.scene = scene
         
         addGestureRecognizers(to: metalView)
+        
+        if let demoView = metalView as? DemoView {
+            demoView.inputController = scene.inputController
+        }
     }
 }
 
