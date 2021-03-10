@@ -18,8 +18,8 @@ protocol MouseDelegate {
 
 class InputController {
     var player: Node?
-    var translationSpeed: Float = 2.0
-    var rotationSpeed: Float = 1.0
+    var translationSpeed: Float = 0.5
+    var rotationSpeed: Float = 0.5
     
     var keyboardDelegate: KeyboardDelegate?
     var directionKeysDown: Set<KeyboardControl> = []
@@ -54,18 +54,20 @@ class InputController {
         var direction: float3 = [0, 0, 0]
         for key in directionKeysDown {
             switch key {
+            case .space:
+                direction.y += 1
             case .w:
-                direction.z += 1
+                player.rotation.x += rotationSpeed
             case .a:
-                direction.x -= 1
-            case.s:
-                direction.z -= 1
-            case .d:
-                direction.x += 1
-            case .left, .q:
                 player.rotation.y -= rotationSpeed
-            case .right, .e:
+            case .s:
+                player.rotation.x -= rotationSpeed
+            case .d:
                 player.rotation.y += rotationSpeed
+            case .q:
+                player.rotation.z += rotationSpeed
+            case .e:
+                player.rotation.z -= rotationSpeed
             default:
                 break
             }
@@ -73,7 +75,7 @@ class InputController {
         
         if direction != [0, 0, 0] {
             direction = normalize(direction)
-            player.position += (direction.z * player.forwardVector + direction.x * player.rightVector) * translationSpeed
+            player.position += (direction.y * player.forwardVector3D) * translationSpeed
         }
     }
 }
@@ -96,6 +98,7 @@ enum KeyboardControl: UInt16 {
     case key1 =   18
     case key2 =   19
     case key3 =   20
+    case key4 =   21
     case key0 =   29
     case space =  49
     case c = 8

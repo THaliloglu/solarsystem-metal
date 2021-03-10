@@ -92,6 +92,9 @@ class DemoScene: Scene {
     }
     let marsStartAngle: Float = 30
     
+    
+    let rocket = Model(name: "rocket.obj")
+    
     override func setupScene() {
         // earth oriented
         earth.position = [earthDistance, 0, 0]
@@ -120,6 +123,11 @@ class DemoScene: Scene {
         mars.scale = [earth.scale.x * 0.5, earth.scale.y * 0.5, earth.scale.z * 0.5]
         add(node: mars)
         
+        // Rocket Object
+        rocket.position = [0, 0, -10]
+        rocket.scale = [0.05, 0.05, 0.05]
+        add(node: rocket)
+        
         // Camera
         let archballCamera = ArcballCamera()
         archballCamera.distance = 20
@@ -129,15 +137,20 @@ class DemoScene: Scene {
         cameras.append(archballCamera)
         currentCameraIndex = 1
         
-        inputController.player = camera
+        inputController.player = rocket
         inputController.keyboardDelegate = self
         
         orthoCamera.position = [0, 15, 0]
         orthoCamera.rotation.x = .pi / 2
         cameras.append(orthoCamera)
         
-        let tpCamera = ThirdPersonCamera(focus: earth)
-        cameras.append(tpCamera)
+        let tpCameraForEarth = ThirdPersonCamera(focus: earth)
+        cameras.append(tpCameraForEarth)
+        
+        let tpCameraForRocket = ThirdPersonCamera(focus: rocket)
+        tpCameraForRocket.focusHeight = 0
+        tpCameraForRocket.focusDistance = 2
+        cameras.append(tpCameraForRocket)
     }
     
     override func updateScene(deltaTime: Float) {
@@ -199,6 +212,8 @@ extension DemoScene: KeyboardDelegate {
             currentCameraIndex = 2
         case .key3:
             currentCameraIndex = 3
+        case .key4:
+            currentCameraIndex = 4
         default:
             break
         }

@@ -75,4 +75,19 @@ class Node {
     var rightVector: float3 {
         return [forwardVector.z, forwardVector.y, -forwardVector.x]
     }
+    
+    // ??
+    var forwardVectorXZ: float3 {
+        return normalize([sin(rotation.y), 0, cos(rotation.y)])
+    }
+    
+    // ??
+    var forwardVectorXY: float3 {
+        return normalize([-sin(rotation.z), cos(rotation.z), 0])
+    }
+    
+    // ??
+    var forwardVector3D: float3 {
+        return normalize([sin(rotation.y), -tan(rotation.x), cos(rotation.y)])
+    }
 }
