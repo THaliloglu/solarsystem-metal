@@ -11,9 +11,8 @@ class InputController {
     var player: Node?
     var currentSpeed: Float = 0
     
-    
-    var rotationSpeed: Float = 4.0
-    var translationSpeed: Float = 0.05 {
+    var rotationSpeed: Float = 1.0
+    var translationSpeed: Float = 1.0 {
         didSet {
             if translationSpeed > maxSpeed {
                 translationSpeed = maxSpeed

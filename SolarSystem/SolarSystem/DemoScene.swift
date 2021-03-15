@@ -148,9 +148,13 @@ class DemoScene: Scene {
         cameras.append(tpCameraForEarth)
         
         let tpCameraForRocket = ThirdPersonCamera(focus: rocket)
-        tpCameraForRocket.focusHeight = 0
+        tpCameraForRocket.focusHeight = 0.25
         tpCameraForRocket.focusDistance = 2
         cameras.append(tpCameraForRocket)
+        
+        #if os(iOS)
+        currentCameraIndex = 4
+        #endif
     }
     
     override func updateScene(deltaTime: Float) {
@@ -195,6 +199,7 @@ class DemoScene: Scene {
     }
 }
 
+#if os(macOS)
 extension DemoScene: KeyboardDelegate {
     func keyPressed(key: KeyboardControl, state: InputState) -> Bool {
         switch key {
@@ -220,4 +225,4 @@ extension DemoScene: KeyboardDelegate {
         return true
     }
 }
-
+#endif
