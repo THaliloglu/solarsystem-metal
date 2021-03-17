@@ -94,37 +94,46 @@ class DemoScene: Scene {
     
     
     let rocket = Model(name: "rocket.obj")
+    let rocketStartPosition: float3 = [0, 0, -10]
     
     override func setupScene() {
+        var spheres: [Node] = []
+        
         // earth oriented
         earth.position = [earthDistance, 0, 0]
         earth.scale = [planetScale, planetScale, planetScale]
         add(node: earth)
+        spheres.append(earth)
         
         // Sun
         sun.position = [0, 0, 0]
         sun.scale = [earth.scale.x * 3, earth.scale.y * 3, earth.scale.z * 3]
         add(node: sun)
+        spheres.append(sun)
         
         // Planets
         mercury.position = [mercuryDistance, 0, 0]
         mercury.scale = [earth.scale.x * 0.3, earth.scale.y * 0.3, earth.scale.z * 0.3]
         add(node: mercury)
+        spheres.append(mercury)
         
         venus.position = [venusDistance, 0, 0]
         venus.scale = [earth.scale.x * 0.95, earth.scale.y * 0.95, earth.scale.z * 0.95]
         add(node: venus)
+        spheres.append(venus)
         
         moon.position = [moonDistance, 0, 0]
         moon.scale = [earth.scale.x * 0.27, earth.scale.y * 0.27, earth.scale.z * 0.27]
         add(node: moon, parent: earth)
+        spheres.append(moon)
         
         mars.position = [marsDistance, 0, 0]
         mars.scale = [earth.scale.x * 0.5, earth.scale.y * 0.5, earth.scale.z * 0.5]
         add(node: mars)
+        spheres.append(mars)
         
         // Rocket Object
-        rocket.position = [0, 0, -10]
+        rocket.position = rocketStartPosition
         rocket.scale = [0.05, 0.05, 0.05]
         add(node: rocket)
         
@@ -155,6 +164,11 @@ class DemoScene: Scene {
         #if os(iOS)
         currentCameraIndex = 4
         #endif
+        
+        physicsController.dynamicBody = rocket
+        for sphere in spheres {
+            physicsController.addStaticBody(node: sphere)
+        }
     }
     
     override func updateScene(deltaTime: Float) {
@@ -184,6 +198,21 @@ class DemoScene: Scene {
         mars.position = [sin((marsStartAngle + mars.currentTime) * marsOrbitalPeriod) * marsDistance,
                          mars.position.y,
                          -cos((marsStartAngle + mars.currentTime) * marsOrbitalPeriod) * marsDistance]
+    }
+    
+    override func updatePlayer(deltaTime: Float) {
+        guard let node = inputController.player else { return }
+        
+        let holdPosition = node.position
+        let holdRotation = node.rotation
+        inputController.updatePlayer(deltaTime: deltaTime)
+        
+        if physicsController.checkCollisions() {
+            //MARK: You can send the rocket to start position
+            //check "rocketStartPosition"
+            node.position = holdPosition
+            node.rotation = holdRotation
+        }
     }
     
     override func sceneSizeWillChange(to size: CGSize) {
@@ -219,6 +248,8 @@ extension DemoScene: KeyboardDelegate {
             currentCameraIndex = 3
         case .key4:
             currentCameraIndex = 4
+        case .key0 where state == .ended:
+            debugRenderBoundingBox = !debugRenderBoundingBox
         default:
             break
         }
