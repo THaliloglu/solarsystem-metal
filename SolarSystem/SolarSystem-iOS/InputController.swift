@@ -26,20 +26,31 @@ class InputController {
     
     // conforming to macOS
     var keyboardDelegate: Any?
+    
+    var directionViewsDown: Set<ViewControl> = []
 }
 
 
 extension InputController {
-    func processEvent(touches: Set<UITouch>, state: InputState, event: UIEvent?) {
+    
+    func processEvent(view inView: ViewControl, state: InputState) {
+        let view = inView
         switch state {
         case .began, .moved:
-            forward = true
+            if view == .accelerator {
+                forward = true
+            }
+            directionViewsDown.insert(view)
         case .ended:
-            forward = false
+            if view == .accelerator {
+                forward = false
+            }
+            directionViewsDown.remove(view)
         default:
             break
         }
     }
+    
     public func updatePlayer(deltaTime: Float) {
         guard let player = player else { return }
         let translationSpeed = deltaTime * self.translationSpeed
@@ -50,10 +61,43 @@ extension InputController {
         } else if currentSpeed > maxSpeed {
             currentSpeed = maxSpeed
         }
-        player.rotation.y += currentPitch * deltaTime * rotationSpeed
-        player.position.x += currentSpeed * sin(player.rotation.y)
-        player.position.z += currentSpeed * cos(player.rotation.y)
+        let rotationSpeed = deltaTime * self.rotationSpeed
+        
+        var direction: float3 = [0, 0, 0]
+        for view in directionViewsDown {
+            switch view {
+            case .accelerator:
+                direction.z += 1
+            //MARK: - support 3 dimension
+//            case .w:
+//                player.rotation.x += rotationSpeed
+            case .left:
+                player.rotation.y -= rotationSpeed
+            //MARK: - support 3 dimension
+//            case .s:
+//                player.rotation.x -= rotationSpeed
+            case .right:
+                player.rotation.y += rotationSpeed
+            //FIXME: uptate rocket object origin points
+//            case .q:
+//                player.rotation.z += rotationSpeed
+//            case .e:
+//                player.rotation.z -= rotationSpeed
+            default:
+                break
+            }
+        }
+        
+        if direction != [0, 0, 0] {
+            direction = normalize(direction)
+            player.position += (direction.z * player.forwardVector + direction.x * player.rightVector) * currentSpeed
+        }
+        
     }
+}
+
+enum ViewControl {
+    case accelerator, left, down, right, up
 }
 
 enum InputState {

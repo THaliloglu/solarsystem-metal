@@ -23,16 +23,63 @@
                                     <constraint firstAttribute="width" secondItem="THx-Jr-JWE" secondAttribute="height" multiplier="1:1" id="92b-3G-uWP"/>
                                 </constraints>
                             </imageView>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="arrow.left.square" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="Qnc-hC-6DT" userLabel="ArrowLeft">
+                                <rect key="frame" x="44" y="315.5" width="78.5" height="76"/>
+                                <color key="tintColor" systemColor="systemGrayColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="Qnc-hC-6DT" secondAttribute="height" multiplier="1:1" id="PIt-cr-SFY"/>
+                                </constraints>
+                            </imageView>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="arrow.down.square" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="N6R-mT-Trr" userLabel="ArrowDown">
+                                <rect key="frame" x="142.5" y="315.5" width="78.5" height="76"/>
+                                <color key="tintColor" systemColor="systemGrayColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="N6R-mT-Trr" secondAttribute="height" multiplier="1:1" id="EKw-Ik-svZ"/>
+                                </constraints>
+                            </imageView>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="arrow.right.square" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="9r5-dH-dtJ" userLabel="ArrowRight">
+                                <rect key="frame" x="241" y="315.5" width="79" height="76"/>
+                                <color key="tintColor" systemColor="systemGrayColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="9r5-dH-dtJ" secondAttribute="height" multiplier="1:1" id="k0C-F5-Gwb"/>
+                                </constraints>
+                            </imageView>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="arrow.up.square" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="n2C-iO-36y" userLabel="ArrowUp">
+                                <rect key="frame" x="142.5" y="227" width="78.5" height="76"/>
+                                <color key="tintColor" systemColor="systemGrayColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="n2C-iO-36y" secondAttribute="height" multiplier="1:1" id="CAN-XX-6rw"/>
+                                </constraints>
+                            </imageView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
+                            <constraint firstItem="N6R-mT-Trr" firstAttribute="top" secondItem="n2C-iO-36y" secondAttribute="bottom" constant="10" id="7w7-eH-X2L"/>
+                            <constraint firstItem="9r5-dH-dtJ" firstAttribute="width" secondItem="9r5-dH-dtJ" secondAttribute="height" multiplier="1:1" id="8Bw-og-7Um"/>
+                            <constraint firstItem="Qnc-hC-6DT" firstAttribute="bottom" secondItem="6Tk-OE-BBY" secondAttribute="bottom" id="AsM-Os-mRw"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="N6R-mT-Trr" secondAttribute="bottom" id="Bir-ZH-4PO"/>
+                            <constraint firstItem="N6R-mT-Trr" firstAttribute="width" secondItem="N6R-mT-Trr" secondAttribute="height" multiplier="1:1" id="CAt-2u-VHZ"/>
                             <constraint firstItem="THx-Jr-JWE" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="DDT-CU-P9T"/>
+                            <constraint firstItem="n2C-iO-36y" firstAttribute="centerX" secondItem="N6R-mT-Trr" secondAttribute="centerX" id="IfU-EV-7Rg"/>
+                            <constraint firstItem="n2C-iO-36y" firstAttribute="height" secondItem="6Tk-OE-BBY" secondAttribute="height" multiplier="0.2" id="Wmv-yT-mIB"/>
+                            <constraint firstItem="Qnc-hC-6DT" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="XUc-Qh-s5e"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="THx-Jr-JWE" secondAttribute="bottom" id="aPE-b5-Jrv"/>
+                            <constraint firstItem="Qnc-hC-6DT" firstAttribute="height" secondItem="6Tk-OE-BBY" secondAttribute="height" multiplier="0.2" id="ceM-2b-G9q"/>
+                            <constraint firstItem="9r5-dH-dtJ" firstAttribute="height" secondItem="6Tk-OE-BBY" secondAttribute="height" multiplier="0.2" id="dhY-BF-DFR"/>
                             <constraint firstItem="THx-Jr-JWE" firstAttribute="height" secondItem="6Tk-OE-BBY" secondAttribute="height" multiplier="0.2" id="eAI-Ux-CPI"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="9r5-dH-dtJ" secondAttribute="bottom" id="hHG-rg-7Fi"/>
+                            <constraint firstItem="N6R-mT-Trr" firstAttribute="height" secondItem="6Tk-OE-BBY" secondAttribute="height" multiplier="0.2" id="iE6-b0-icY"/>
+                            <constraint firstItem="N6R-mT-Trr" firstAttribute="leading" secondItem="Qnc-hC-6DT" secondAttribute="trailing" constant="20" id="iYh-AX-mIv"/>
+                            <constraint firstItem="9r5-dH-dtJ" firstAttribute="width" secondItem="9r5-dH-dtJ" secondAttribute="height" multiplier="1:1" id="mdw-Ol-vLz"/>
+                            <constraint firstItem="9r5-dH-dtJ" firstAttribute="leading" secondItem="N6R-mT-Trr" secondAttribute="trailing" constant="20" id="uIa-RI-Ixw"/>
                         </constraints>
                         <connections>
                             <outlet property="acceleratorView" destination="THx-Jr-JWE" id="jjG-DL-X9u"/>
+                            <outlet property="arrowDown" destination="N6R-mT-Trr" id="iaj-FD-5jL"/>
+                            <outlet property="arrowLeft" destination="Qnc-hC-6DT" id="AXH-pq-ZoK"/>
+                            <outlet property="arrowRight" destination="9r5-dH-dtJ" id="0vc-Vy-JtO"/>
+                            <outlet property="arrowUp" destination="n2C-iO-36y" id="Ehu-eg-mq9"/>
                         </connections>
                     </view>
                 </viewController>
@@ -43,8 +90,15 @@
     </scenes>
     <resources>
         <image name="accelerator" width="164" height="129"/>
+        <image name="arrow.down.square" catalog="system" width="128" height="114"/>
+        <image name="arrow.left.square" catalog="system" width="128" height="114"/>
+        <image name="arrow.right.square" catalog="system" width="128" height="114"/>
+        <image name="arrow.up.square" catalog="system" width="128" height="114"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+        <systemColor name="systemGrayColor">
+            <color red="0.55686274509803924" green="0.55686274509803924" blue="0.57647058823529407" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
     </resources>
 </document>

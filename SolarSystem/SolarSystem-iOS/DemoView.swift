@@ -11,44 +11,65 @@ class DemoView: MTKView {
     var inputController: InputController?
     var motionController = MotionController()
     @IBOutlet weak var acceleratorView: UIView!
+    @IBOutlet weak var arrowLeft: UIImageView!
+    @IBOutlet weak var arrowDown: UIImageView!
+    @IBOutlet weak var arrowRight: UIImageView!
+    @IBOutlet weak var arrowUp: UIImageView!
     var isTouched = false
 }
 
 extension DemoView {
     override func didMoveToWindow() {
         super.didMoveToWindow()
-        motionController.motionClosure = {
-            motion, error in
-            guard let motion = motion else { return }
-            let gravityAngle = atan2(motion.gravity.y, motion.gravity.x)
-            let sign: Float = abs(gravityAngle) <= 1 ? -1 : 1
-            let sensitivity: Float = 60
-            self.inputController?.currentTurnSpeed = sign * Float(motion.attitude.pitch) * sensitivity
-            self.inputController?.currentPitch = sign * Float(motion.attitude.pitch)
+    }
+    
+    func isTouch(_ touch: UITouch?, inView view: UIView?) -> Bool {
+        var retval = false
+        if let view = view,
+           let location = touch?.location(in: view) {
+            if location.x >= 0 && location.y >= 0 &&
+                location.x < view.bounds.width &&
+                location.y < view.bounds.height {
+                retval = true
+            }
         }
-        motionController.setupCoreMotion()
+        return retval
+    }
+    
+    func processButtonEvents(forTouches touches: Set<UITouch>, withTouchState state: InputState) {
+        switch state {
+        case .began:
+            isTouched = true
+        case .ended, .cancelled:
+            isTouched = false
+        default:
+            break
+        }
+        
+        if isTouch(touches.first, inView: acceleratorView) {
+            inputController?.processEvent(view: .accelerator, state: state)
+        } else if isTouch(touches.first, inView: arrowLeft) {
+            inputController?.processEvent(view: .left, state: state)
+        } else if isTouch(touches.first, inView: arrowRight) {
+            inputController?.processEvent(view: .right, state: state)
+        } else if isTouch(touches.first, inView: arrowUp) {
+            inputController?.processEvent(view: .up, state: state)
+        } else if isTouch(touches.first, inView: arrowDown) {
+            inputController?.processEvent(view: .down, state: state)
+        }
     }
     
     override func touchesBegan(_ touches: Set<UITouch>,
                                with event: UIEvent?) {
+        processButtonEvents(forTouches: touches, withTouchState: .began)
         
-        // only process touch in accelerator view
-        if let acceleratorView = acceleratorView,
-           let location = touches.first?.location(in: acceleratorView) {
-            if location.x >= 0 && location.y >= 0 &&
-                location.x < acceleratorView.bounds.width &&
-                location.y < acceleratorView.bounds.height {
-                isTouched = true
-                inputController?.processEvent(touches: touches, state: .began, event: event)
-            }
-        }
         super.touchesBegan(touches, with: event)
     }
     
     override func touchesMoved(_ touches: Set<UITouch>,
                                with event: UIEvent?) {
         if isTouched {
-            inputController?.processEvent(touches: touches, state: .moved, event: event)
+            processButtonEvents(forTouches: touches, withTouchState: .moved)
         }
         super.touchesMoved(touches, with: event)
     }
@@ -56,9 +77,8 @@ extension DemoView {
     override func touchesEnded(_ touches: Set<UITouch>,
                                with event: UIEvent?) {
         if isTouched {
-            inputController?.processEvent(touches: touches, state: .ended, event: event)
+            processButtonEvents(forTouches: touches, withTouchState: .ended)
         }
-        isTouched = false
         super.touchesEnded(touches, with: event)
     }
     
