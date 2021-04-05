@@ -21,6 +21,12 @@ class InputController {
     var translationSpeed: Float = 1.0
     var rotationSpeed: Float = 1.0
     
+//    var upVector: float3 = [0, 1, 0]
+//    var forwardVector: float3 = [0, 0, 1]
+//    var rightVector: float3 = [1, 0, 0]
+//    var currentThrust: Float = 0
+//    var maximumThrust: Float = 1
+    
     var keyboardDelegate: KeyboardDelegate?
     var directionKeysDown: Set<KeyboardControl> = []
     
@@ -80,6 +86,51 @@ class InputController {
             direction = normalize(direction)
             player.position += (direction.z * player.forwardVector + direction.x * player.rightVector) * translationSpeed
         }
+        
+        
+        // New development ======
+//        let translationSpeed = deltaTime * self.currentThrust
+//        let rotationSpeed = deltaTime * self.rotationSpeed
+//        for key in directionKeysDown {
+//            switch key {
+//            case .space:
+//                currentThrust = maximumThrust
+//            case .w, .s:
+//                // pitch - rotation on x axis
+//                let speed = key == .w ? rotationSpeed : -rotationSpeed
+//                let pitch = simd_quatf(angle: speed, axis: rightVector)
+//                forwardVector = pitch.act(forwardVector)
+//                forwardVector = normalize(forwardVector)
+//                upVector = cross(forwardVector, rightVector)
+//            case .q, .e:
+//                // yaw - rotation on y axis
+//                let speed = key == .e ? rotationSpeed : -rotationSpeed
+//                let yaw = simd_quatf(angle: speed, axis: upVector)
+//                rightVector = yaw.act(rightVector)
+//                rightVector = normalize(rightVector)
+//                forwardVector = cross(rightVector, upVector)
+//            case .a, .d:
+//                // roll - rotation on z axis
+//                let speed = key == .a ? rotationSpeed : -rotationSpeed
+//                let roll = simd_quatf(angle: speed,
+//                                      axis: forwardVector)
+//                upVector = roll.act(upVector)
+//                upVector = normalize(upVector)
+//                rightVector = cross(upVector, forwardVector)
+//            default:
+//                break
+//            }
+//            print(length(forwardVector), length(upVector), length(rightVector))
+//            player.position += translationSpeed * forwardVector
+//
+//            let right: float4 = float4(rightVector.x, rightVector.y, rightVector.z, 0)
+//            let up: float4 = float4(upVector.x, upVector.y, upVector.z, 0)
+//            let forward: float4 = float4(forwardVector.x, forwardVector.y, forwardVector.z, 0)
+//            let rotationMatrix = float4x4(right, up, forward, [0, 0, 0, 1])
+//            player.quaternion = simd_quatf(rotationMatrix)
+//        }
+        // New development ======
+        
     }
 }
 
