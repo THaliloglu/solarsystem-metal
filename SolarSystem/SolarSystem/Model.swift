@@ -119,7 +119,7 @@ extension Model: Renderable {
 //                renderEncoder.setFragmentTexture(submesh.textures.ao,
 //                                                 index: Int(AOTexture.rawValue))
                 
-                renderEncoder.setRenderPipelineState(submesh.pipelineState)
+                renderEncoder.setRenderPipelineState(Renderer.antialiasingEnabled ? submesh.pipelineStateAA : submesh.pipelineState)
                 var material = submesh.material
                 renderEncoder.setFragmentBytes(&material,
                                                length: MemoryLayout<Material>.stride,

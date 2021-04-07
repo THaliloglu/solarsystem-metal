@@ -141,4 +141,6 @@ fragment float4 fragment_main(VertexOut in [[stage_in]],
     }
     float3 color = diffuseColor + ambientColor + specularColor;
     return float4(color, 1);
+    
+    // MARK: Some cases you can use discard function : discard_fragment();
 }

@@ -23,6 +23,9 @@ class Renderer: NSObject {
         return Renderer.device.makeDepthStencilState(descriptor: descriptor)
     }
     
+    static var antialiasingSampleCount = 4
+    static var antialiasingEnabled = true
+    
     // Debug drawing of lights
     lazy var lightPipelineState: MTLRenderPipelineState = {
         return buildLightPipelineState()
@@ -60,6 +63,7 @@ extension Renderer: MTKViewDelegate {
     }
     
     func draw(in view: MTKView) {
+        view.sampleCount = Renderer.antialiasingEnabled ? Renderer.antialiasingSampleCount : 1
         guard
             let scene = scene,
             let descriptor = view.currentRenderPassDescriptor,

@@ -97,6 +97,11 @@ class DemoScene: Scene {
     let rocketStartPosition: float3 = [0, 0, -10]
     
     override func setupScene() {
+        // Option Menu Values;
+        // - time slider
+        // - collisions cube on/off
+        // - antialiasing value change
+        
         var spheres: [Node] = []
         
         // earth oriented
@@ -248,6 +253,8 @@ extension DemoScene: KeyboardDelegate {
             currentCameraIndex = 3
         case .key4:
             currentCameraIndex = 4
+        case .key5 where state == .ended:
+            Renderer.antialiasingEnabled = !Renderer.antialiasingEnabled
         case .key0 where state == .ended:
             debugRenderBoundingBox = !debugRenderBoundingBox
         default:

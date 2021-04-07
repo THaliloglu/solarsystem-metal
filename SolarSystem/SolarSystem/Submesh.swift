@@ -22,18 +22,20 @@ class Submesh {
     
     let textures: Textures
     let pipelineState: MTLRenderPipelineState
+    let pipelineStateAA: MTLRenderPipelineState
     
     init(mdlSubmesh: MDLSubmesh, mtkSubmesh: MTKSubmesh) {
         self.mtkSubmesh = mtkSubmesh
         textures = Textures(material: mdlSubmesh.material)
-        pipelineState = Submesh.makePipelineState(textures: textures)
+        pipelineState = Submesh.makePipelineState(textures: textures, withAntiAliasing: false)
+        pipelineStateAA = Submesh.makePipelineState(textures: textures, withAntiAliasing: true)
         material = Material(material: mdlSubmesh.material)
     }
 }
 
 // Pipeline state
 private extension Submesh {
-    static func makePipelineState(textures: Textures) -> MTLRenderPipelineState {
+    static func makePipelineState(textures: Textures, withAntiAliasing antialiasing: Bool) -> MTLRenderPipelineState {
         let functionConstants = makeFunctionConstants(textures: textures)
         let library = Renderer.library
         let vertexFunction = library?.makeFunction(name: "vertex_main")
@@ -54,6 +56,7 @@ private extension Submesh {
         pipelineDescriptor.vertexDescriptor = MTKMetalVertexDescriptorFromModelIO(vertexDescriptor)
         pipelineDescriptor.colorAttachments[0].pixelFormat = Renderer.colorPixelFormat
         pipelineDescriptor.depthAttachmentPixelFormat = .depth32Float
+        pipelineDescriptor.sampleCount = antialiasing ? Renderer.antialiasingSampleCount : 1
         do {
             pipelineState = try Renderer.device.makeRenderPipelineState(descriptor: pipelineDescriptor)
         } catch let error {
