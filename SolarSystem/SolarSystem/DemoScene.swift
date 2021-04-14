@@ -97,6 +97,8 @@ class DemoScene: Scene {
     let rocketStartPosition: float3 = [0, 0, -10]
     
     override func setupScene() {
+        skybox = Skybox(textureName: nil)
+        
         // Option Menu Values;
         // - time slider
         // - collisions cube on/off

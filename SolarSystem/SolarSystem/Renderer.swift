@@ -93,6 +93,10 @@ extension Renderer: MTKViewDelegate {
 //        debugLights(renderEncoder: renderEncoder, lightType: Pointlight)
 //        debugLights(renderEncoder: renderEncoder, lightType: Spotlight)
         
+        // When objects are rendered, most of the skybox fragments will be behind them and will fail the depth test.
+        // Therefore, it’s more efficient to render the skybox last.
+        scene.skybox?.render(renderEncoder: renderEncoder, uniforms: scene.uniforms)
+        
         renderEncoder.endEncoding()
         guard let drawable = view.currentDrawable else {
             return

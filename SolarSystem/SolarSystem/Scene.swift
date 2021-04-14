@@ -23,6 +23,8 @@ class Scene {
     var fragmentUniforms = FragmentUniforms()
     let lighting = Lighting()
     
+    var skybox: Skybox?
+    
     let inputController = InputController()
     let physicsController = PhysicsController()
     
