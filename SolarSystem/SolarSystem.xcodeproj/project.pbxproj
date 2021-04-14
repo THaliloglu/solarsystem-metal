@@ -222,6 +222,7 @@
 		38999E8525927DDD00C265F7 /* Utility */ = {
 			isa = PBXGroup;
 			children = (
+				FD057A7A258F84DE00C67DEF /* Primitive.swift */,
 				3803C1E3260294A200FE5A63 /* DebugBoundingBox.metal */,
 				3803C1E2260294A200FE5A63 /* DebugBoundingBox.swift */,
 				38999E8625927DDD00C265F7 /* MathLibrary.swift */,
@@ -245,6 +246,39 @@
 				38D39D3525D85554001EACC8 /* earth */,
 			);
 			path = Models;
+			sourceTree = "<group>";
+		};
+		389DC3CF2627701D00C3E18C /* Nodes */ = {
+			isa = PBXGroup;
+			children = (
+				3899A0872597D0D900C265F7 /* Node.swift */,
+				3899A08C2597D15F00C265F7 /* Camera.swift */,
+				3899A0932597D1F400C265F7 /* Model.swift */,
+				3899A0982597D41400C265F7 /* Mesh.swift */,
+				3899A09D2597D45C00C265F7 /* Submesh.swift */,
+				388B128725C5741400B821C2 /* Renderable.swift */,
+				3899A0A22597D4D200C265F7 /* VertexDescriptor.swift */,
+				389DC3D62627705300C3E18C /* Animation Support */,
+			);
+			path = Nodes;
+			sourceTree = "<group>";
+		};
+		389DC3D62627705300C3E18C /* Animation Support */ = {
+			isa = PBXGroup;
+			children = (
+				388B129125C6C1E500B821C2 /* Animation.swift */,
+			);
+			path = "Animation Support";
+			sourceTree = "<group>";
+		};
+		389DC3D92627706E00C3E18C /* Metal Shaders */ = {
+			isa = PBXGroup;
+			children = (
+				38999E8B25927E5C00C265F7 /* Common.h */,
+				FD057A7D258F895200C67DEF /* Shaders.metal */,
+				38E7B5C425B61C6000D32001 /* PBR.metal */,
+			);
+			path = "Metal Shaders";
 			sourceTree = "<group>";
 		};
 		38D39D3525D85554001EACC8 /* earth */ = {
@@ -335,23 +369,13 @@
 			isa = PBXGroup;
 			children = (
 				FD057A5F258F7B6100C67DEF /* ViewController.swift */,
-				388B129125C6C1E500B821C2 /* Animation.swift */,
 				FD057A76258F7E0500C67DEF /* Renderer.swift */,
 				38D39D2125D7FDF4001EACC8 /* Scene.swift */,
 				38D39D2625D81568001EACC8 /* DemoScene.swift */,
-				FD057A7D258F895200C67DEF /* Shaders.metal */,
-				38E7B5C425B61C6000D32001 /* PBR.metal */,
-				FD057A7A258F84DE00C67DEF /* Primitive.swift */,
-				38999E8B25927E5C00C265F7 /* Common.h */,
-				3899A0872597D0D900C265F7 /* Node.swift */,
-				3899A08C2597D15F00C265F7 /* Camera.swift */,
 				388B128C25C578B300B821C2 /* Lighting.swift */,
-				3899A0932597D1F400C265F7 /* Model.swift */,
 				3809898B259F5CF800F311C5 /* Texturable.swift */,
-				388B128725C5741400B821C2 /* Renderable.swift */,
-				3899A0982597D41400C265F7 /* Mesh.swift */,
-				3899A09D2597D45C00C265F7 /* Submesh.swift */,
-				3899A0A22597D4D200C265F7 /* VertexDescriptor.swift */,
+				389DC3D92627706E00C3E18C /* Metal Shaders */,
+				389DC3CF2627701D00C3E18C /* Nodes */,
 				38040C6625B31B8200AED8C8 /* Textures.xcassets */,
 				3899A0A92597E3AA00C265F7 /* Models */,
 				38999E8525927DDD00C265F7 /* Utility */,
@@ -740,7 +764,7 @@
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
-				SWIFT_OBJC_BRIDGING_HEADER = SolarSystem/Common.h;
+				SWIFT_OBJC_BRIDGING_HEADER = "SolarSystem/Metal Shaders/Common.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 			};
 			name = Debug;
@@ -795,7 +819,7 @@
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;
 				SWIFT_COMPILATION_MODE = wholemodule;
-				SWIFT_OBJC_BRIDGING_HEADER = SolarSystem/Common.h;
+				SWIFT_OBJC_BRIDGING_HEADER = "SolarSystem/Metal Shaders/Common.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-O";
 				VALIDATE_PRODUCT = YES;
 			};

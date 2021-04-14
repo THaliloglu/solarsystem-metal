@@ -18,7 +18,9 @@ class Model: Node {
     
     let debugBoundingBox: DebugBoundingBox
     
-    init(name: String) {
+    init(name: String,
+         vertexFunctionName: String = "vertex_main",
+         fragmentFunctionName: String = "fragment_main") {
         guard
             let assetUrl = Bundle.main.url(forResource: name, withExtension: nil) else {
             fatalError("Model: \(name) not found")
@@ -42,7 +44,9 @@ class Model: Node {
         }
         
         meshes = zip(mdlMeshes, mtkMeshes).map {
-            Mesh(mdlMesh: $0.0, mtkMesh: $0.1)
+            Mesh(mdlMesh: $0.0, mtkMesh: $0.1,
+                 vertexFunctionName: vertexFunctionName,
+                 fragmentFunctionName: fragmentFunctionName)
         }
         
         samplerState = Model.buildSamplerState()

@@ -24,25 +24,37 @@ class Submesh {
     let pipelineState: MTLRenderPipelineState
     let pipelineStateAA: MTLRenderPipelineState
     
-    init(mdlSubmesh: MDLSubmesh, mtkSubmesh: MTKSubmesh) {
+    init(mdlSubmesh: MDLSubmesh,
+         mtkSubmesh: MTKSubmesh,
+         vertexFunctionName: String,
+         fragmentFunctionName: String) {
         self.mtkSubmesh = mtkSubmesh
         textures = Textures(material: mdlSubmesh.material)
-        pipelineState = Submesh.makePipelineState(textures: textures, withAntiAliasing: false)
-        pipelineStateAA = Submesh.makePipelineState(textures: textures, withAntiAliasing: true)
+        pipelineState = Submesh.makePipelineState(textures: textures,
+                                                  vertexFunctionName: vertexFunctionName,
+                                                  fragmentFunctionName: fragmentFunctionName,
+                                                  withAntiAliasing: false)
+        pipelineStateAA = Submesh.makePipelineState(textures: textures,
+                                                    vertexFunctionName: vertexFunctionName,
+                                                    fragmentFunctionName: fragmentFunctionName,
+                                                    withAntiAliasing: true)
         material = Material(material: mdlSubmesh.material)
     }
 }
 
 // Pipeline state
 private extension Submesh {
-    static func makePipelineState(textures: Textures, withAntiAliasing antialiasing: Bool) -> MTLRenderPipelineState {
+    static func makePipelineState(textures: Textures,
+                                  vertexFunctionName: String,
+                                  fragmentFunctionName: String,
+                                  withAntiAliasing antialiasing: Bool) -> MTLRenderPipelineState {
         let functionConstants = makeFunctionConstants(textures: textures)
         let library = Renderer.library
-        let vertexFunction = library?.makeFunction(name: "vertex_main")
+        let vertexFunction = library?.makeFunction(name: vertexFunctionName)
         
         let fragmentFunction: MTLFunction?
         do {
-            fragmentFunction = try library?.makeFunction(name: "fragment_main", constantValues: functionConstants)  
+            fragmentFunction = try library?.makeFunction(name: fragmentFunctionName, constantValues: functionConstants)  
         } catch {
             fatalError("No Metal function exists")
         }
