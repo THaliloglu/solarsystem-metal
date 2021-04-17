@@ -56,7 +56,8 @@ typedef enum {
     BufferIndexUniforms = 11,
     BufferIndexLights = 12,
     BufferIndexFragmentUniforms = 13,
-    BufferIndexMaterials = 14
+    BufferIndexMaterials = 14,
+    BufferIndexSkybox = 20
 } BufferIndices;
 
 typedef enum {

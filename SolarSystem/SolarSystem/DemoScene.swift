@@ -97,12 +97,14 @@ class DemoScene: Scene {
     let rocketStartPosition: float3 = [0, 0, -10]
     
     override func setupScene() {
-        skybox = Skybox(textureName: nil)
-        
         // Option Menu Values;
         // - time slider
         // - collisions cube on/off
         // - antialiasing value change
+        // - skybox procedural or cube texture
+        
+//        skybox = Skybox(textureName: nil) // procedural
+        skybox = Skybox(textureName: "skybox-stars")
         
         var spheres: [Node] = []
         

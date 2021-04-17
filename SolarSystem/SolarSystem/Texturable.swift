@@ -27,8 +27,8 @@ extension Texturable {
         else {
             do {
                 let texture = try textureLoader.newTexture(name: imageName,
-                                                            scaleFactor: 1.0,
-                                                            bundle: Bundle.main, options: nil)
+                                                           scaleFactor: 1.0,
+                                                           bundle: Bundle.main, options: nil)
                 print("loaded: \(imageName) from asset catalog")
                 return texture
             } catch let error {
@@ -53,6 +53,20 @@ extension Texturable {
         let texture = try? textureLoader.newTexture(texture: texture,
                                                     options: textureLoaderOptions)
         print("loaded texture from MDLTexture")
+        return texture
+    }
+    
+    static func loadCubeTexture(imageName: String) throws -> MTLTexture {
+        let textureLoader = MTKTextureLoader(device: Renderer.device)
+        if let texture = MDLTexture(cubeWithImagesNamed: [imageName]) {
+            let options: [MTKTextureLoader.Option: Any] =
+                [.origin: MTKTextureLoader.Origin.topLeft,
+                 .SRGB: false,
+                 .generateMipmaps: NSNumber(booleanLiteral: false)]
+            return try textureLoader.newTexture(texture: texture, options: options)
+        }
+        let texture = try textureLoader.newTexture(name: imageName, scaleFactor: 1.0,
+                                                   bundle: .main)
         return texture
     }
 }
