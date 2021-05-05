@@ -96,12 +96,22 @@ class DemoScene: Scene {
     let rocket = Model(name: "rocket.obj")
     let rocketStartPosition: float3 = [0, 0, -10]
     
+    var asteroidBeltMinDistance:Float {
+        earthDistance * 2.0
+    }
+    var asteroidBeltMaxDistance:Float {
+        earthDistance * 3.0
+    }
+    var instancingEnabled = true
+    let asteroidBeltInstanceCount = 100
+    
     override func setupScene() {
         // Option Menu Values;
         // - time slider
         // - collisions cube on/off
         // - antialiasing value change
         // - skybox procedural or cube texture
+        // - asteroid belt instance count
         
 //        skybox = Skybox(textureName: nil) // procedural
         skybox = Skybox(textureName: "skybox-stars")
@@ -177,6 +187,37 @@ class DemoScene: Scene {
         physicsController.dynamicBody = rocket
         for sphere in spheres {
             physicsController.addStaticBody(node: sphere)
+        }
+        
+        if instancingEnabled {
+            let tree = Model(name: "tree.obj", instanceCount: asteroidBeltInstanceCount)
+            add(node: tree)
+            
+            for i in 0..<asteroidBeltInstanceCount {
+                var transform = Transform()
+                let t:Float = 2 * .pi * .random(in: 0..<100)
+                let r:Float = .random(in: asteroidBeltMinDistance..<asteroidBeltMaxDistance)
+                transform.position.x = r * cos(t)
+                transform.position.z = r * sin(t)
+                
+                let rotationY: Float = .random(in: -.pi..<Float.pi)
+                transform.rotation = [0, rotationY, 0]
+                
+                tree.updateBuffer(instance: i, transform: transform)
+            }
+        } else {
+            for _ in 0..<asteroidBeltInstanceCount {
+                let tree = Model(name: "tree.obj")
+                add(node: tree)
+                
+                let t:Float = 2 * .pi * .random(in: 0..<100)
+                let r:Float = .random(in: asteroidBeltMinDistance..<asteroidBeltMaxDistance)
+                tree.position.x = r * cos(t)
+                tree.position.z = r * sin(t)
+
+                let rotationY: Float = .random(in: -.pi..<Float.pi)
+                tree.rotation = [0, rotationY, 0]
+            }
         }
     }
     

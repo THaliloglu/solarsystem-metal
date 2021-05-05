@@ -7,6 +7,24 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		3802EF672643189B0045D8EF /* Transform.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3802EF662643189B0045D8EF /* Transform.swift */; };
+		3802EF682643189B0045D8EF /* Transform.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3802EF662643189B0045D8EF /* Transform.swift */; };
+		3802EF75264319340045D8EF /* rock2.obj in Resources */ = {isa = PBXBuildFile; fileRef = 3802EF6C264319340045D8EF /* rock2.obj */; };
+		3802EF76264319340045D8EF /* rock2.obj in Resources */ = {isa = PBXBuildFile; fileRef = 3802EF6C264319340045D8EF /* rock2.obj */; };
+		3802EF77264319340045D8EF /* rock3.obj in Resources */ = {isa = PBXBuildFile; fileRef = 3802EF6D264319340045D8EF /* rock3.obj */; };
+		3802EF78264319340045D8EF /* rock3.obj in Resources */ = {isa = PBXBuildFile; fileRef = 3802EF6D264319340045D8EF /* rock3.obj */; };
+		3802EF79264319340045D8EF /* rock1.obj in Resources */ = {isa = PBXBuildFile; fileRef = 3802EF6E264319340045D8EF /* rock1.obj */; };
+		3802EF7A264319340045D8EF /* rock1.obj in Resources */ = {isa = PBXBuildFile; fileRef = 3802EF6E264319340045D8EF /* rock1.obj */; };
+		3802EF7B264319340045D8EF /* rock1.mtl in Resources */ = {isa = PBXBuildFile; fileRef = 3802EF6F264319340045D8EF /* rock1.mtl */; };
+		3802EF7C264319340045D8EF /* rock1.mtl in Resources */ = {isa = PBXBuildFile; fileRef = 3802EF6F264319340045D8EF /* rock1.mtl */; };
+		3802EF7D264319340045D8EF /* rock2.mtl in Resources */ = {isa = PBXBuildFile; fileRef = 3802EF70264319340045D8EF /* rock2.mtl */; };
+		3802EF7E264319340045D8EF /* rock2.mtl in Resources */ = {isa = PBXBuildFile; fileRef = 3802EF70264319340045D8EF /* rock2.mtl */; };
+		3802EF7F264319340045D8EF /* rock3.mtl in Resources */ = {isa = PBXBuildFile; fileRef = 3802EF71264319340045D8EF /* rock3.mtl */; };
+		3802EF80264319340045D8EF /* rock3.mtl in Resources */ = {isa = PBXBuildFile; fileRef = 3802EF71264319340045D8EF /* rock3.mtl */; };
+		3802EF81264319340045D8EF /* tree.mtl in Resources */ = {isa = PBXBuildFile; fileRef = 3802EF73264319340045D8EF /* tree.mtl */; };
+		3802EF82264319340045D8EF /* tree.mtl in Resources */ = {isa = PBXBuildFile; fileRef = 3802EF73264319340045D8EF /* tree.mtl */; };
+		3802EF83264319340045D8EF /* tree.obj in Resources */ = {isa = PBXBuildFile; fileRef = 3802EF74264319340045D8EF /* tree.obj */; };
+		3802EF84264319340045D8EF /* tree.obj in Resources */ = {isa = PBXBuildFile; fileRef = 3802EF74264319340045D8EF /* tree.obj */; };
 		3803C1DA2602876E00FE5A63 /* PhysicsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3803C1D92602876E00FE5A63 /* PhysicsController.swift */; };
 		3803C1DB2602876E00FE5A63 /* PhysicsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3803C1D92602876E00FE5A63 /* PhysicsController.swift */; };
 		3803C1E4260294A200FE5A63 /* DebugBoundingBox.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3803C1E2260294A200FE5A63 /* DebugBoundingBox.swift */; };
@@ -107,6 +125,15 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		3802EF662643189B0045D8EF /* Transform.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Transform.swift; sourceTree = "<group>"; };
+		3802EF6C264319340045D8EF /* rock2.obj */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = rock2.obj; sourceTree = "<group>"; };
+		3802EF6D264319340045D8EF /* rock3.obj */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = rock3.obj; sourceTree = "<group>"; };
+		3802EF6E264319340045D8EF /* rock1.obj */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = rock1.obj; sourceTree = "<group>"; };
+		3802EF6F264319340045D8EF /* rock1.mtl */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = rock1.mtl; sourceTree = "<group>"; };
+		3802EF70264319340045D8EF /* rock2.mtl */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = rock2.mtl; sourceTree = "<group>"; };
+		3802EF71264319340045D8EF /* rock3.mtl */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = rock3.mtl; sourceTree = "<group>"; };
+		3802EF73264319340045D8EF /* tree.mtl */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = tree.mtl; sourceTree = "<group>"; };
+		3802EF74264319340045D8EF /* tree.obj */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = tree.obj; sourceTree = "<group>"; };
 		3803C1D92602876E00FE5A63 /* PhysicsController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhysicsController.swift; sourceTree = "<group>"; };
 		3803C1E2260294A200FE5A63 /* DebugBoundingBox.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DebugBoundingBox.swift; sourceTree = "<group>"; };
 		3803C1E3260294A200FE5A63 /* DebugBoundingBox.metal */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.metal; path = DebugBoundingBox.metal; sourceTree = "<group>"; };
@@ -192,6 +219,28 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		3802EF6B264319340045D8EF /* Rocks */ = {
+			isa = PBXGroup;
+			children = (
+				3802EF6C264319340045D8EF /* rock2.obj */,
+				3802EF6D264319340045D8EF /* rock3.obj */,
+				3802EF6E264319340045D8EF /* rock1.obj */,
+				3802EF6F264319340045D8EF /* rock1.mtl */,
+				3802EF70264319340045D8EF /* rock2.mtl */,
+				3802EF71264319340045D8EF /* rock3.mtl */,
+			);
+			path = Rocks;
+			sourceTree = "<group>";
+		};
+		3802EF72264319340045D8EF /* Tree */ = {
+			isa = PBXGroup;
+			children = (
+				3802EF73264319340045D8EF /* tree.mtl */,
+				3802EF74264319340045D8EF /* tree.obj */,
+			);
+			path = Tree;
+			sourceTree = "<group>";
+		};
 		38999E4125927A2B00C265F7 /* SolarSystem-iOS */ = {
 			isa = PBXGroup;
 			children = (
@@ -243,6 +292,8 @@
 		3899A0A92597E3AA00C265F7 /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				3802EF6B264319340045D8EF /* Rocks */,
+				3802EF72264319340045D8EF /* Tree */,
 				38D3A1EF25F00681001EACC8 /* rocket */,
 				38D39DFB25DD9E98001EACC8 /* mars */,
 				38D39DF025DD9CC0001EACC8 /* venus */,
@@ -382,6 +433,7 @@
 				388B128C25C578B300B821C2 /* Lighting.swift */,
 				3809898B259F5CF800F311C5 /* Texturable.swift */,
 				389DC3EE2627774900C3E18C /* Skybox.swift */,
+				3802EF662643189B0045D8EF /* Transform.swift */,
 				389DC3D92627706E00C3E18C /* Metal Shaders */,
 				389DC3CF2627701D00C3E18C /* Nodes */,
 				38040C6625B31B8200AED8C8 /* Textures.xcassets */,
@@ -469,19 +521,27 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3802EF77264319340045D8EF /* rock3.obj in Resources */,
 				38D39D3A25D85FD9001EACC8 /* earth.mtl in Resources */,
 				38999E4F25927A2C00C265F7 /* LaunchScreen.storyboard in Resources */,
 				38D39DD225DD92E3001EACC8 /* sun.mtl in Resources */,
 				38D39DDF25DD99BD001EACC8 /* mercury.obj in Resources */,
 				38D39DEA25DD9CBC001EACC8 /* venus.obj in Resources */,
+				3802EF7F264319340045D8EF /* rock3.mtl in Resources */,
 				38D39DEC25DD9CBC001EACC8 /* venus.mtl in Resources */,
 				38D39DF725DD9E95001EACC8 /* mars.mtl in Resources */,
 				38D3A1E925F0065C001EACC8 /* rocket.mtl in Resources */,
 				38D39DF525DD9E95001EACC8 /* mars.obj in Resources */,
+				3802EF83264319340045D8EF /* tree.obj in Resources */,
+				3802EF81264319340045D8EF /* tree.mtl in Resources */,
+				3802EF7D264319340045D8EF /* rock2.mtl in Resources */,
+				3802EF7B264319340045D8EF /* rock1.mtl in Resources */,
+				3802EF75264319340045D8EF /* rock2.obj in Resources */,
 				38D39D5A25D870E6001EACC8 /* moon.obj in Resources */,
 				38D39DD025DD92E3001EACC8 /* sun.obj in Resources */,
 				38999E4C25927A2C00C265F7 /* Assets.xcassets in Resources */,
 				38999E4A25927A2B00C265F7 /* Main.storyboard in Resources */,
+				3802EF79264319340045D8EF /* rock1.obj in Resources */,
 				38D3A1EB25F0065C001EACC8 /* rocket.obj in Resources */,
 				38040C6725B31B8200AED8C8 /* Textures.xcassets in Resources */,
 				38D39DDD25DD99BD001EACC8 /* mercury.mtl in Resources */,
@@ -495,17 +555,25 @@
 			buildActionMask = 2147483647;
 			files = (
 				38D39DED25DD9CBC001EACC8 /* venus.mtl in Resources */,
+				3802EF84264319340045D8EF /* tree.obj in Resources */,
 				38D39D5925D870E6001EACC8 /* moon.mtl in Resources */,
 				38D39DDE25DD99BD001EACC8 /* mercury.mtl in Resources */,
+				3802EF82264319340045D8EF /* tree.mtl in Resources */,
+				3802EF76264319340045D8EF /* rock2.obj in Resources */,
 				38D39D3D25D85FD9001EACC8 /* earth.obj in Resources */,
 				38D39DE025DD99BD001EACC8 /* mercury.obj in Resources */,
 				38999E6125927A4D00C265F7 /* Assets.xcassets in Resources */,
 				38D39DF825DD9E95001EACC8 /* mars.mtl in Resources */,
+				3802EF80264319340045D8EF /* rock3.mtl in Resources */,
 				38D39DD325DD92E3001EACC8 /* sun.mtl in Resources */,
+				3802EF7E264319340045D8EF /* rock2.mtl in Resources */,
+				3802EF78264319340045D8EF /* rock3.obj in Resources */,
 				38D39D3B25D85FD9001EACC8 /* earth.mtl in Resources */,
 				38D39DF625DD9E95001EACC8 /* mars.obj in Resources */,
 				38D3A1EC25F0065C001EACC8 /* rocket.obj in Resources */,
 				38D39DEB25DD9CBC001EACC8 /* venus.obj in Resources */,
+				3802EF7A264319340045D8EF /* rock1.obj in Resources */,
+				3802EF7C264319340045D8EF /* rock1.mtl in Resources */,
 				38040C6825B31B8300AED8C8 /* Textures.xcassets in Resources */,
 				38D39D5B25D870E6001EACC8 /* moon.obj in Resources */,
 				38D3A1EA25F0065C001EACC8 /* rocket.mtl in Resources */,
@@ -543,6 +611,7 @@
 				38999E7425927CFC00C265F7 /* Shaders.metal in Sources */,
 				3899A0942597D1F400C265F7 /* Model.swift in Sources */,
 				38D39D1625D7FA6A001EACC8 /* InputController.swift in Sources */,
+				3802EF672643189B0045D8EF /* Transform.swift in Sources */,
 				3899A09E2597D45C00C265F7 /* Submesh.swift in Sources */,
 				38999E4325927A2B00C265F7 /* AppDelegate.swift in Sources */,
 				3803C1E6260294A200FE5A63 /* DebugBoundingBox.metal in Sources */,
@@ -583,6 +652,7 @@
 				38999E5D25927A4C00C265F7 /* AppDelegate.swift in Sources */,
 				388B129A25C6CABA00B821C2 /* SphereAnimations.swift in Sources */,
 				3809898D259F5CF800F311C5 /* Texturable.swift in Sources */,
+				3802EF682643189B0045D8EF /* Transform.swift in Sources */,
 				38999E7A25927CFC00C265F7 /* Primitive.swift in Sources */,
 				38999E8825927DDD00C265F7 /* MathLibrary.swift in Sources */,
 				3899A0BF259C95F900C265F7 /* DebugLights.swift in Sources */,

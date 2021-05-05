@@ -18,9 +18,14 @@ class Model: Node {
     
     let debugBoundingBox: DebugBoundingBox
     
+    private var transforms: [Transform]
+    let instanceCount: Int
+    var instanceBuffer: MTLBuffer
+    
     init(name: String,
          vertexFunctionName: String = "vertex_main",
-         fragmentFunctionName: String = "fragment_main") {
+         fragmentFunctionName: String = "fragment_main",
+         instanceCount: Int = 1) {
         guard
             let assetUrl = Bundle.main.url(forResource: name, withExtension: nil) else {
             fatalError("Model: \(name) not found")
@@ -51,9 +56,44 @@ class Model: Node {
         
         samplerState = Model.buildSamplerState()
         debugBoundingBox = DebugBoundingBox(boundingBox: asset.boundingBox)
+        
+        self.instanceCount = instanceCount
+        transforms = Model.buildTransforms(instanceCount: instanceCount)
+        instanceBuffer = Model.buildInstanceBuffer(transforms: transforms)
+        
         super.init()
         self.name = name
         self.boundingBox = asset.boundingBox
+    }
+    
+    static func buildTransforms(instanceCount: Int) -> [Transform] {
+        return [Transform](repeatElement(Transform(), count: instanceCount))
+    }
+    
+    static func buildInstanceBuffer(transforms: [Transform]) -> MTLBuffer {
+        let instances = transforms.map {
+            Instances(modelMatrix: $0.modelMatrix,
+                      normalMatrix: float3x3(normalFrom4x4: $0.modelMatrix))
+        }
+        
+        guard let instanceBuffer =
+                Renderer.device.makeBuffer(bytes: instances,
+                                           length: MemoryLayout<Instances>.stride * instances.count)
+        else {
+            fatalError("Failed to create instance buffer")
+        }
+        return instanceBuffer
+    }
+    
+    func updateBuffer(instance: Int, transform: Transform) {
+        transforms[instance] = transform
+        
+        var pointer = instanceBuffer.contents().bindMemory(to: Instances.self,
+                                                           capacity: transforms.count)
+        
+        pointer = pointer.advanced(by: instance)
+        pointer.pointee.modelMatrix = transforms[instance].modelMatrix
+        pointer.pointee.normalMatrix = transforms[instance].normalMatrix
     }
     
     private static func buildSamplerState() -> MTLSamplerState? {
@@ -78,13 +118,16 @@ extension Model: Renderable {
                                             indexCount: mtkSubmesh.indexCount,
                                             indexType: mtkSubmesh.indexType,
                                             indexBuffer: mtkSubmesh.indexBuffer.buffer,
-                                            indexBufferOffset: mtkSubmesh.indexBuffer.offset)
+                                            indexBufferOffset: mtkSubmesh.indexBuffer.offset,
+                                            instanceCount: instanceCount)
     }
     
     func render(renderEncoder: MTLRenderCommandEncoder,
                 uniforms vertex: Uniforms,
                 fragmentUniforms fragment: FragmentUniforms) {
         var uniforms = vertex
+        
+        renderEncoder.setVertexBuffer(instanceBuffer, offset: 0, index: Int(BufferIndexInstances.rawValue))
         
         var fragmentUniforms = fragment
         fragmentUniforms.tiling = tiling

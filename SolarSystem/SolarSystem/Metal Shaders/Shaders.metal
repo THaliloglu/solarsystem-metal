@@ -34,16 +34,19 @@ struct VertexOut {
 };
 
 vertex VertexOut vertex_main(const VertexIn vertexIn [[stage_in]],
-                             constant Uniforms &uniforms [[buffer(BufferIndexUniforms)]])
+                             constant Uniforms &uniforms [[buffer(BufferIndexUniforms)]],
+                             constant Instances *instances [[buffer(BufferIndexInstances)]],
+                             uint instanceID [[instance_id]])
 {
+    Instances instance = instances[instanceID];
     VertexOut out {
         .position = uniforms.projectionMatrix * uniforms.viewMatrix
-        * uniforms.modelMatrix * vertexIn.position,
-        .worldPosition = (uniforms.modelMatrix * vertexIn.position).xyz,
-        .worldNormal = uniforms.normalMatrix * vertexIn.normal,
+        * uniforms.modelMatrix * instance.modelMatrix * vertexIn.position,
+        .worldPosition = (uniforms.modelMatrix * instance.modelMatrix * vertexIn.position).xyz,
+        .worldNormal = uniforms.normalMatrix * instance.normalMatrix * vertexIn.normal,
         .uv = float2(1-vertexIn.uv.x, vertexIn.uv.y), // for blender objects
-        .worldTangent = uniforms.normalMatrix * vertexIn.tangent,
-        .worldBitangent = uniforms.normalMatrix * vertexIn.bitangent,
+        .worldTangent = uniforms.normalMatrix * instance.normalMatrix * vertexIn.tangent,
+        .worldBitangent = uniforms.normalMatrix * instance.normalMatrix * vertexIn.bitangent,
     };
     return out;
 }

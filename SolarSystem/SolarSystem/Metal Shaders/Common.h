@@ -57,6 +57,7 @@ typedef enum {
     BufferIndexLights = 12,
     BufferIndexFragmentUniforms = 13,
     BufferIndexMaterials = 14,
+    BufferIndexInstances = 15,
     BufferIndexSkybox = 20
 } BufferIndices;
 
@@ -76,5 +77,10 @@ typedef struct {
     vector_float3 ambientOcclusion;
     float shininess;
 } Material;
+
+struct Instances {
+    matrix_float4x4 modelMatrix;
+    matrix_float3x3 normalMatrix;
+};
 
 #endif /* Common_h */
