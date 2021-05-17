@@ -219,6 +219,27 @@ class DemoScene: Scene {
                 tree.rotation = [0, rotationY, 0]
             }
         }
+        
+        
+        let instanceCount = 25
+        
+        let textureNames = ["rock1-color", "rock2-color", "rock3-color"]
+        let morphTargetNames = ["rock1", "rock2", "rock3"]
+        let rocks = Nature(name: "Rocks", instanceCount: instanceCount,
+                           textureNames: textureNames,
+                           morphTargetNames: morphTargetNames)
+        add(node: rocks)
+        for i in 0..<instanceCount {
+            var transform = Transform()
+            transform.position.x = .random(in: -10..<10)
+            transform.position.z = .random(in: 0..<5)
+            transform.rotation.y = .random(in: -Float.pi..<Float.pi)
+            let textureID = Int.random(in: 0..<textureNames.count)
+            let morphTargetID = Int.random(in: 0..<morphTargetNames.count)
+            rocks.updateBuffer(instance: i, transform: transform, textureID: textureID, morphTargetID: morphTargetID)
+        }
+        
+        
     }
     
     override func updateScene(deltaTime: Float) {

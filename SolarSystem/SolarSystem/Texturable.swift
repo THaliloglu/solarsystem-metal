@@ -69,4 +69,44 @@ extension Texturable {
                                                    bundle: .main)
         return texture
     }
+    
+    static func loadTextureArray(textureNames: [String]) -> MTLTexture? {
+        var textures: [MTLTexture] = []
+        for textureName in textureNames {
+            do {
+                if let texture = try Nature.loadTexture(imageName: textureName) {
+                    textures.append(texture)
+                }
+            }
+            catch {
+                fatalError(error.localizedDescription)
+            }
+        }
+        guard textures.count > 0 else { return nil }
+        
+        let descriptor = MTLTextureDescriptor()
+        descriptor.textureType = .type2DArray
+        descriptor.pixelFormat = textures[0].pixelFormat
+        descriptor.width = textures[0].width
+        descriptor.height = textures[0].height
+        descriptor.arrayLength = textures.count
+        let arrayTexture = Renderer.device.makeTexture(descriptor: descriptor)!
+        
+        let commandBuffer = Renderer.commandQueue.makeCommandBuffer()!
+        let blitEncoder = commandBuffer.makeBlitCommandEncoder()!
+        let origin = MTLOrigin(x: 0, y: 0, z: 0)
+        let size = MTLSize(width: arrayTexture.width,
+                           height: arrayTexture.height, depth: 1)
+        for (index, texture) in textures.enumerated() {
+            blitEncoder.copy(from: texture,
+                             sourceSlice: 0, sourceLevel: 0,
+                             sourceOrigin: origin, sourceSize: size,
+                             to: arrayTexture, destinationSlice: index,
+                             destinationLevel: 0,
+                             destinationOrigin: origin)
+        }
+        blitEncoder.endEncoding()
+        commandBuffer.commit()
+        return arrayTexture
+    }
 }

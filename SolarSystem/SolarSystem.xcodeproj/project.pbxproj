@@ -25,6 +25,10 @@
 		3802EF82264319340045D8EF /* tree.mtl in Resources */ = {isa = PBXBuildFile; fileRef = 3802EF73264319340045D8EF /* tree.mtl */; };
 		3802EF83264319340045D8EF /* tree.obj in Resources */ = {isa = PBXBuildFile; fileRef = 3802EF74264319340045D8EF /* tree.obj */; };
 		3802EF84264319340045D8EF /* tree.obj in Resources */ = {isa = PBXBuildFile; fileRef = 3802EF74264319340045D8EF /* tree.obj */; };
+		3802F0B22649ADBD0045D8EF /* Nature.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3802F0B12649ADBD0045D8EF /* Nature.swift */; };
+		3802F0B32649ADBD0045D8EF /* Nature.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3802F0B12649ADBD0045D8EF /* Nature.swift */; };
+		3802F0B72649AE670045D8EF /* Nature.metal in Sources */ = {isa = PBXBuildFile; fileRef = 3802F0B62649AE670045D8EF /* Nature.metal */; };
+		3802F0B82649AE670045D8EF /* Nature.metal in Sources */ = {isa = PBXBuildFile; fileRef = 3802F0B62649AE670045D8EF /* Nature.metal */; };
 		3803C1DA2602876E00FE5A63 /* PhysicsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3803C1D92602876E00FE5A63 /* PhysicsController.swift */; };
 		3803C1DB2602876E00FE5A63 /* PhysicsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3803C1D92602876E00FE5A63 /* PhysicsController.swift */; };
 		3803C1E4260294A200FE5A63 /* DebugBoundingBox.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3803C1E2260294A200FE5A63 /* DebugBoundingBox.swift */; };
@@ -134,6 +138,8 @@
 		3802EF71264319340045D8EF /* rock3.mtl */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = rock3.mtl; sourceTree = "<group>"; };
 		3802EF73264319340045D8EF /* tree.mtl */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = tree.mtl; sourceTree = "<group>"; };
 		3802EF74264319340045D8EF /* tree.obj */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = tree.obj; sourceTree = "<group>"; };
+		3802F0B12649ADBD0045D8EF /* Nature.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Nature.swift; sourceTree = "<group>"; };
+		3802F0B62649AE670045D8EF /* Nature.metal */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.metal; path = Nature.metal; sourceTree = "<group>"; };
 		3803C1D92602876E00FE5A63 /* PhysicsController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhysicsController.swift; sourceTree = "<group>"; };
 		3803C1E2260294A200FE5A63 /* DebugBoundingBox.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DebugBoundingBox.swift; sourceTree = "<group>"; };
 		3803C1E3260294A200FE5A63 /* DebugBoundingBox.metal */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.metal; path = DebugBoundingBox.metal; sourceTree = "<group>"; };
@@ -335,6 +341,7 @@
 				FD057A7D258F895200C67DEF /* Shaders.metal */,
 				38E7B5C425B61C6000D32001 /* PBR.metal */,
 				389DC3F5262785D900C3E18C /* Skybox.metal */,
+				3802F0B62649AE670045D8EF /* Nature.metal */,
 			);
 			path = "Metal Shaders";
 			sourceTree = "<group>";
@@ -433,6 +440,7 @@
 				388B128C25C578B300B821C2 /* Lighting.swift */,
 				3809898B259F5CF800F311C5 /* Texturable.swift */,
 				389DC3EE2627774900C3E18C /* Skybox.swift */,
+				3802F0B12649ADBD0045D8EF /* Nature.swift */,
 				3802EF662643189B0045D8EF /* Transform.swift */,
 				389DC3D92627706E00C3E18C /* Metal Shaders */,
 				389DC3CF2627701D00C3E18C /* Nodes */,
@@ -597,8 +605,10 @@
 				38D39D2225D7FDF4001EACC8 /* Scene.swift in Sources */,
 				3803C1E4260294A200FE5A63 /* DebugBoundingBox.swift in Sources */,
 				388B128825C5741400B821C2 /* Renderable.swift in Sources */,
+				3802F0B72649AE670045D8EF /* Nature.metal in Sources */,
 				3899A0C3259C961400C265F7 /* DebugLights.metal in Sources */,
 				3899A0BE259C95F900C265F7 /* DebugLights.swift in Sources */,
+				3802F0B22649ADBD0045D8EF /* Nature.swift in Sources */,
 				388B129925C6CABA00B821C2 /* SphereAnimations.swift in Sources */,
 				38999E7525927CFC00C265F7 /* Renderer.swift in Sources */,
 				3899A0A32597D4D200C265F7 /* VertexDescriptor.swift in Sources */,
@@ -634,6 +644,7 @@
 				3899A0B7259A51D200C265F7 /* ViewControllerExtension.swift in Sources */,
 				3899A09F2597D45C00C265F7 /* Submesh.swift in Sources */,
 				388B128925C5741400B821C2 /* Renderable.swift in Sources */,
+				3802F0B82649AE670045D8EF /* Nature.metal in Sources */,
 				389DC3F7262785D900C3E18C /* Skybox.metal in Sources */,
 				3803C1E5260294A200FE5A63 /* DebugBoundingBox.swift in Sources */,
 				3899A0952597D1F400C265F7 /* Model.swift in Sources */,
@@ -651,6 +662,7 @@
 				38D39D2825D81568001EACC8 /* DemoScene.swift in Sources */,
 				38999E5D25927A4C00C265F7 /* AppDelegate.swift in Sources */,
 				388B129A25C6CABA00B821C2 /* SphereAnimations.swift in Sources */,
+				3802F0B32649ADBD0045D8EF /* Nature.swift in Sources */,
 				3809898D259F5CF800F311C5 /* Texturable.swift in Sources */,
 				3802EF682643189B0045D8EF /* Transform.swift in Sources */,
 				38999E7A25927CFC00C265F7 /* Primitive.swift in Sources */,
