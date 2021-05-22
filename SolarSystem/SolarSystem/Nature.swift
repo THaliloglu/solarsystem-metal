@@ -146,6 +146,31 @@ class Nature: Node {
         pointer = pointer.advanced(by: instance)
         pointer.pointee.textureID = UInt32(textureID)
         pointer.pointee.morphTargetID = UInt32(morphTargetID)
+        pointer.pointee.position = transform.position
+        pointer.pointee.scale = transform.scale
+        pointer.pointee.modelMatrix = transform.modelMatrix
+        pointer.pointee.normalMatrix = transform.normalMatrix
+    }
+    
+    func updateBufferPositions(instance: Int, currentTime: Float, orbitalPeriod: Float){
+        var pointer =
+            instanceBuffer.contents().bindMemory(to: NatureInstance.self,
+                                                 capacity: instanceCount)
+        pointer = pointer.advanced(by: instance)
+        
+        var transform = Transform()
+        let currentPosition = pointer.pointee.position
+        let currentScale = pointer.pointee.scale
+        let startAngle = atan2(currentPosition.x, currentPosition.z) * 180 / .pi
+        let distance = hypotf(currentPosition.x, currentPosition.z)
+        
+        transform.position = [sin((startAngle + currentTime) * orbitalPeriod) * distance,
+                              currentPosition.y,
+                              -cos((startAngle + currentTime) * orbitalPeriod) * distance]
+        transform.scale = currentScale
+        
+        pointer.pointee.position = transform.position
+        pointer.pointee.scale = transform.scale
         pointer.pointee.modelMatrix = transform.modelMatrix
         pointer.pointee.normalMatrix = transform.normalMatrix
     }

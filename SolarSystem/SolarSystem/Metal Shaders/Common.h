@@ -86,6 +86,8 @@ struct Instances {
 struct NatureInstance {
     uint textureID;
     uint morphTargetID;
+    vector_float3 position;
+    vector_float3 scale;
     matrix_float4x4 modelMatrix;
     matrix_float3x3 normalMatrix;
 };

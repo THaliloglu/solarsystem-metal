@@ -100,10 +100,12 @@ class DemoScene: Scene {
         earthDistance * 2.0
     }
     var asteroidBeltMaxDistance:Float {
-        earthDistance * 3.0
+        earthDistance * 2.75
     }
     var instancingEnabled = true
-    let asteroidBeltInstanceCount = 100
+    let asteroidBeltInstanceCount = 1000
+    
+    var rocks:Nature?
     
     override func setupScene() {
         // Option Menu Values;
@@ -190,56 +192,40 @@ class DemoScene: Scene {
         }
         
         if instancingEnabled {
-            let tree = Model(name: "tree.obj", instanceCount: asteroidBeltInstanceCount)
-            add(node: tree)
-            
+            let textureNames = ["rock1-color", "rock2-color", "rock3-color"]
+            let morphTargetNames = ["rock1", "rock2", "rock3"]
+            rocks = Nature(name: "Rocks", instanceCount: asteroidBeltInstanceCount,
+                               textureNames: textureNames,
+                               morphTargetNames: morphTargetNames)
+            add(node: rocks!)
             for i in 0..<asteroidBeltInstanceCount {
+                
                 var transform = Transform()
                 let t:Float = 2 * .pi * .random(in: 0..<100)
                 let r:Float = .random(in: asteroidBeltMinDistance..<asteroidBeltMaxDistance)
                 transform.position.x = r * cos(t)
                 transform.position.z = r * sin(t)
+                transform.scale = [earth.scale.x * 0.1, earth.scale.y * 0.1, earth.scale.z * 0.1]
                 
-                let rotationY: Float = .random(in: -.pi..<Float.pi)
-                transform.rotation = [0, rotationY, 0]
-                
-                tree.updateBuffer(instance: i, transform: transform)
+                let textureID = Int.random(in: 0..<textureNames.count)
+                let morphTargetID = Int.random(in: 0..<morphTargetNames.count)
+                rocks!.updateBuffer(instance: i, transform: transform, textureID: textureID, morphTargetID: morphTargetID)
             }
         } else {
             for _ in 0..<asteroidBeltInstanceCount {
-                let tree = Model(name: "tree.obj")
-                add(node: tree)
+                let rock = Model(name: "rock1.obj")
+                add(node: rock)
                 
                 let t:Float = 2 * .pi * .random(in: 0..<100)
                 let r:Float = .random(in: asteroidBeltMinDistance..<asteroidBeltMaxDistance)
-                tree.position.x = r * cos(t)
-                tree.position.z = r * sin(t)
+                rock.position.x = r * cos(t)
+                rock.position.z = r * sin(t)
+                rock.scale = [earth.scale.x * 0.1, earth.scale.y * 0.1, earth.scale.z * 0.1]
 
                 let rotationY: Float = .random(in: -.pi..<Float.pi)
-                tree.rotation = [0, rotationY, 0]
+                rock.rotation = [0, rotationY, 0]
             }
         }
-        
-        
-        let instanceCount = 25
-        
-        let textureNames = ["rock1-color", "rock2-color", "rock3-color"]
-        let morphTargetNames = ["rock1", "rock2", "rock3"]
-        let rocks = Nature(name: "Rocks", instanceCount: instanceCount,
-                           textureNames: textureNames,
-                           morphTargetNames: morphTargetNames)
-        add(node: rocks)
-        for i in 0..<instanceCount {
-            var transform = Transform()
-            transform.position.x = .random(in: -10..<10)
-            transform.position.z = .random(in: 0..<5)
-            transform.rotation.y = .random(in: -Float.pi..<Float.pi)
-            let textureID = Int.random(in: 0..<textureNames.count)
-            let morphTargetID = Int.random(in: 0..<morphTargetNames.count)
-            rocks.updateBuffer(instance: i, transform: transform, textureID: textureID, morphTargetID: morphTargetID)
-        }
-        
-        
     }
     
     override func updateScene(deltaTime: Float) {
@@ -269,6 +255,11 @@ class DemoScene: Scene {
         mars.position = [sin((marsStartAngle + mars.currentTime) * marsOrbitalPeriod) * marsDistance,
                          mars.position.y,
                          -cos((marsStartAngle + mars.currentTime) * marsOrbitalPeriod) * marsDistance]
+        
+        // Commented out for performance concerns, needs to figuring out a way using shaders
+//        for i in 0..<asteroidBeltInstanceCount {
+//            rocks?.updateBufferPositions(instance: i, currentTime: earth.currentTime, orbitalPeriod: earthOrbitalPeriod)
+//        }
     }
     
     override func updatePlayer(deltaTime: Float) {
