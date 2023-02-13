@@ -7,6 +7,62 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		38008D30299AC8F500A8AE2F /* SolarSystem_multiplatformApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38008D2F299AC8F500A8AE2F /* SolarSystem_multiplatformApp.swift */; };
+		38008D32299AC8F500A8AE2F /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38008D31299AC8F500A8AE2F /* ContentView.swift */; };
+		38008D34299AC8F700A8AE2F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 38008D33299AC8F700A8AE2F /* Assets.xcassets */; };
+		38008D38299AC8F700A8AE2F /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 38008D37299AC8F700A8AE2F /* Preview Assets.xcassets */; };
+		38008D3C299ACBB500A8AE2F /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD057A5F258F7B6100C67DEF /* ViewController.swift */; };
+		38008D3D299ACBB800A8AE2F /* Renderer.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD057A76258F7E0500C67DEF /* Renderer.swift */; };
+		38008D3E299ACBBC00A8AE2F /* Scene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38D39D2125D7FDF4001EACC8 /* Scene.swift */; };
+		38008D3F299ACBBF00A8AE2F /* DemoScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38D39D2625D81568001EACC8 /* DemoScene.swift */; };
+		38008D40299ACBC200A8AE2F /* Lighting.swift in Sources */ = {isa = PBXBuildFile; fileRef = 388B128C25C578B300B821C2 /* Lighting.swift */; };
+		38008D41299ACBC500A8AE2F /* Texturable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3809898B259F5CF800F311C5 /* Texturable.swift */; };
+		38008D42299ACBC800A8AE2F /* Skybox.swift in Sources */ = {isa = PBXBuildFile; fileRef = 389DC3EE2627774900C3E18C /* Skybox.swift */; };
+		38008D43299ACBCB00A8AE2F /* Nature.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3802F0B12649ADBD0045D8EF /* Nature.swift */; };
+		38008D44299ACBCE00A8AE2F /* Transform.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3802EF662643189B0045D8EF /* Transform.swift */; };
+		38008D45299ACBD300A8AE2F /* Shaders.metal in Sources */ = {isa = PBXBuildFile; fileRef = FD057A7D258F895200C67DEF /* Shaders.metal */; };
+		38008D46299ACBD700A8AE2F /* PBR.metal in Sources */ = {isa = PBXBuildFile; fileRef = 38E7B5C425B61C6000D32001 /* PBR.metal */; };
+		38008D47299ACBDA00A8AE2F /* Skybox.metal in Sources */ = {isa = PBXBuildFile; fileRef = 389DC3F5262785D900C3E18C /* Skybox.metal */; };
+		38008D48299ACBDD00A8AE2F /* Nature.metal in Sources */ = {isa = PBXBuildFile; fileRef = 3802F0B62649AE670045D8EF /* Nature.metal */; };
+		38008D49299ACBE200A8AE2F /* Node.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3899A0872597D0D900C265F7 /* Node.swift */; };
+		38008D4A299ACBE400A8AE2F /* Camera.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3899A08C2597D15F00C265F7 /* Camera.swift */; };
+		38008D4B299ACBE700A8AE2F /* Model.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3899A0932597D1F400C265F7 /* Model.swift */; };
+		38008D4C299ACBEA00A8AE2F /* Mesh.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3899A0982597D41400C265F7 /* Mesh.swift */; };
+		38008D4D299ACBED00A8AE2F /* Submesh.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3899A09D2597D45C00C265F7 /* Submesh.swift */; };
+		38008D4E299ACBF000A8AE2F /* Renderable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 388B128725C5741400B821C2 /* Renderable.swift */; };
+		38008D4F299ACBF300A8AE2F /* VertexDescriptor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3899A0A22597D4D200C265F7 /* VertexDescriptor.swift */; };
+		38008D50299ACBF700A8AE2F /* Animation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 388B129125C6C1E500B821C2 /* Animation.swift */; };
+		38008D51299ACBFA00A8AE2F /* Textures.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 38040C6625B31B8200AED8C8 /* Textures.xcassets */; };
+		38008D52299ACC0D00A8AE2F /* rock3.obj in Resources */ = {isa = PBXBuildFile; fileRef = 3802EF6D264319340045D8EF /* rock3.obj */; };
+		38008D53299ACC0D00A8AE2F /* rock3.mtl in Resources */ = {isa = PBXBuildFile; fileRef = 3802EF71264319340045D8EF /* rock3.mtl */; };
+		38008D54299ACC0D00A8AE2F /* rock1.obj in Resources */ = {isa = PBXBuildFile; fileRef = 3802EF6E264319340045D8EF /* rock1.obj */; };
+		38008D55299ACC0D00A8AE2F /* rock1.mtl in Resources */ = {isa = PBXBuildFile; fileRef = 3802EF6F264319340045D8EF /* rock1.mtl */; };
+		38008D56299ACC0D00A8AE2F /* rock2.obj in Resources */ = {isa = PBXBuildFile; fileRef = 3802EF6C264319340045D8EF /* rock2.obj */; };
+		38008D57299ACC0D00A8AE2F /* rock2.mtl in Resources */ = {isa = PBXBuildFile; fileRef = 3802EF70264319340045D8EF /* rock2.mtl */; };
+		38008D58299ACC1C00A8AE2F /* tree.mtl in Resources */ = {isa = PBXBuildFile; fileRef = 3802EF73264319340045D8EF /* tree.mtl */; };
+		38008D59299ACC1C00A8AE2F /* tree.obj in Resources */ = {isa = PBXBuildFile; fileRef = 3802EF74264319340045D8EF /* tree.obj */; };
+		38008D5A299ACC2100A8AE2F /* rocket.obj in Resources */ = {isa = PBXBuildFile; fileRef = 38D3A1E825F0065A001EACC8 /* rocket.obj */; };
+		38008D5B299ACC2100A8AE2F /* rocket.mtl in Resources */ = {isa = PBXBuildFile; fileRef = 38D3A1E725F0065A001EACC8 /* rocket.mtl */; };
+		38008D5C299ACC2600A8AE2F /* mars.mtl in Resources */ = {isa = PBXBuildFile; fileRef = 38D39DF425DD9E95001EACC8 /* mars.mtl */; };
+		38008D5D299ACC2600A8AE2F /* mars.obj in Resources */ = {isa = PBXBuildFile; fileRef = 38D39DF325DD9E95001EACC8 /* mars.obj */; };
+		38008D5E299ACC2A00A8AE2F /* venus.mtl in Resources */ = {isa = PBXBuildFile; fileRef = 38D39DE925DD9CBC001EACC8 /* venus.mtl */; };
+		38008D5F299ACC2A00A8AE2F /* venus.obj in Resources */ = {isa = PBXBuildFile; fileRef = 38D39DE825DD9CBC001EACC8 /* venus.obj */; };
+		38008D60299ACC3000A8AE2F /* mercury.mtl in Resources */ = {isa = PBXBuildFile; fileRef = 38D39DDB25DD99BD001EACC8 /* mercury.mtl */; };
+		38008D61299ACC3000A8AE2F /* mercury.obj in Resources */ = {isa = PBXBuildFile; fileRef = 38D39DDC25DD99BD001EACC8 /* mercury.obj */; };
+		38008D62299ACC3500A8AE2F /* sun.mtl in Resources */ = {isa = PBXBuildFile; fileRef = 38D39DCF25DD92E3001EACC8 /* sun.mtl */; };
+		38008D63299ACC3500A8AE2F /* sun.obj in Resources */ = {isa = PBXBuildFile; fileRef = 38D39DCE25DD92E2001EACC8 /* sun.obj */; };
+		38008D64299ACC3B00A8AE2F /* moon.obj in Resources */ = {isa = PBXBuildFile; fileRef = 38D39D5725D870E6001EACC8 /* moon.obj */; };
+		38008D65299ACC3B00A8AE2F /* moon.mtl in Resources */ = {isa = PBXBuildFile; fileRef = 38D39D5625D870E6001EACC8 /* moon.mtl */; };
+		38008D66299ACC3F00A8AE2F /* earth.mtl in Resources */ = {isa = PBXBuildFile; fileRef = 38D39D3825D85FD9001EACC8 /* earth.mtl */; };
+		38008D67299ACC3F00A8AE2F /* earth.obj in Resources */ = {isa = PBXBuildFile; fileRef = 38D39D3925D85FD9001EACC8 /* earth.obj */; };
+		38008D68299ACC4E00A8AE2F /* DebugLights.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3899A0BD259C95F900C265F7 /* DebugLights.swift */; };
+		38008D69299ACC4E00A8AE2F /* PhysicsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3803C1D92602876E00FE5A63 /* PhysicsController.swift */; };
+		38008D6A299ACC4E00A8AE2F /* DebugBoundingBox.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3803C1E2260294A200FE5A63 /* DebugBoundingBox.swift */; };
+		38008D6B299ACC4E00A8AE2F /* Primitive.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD057A7A258F84DE00C67DEF /* Primitive.swift */; };
+		38008D6C299ACC4E00A8AE2F /* DebugBoundingBox.metal in Sources */ = {isa = PBXBuildFile; fileRef = 3803C1E3260294A200FE5A63 /* DebugBoundingBox.metal */; };
+		38008D6D299ACC4E00A8AE2F /* SphereAnimations.swift in Sources */ = {isa = PBXBuildFile; fileRef = 388B129825C6CAB900B821C2 /* SphereAnimations.swift */; };
+		38008D6E299ACC4E00A8AE2F /* MathLibrary.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38999E8625927DDD00C265F7 /* MathLibrary.swift */; };
+		38008D6F299ACC4E00A8AE2F /* DebugLights.metal in Sources */ = {isa = PBXBuildFile; fileRef = 3899A0C2259C961400C265F7 /* DebugLights.metal */; };
 		3802EF672643189B0045D8EF /* Transform.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3802EF662643189B0045D8EF /* Transform.swift */; };
 		3802EF682643189B0045D8EF /* Transform.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3802EF662643189B0045D8EF /* Transform.swift */; };
 		3802EF75264319340045D8EF /* rock2.obj in Resources */ = {isa = PBXBuildFile; fileRef = 3802EF6C264319340045D8EF /* rock2.obj */; };
@@ -129,6 +185,12 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		38008D2D299AC8F500A8AE2F /* SolarSystem-multiplatform.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "SolarSystem-multiplatform.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		38008D2F299AC8F500A8AE2F /* SolarSystem_multiplatformApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SolarSystem_multiplatformApp.swift; sourceTree = "<group>"; };
+		38008D31299AC8F500A8AE2F /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		38008D33299AC8F700A8AE2F /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		38008D35299AC8F700A8AE2F /* SolarSystem_multiplatform.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = SolarSystem_multiplatform.entitlements; sourceTree = "<group>"; };
+		38008D37299AC8F700A8AE2F /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		3802EF662643189B0045D8EF /* Transform.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Transform.swift; sourceTree = "<group>"; };
 		3802EF6C264319340045D8EF /* rock2.obj */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = rock2.obj; sourceTree = "<group>"; };
 		3802EF6D264319340045D8EF /* rock3.obj */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = rock3.obj; sourceTree = "<group>"; };
@@ -208,6 +270,13 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		38008D2A299AC8F500A8AE2F /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		38999E3D25927A2B00C265F7 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -225,6 +294,26 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		38008D2E299AC8F500A8AE2F /* SolarSystem-multiplatform */ = {
+			isa = PBXGroup;
+			children = (
+				38008D2F299AC8F500A8AE2F /* SolarSystem_multiplatformApp.swift */,
+				38008D31299AC8F500A8AE2F /* ContentView.swift */,
+				38008D33299AC8F700A8AE2F /* Assets.xcassets */,
+				38008D35299AC8F700A8AE2F /* SolarSystem_multiplatform.entitlements */,
+				38008D36299AC8F700A8AE2F /* Preview Content */,
+			);
+			path = "SolarSystem-multiplatform";
+			sourceTree = "<group>";
+		};
+		38008D36299AC8F700A8AE2F /* Preview Content */ = {
+			isa = PBXGroup;
+			children = (
+				38008D37299AC8F700A8AE2F /* Preview Assets.xcassets */,
+			);
+			path = "Preview Content";
+			sourceTree = "<group>";
+		};
 		3802EF6B264319340045D8EF /* Rocks */ = {
 			isa = PBXGroup;
 			children = (
@@ -417,6 +506,7 @@
 				FD057A5A258F7B6100C67DEF /* SolarSystem */,
 				38999E4125927A2B00C265F7 /* SolarSystem-iOS */,
 				38999E5B25927A4C00C265F7 /* SolarSystem-macOS */,
+				38008D2E299AC8F500A8AE2F /* SolarSystem-multiplatform */,
 				FD057A59258F7B6100C67DEF /* Products */,
 			);
 			sourceTree = "<group>";
@@ -426,6 +516,7 @@
 			children = (
 				38999E4025927A2B00C265F7 /* SolarSystem-iOS.app */,
 				38999E5A25927A4C00C265F7 /* SolarSystem-macOS.app */,
+				38008D2D299AC8F500A8AE2F /* SolarSystem-multiplatform.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -454,6 +545,23 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
+		38008D2C299AC8F500A8AE2F /* SolarSystem-multiplatform */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 38008D3B299AC8F700A8AE2F /* Build configuration list for PBXNativeTarget "SolarSystem-multiplatform" */;
+			buildPhases = (
+				38008D29299AC8F500A8AE2F /* Sources */,
+				38008D2A299AC8F500A8AE2F /* Frameworks */,
+				38008D2B299AC8F500A8AE2F /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "SolarSystem-multiplatform";
+			productName = "SolarSystem-multiplatform";
+			productReference = 38008D2D299AC8F500A8AE2F /* SolarSystem-multiplatform.app */;
+			productType = "com.apple.product-type.application";
+		};
 		38999E3F25927A2B00C265F7 /* SolarSystem-iOS */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = 38999E5325927A2C00C265F7 /* Build configuration list for PBXNativeTarget "SolarSystem-iOS" */;
@@ -494,9 +602,12 @@
 		FD057A50258F7B6100C67DEF /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastSwiftUpdateCheck = 1220;
+				LastSwiftUpdateCheck = 1420;
 				LastUpgradeCheck = 1230;
 				TargetAttributes = {
+					38008D2C299AC8F500A8AE2F = {
+						CreatedOnToolsVersion = 14.2;
+					};
 					38999E3F25927A2B00C265F7 = {
 						CreatedOnToolsVersion = 12.2;
 					};
@@ -520,11 +631,44 @@
 			targets = (
 				38999E3F25927A2B00C265F7 /* SolarSystem-iOS */,
 				38999E5925927A4C00C265F7 /* SolarSystem-macOS */,
+				38008D2C299AC8F500A8AE2F /* SolarSystem-multiplatform */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
+		38008D2B299AC8F500A8AE2F /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				38008D63299ACC3500A8AE2F /* sun.obj in Resources */,
+				38008D67299ACC3F00A8AE2F /* earth.obj in Resources */,
+				38008D65299ACC3B00A8AE2F /* moon.mtl in Resources */,
+				38008D54299ACC0D00A8AE2F /* rock1.obj in Resources */,
+				38008D58299ACC1C00A8AE2F /* tree.mtl in Resources */,
+				38008D55299ACC0D00A8AE2F /* rock1.mtl in Resources */,
+				38008D53299ACC0D00A8AE2F /* rock3.mtl in Resources */,
+				38008D57299ACC0D00A8AE2F /* rock2.mtl in Resources */,
+				38008D5E299ACC2A00A8AE2F /* venus.mtl in Resources */,
+				38008D66299ACC3F00A8AE2F /* earth.mtl in Resources */,
+				38008D5F299ACC2A00A8AE2F /* venus.obj in Resources */,
+				38008D56299ACC0D00A8AE2F /* rock2.obj in Resources */,
+				38008D5D299ACC2600A8AE2F /* mars.obj in Resources */,
+				38008D60299ACC3000A8AE2F /* mercury.mtl in Resources */,
+				38008D52299ACC0D00A8AE2F /* rock3.obj in Resources */,
+				38008D5B299ACC2100A8AE2F /* rocket.mtl in Resources */,
+				38008D62299ACC3500A8AE2F /* sun.mtl in Resources */,
+				38008D5C299ACC2600A8AE2F /* mars.mtl in Resources */,
+				38008D5A299ACC2100A8AE2F /* rocket.obj in Resources */,
+				38008D64299ACC3B00A8AE2F /* moon.obj in Resources */,
+				38008D51299ACBFA00A8AE2F /* Textures.xcassets in Resources */,
+				38008D38299AC8F700A8AE2F /* Preview Assets.xcassets in Resources */,
+				38008D61299ACC3000A8AE2F /* mercury.obj in Resources */,
+				38008D34299AC8F700A8AE2F /* Assets.xcassets in Resources */,
+				38008D59299ACC1C00A8AE2F /* tree.obj in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		38999E3E25927A2B00C265F7 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -593,6 +737,44 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
+		38008D29299AC8F500A8AE2F /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				38008D45299ACBD300A8AE2F /* Shaders.metal in Sources */,
+				38008D6C299ACC4E00A8AE2F /* DebugBoundingBox.metal in Sources */,
+				38008D44299ACBCE00A8AE2F /* Transform.swift in Sources */,
+				38008D4F299ACBF300A8AE2F /* VertexDescriptor.swift in Sources */,
+				38008D4A299ACBE400A8AE2F /* Camera.swift in Sources */,
+				38008D50299ACBF700A8AE2F /* Animation.swift in Sources */,
+				38008D3D299ACBB800A8AE2F /* Renderer.swift in Sources */,
+				38008D42299ACBC800A8AE2F /* Skybox.swift in Sources */,
+				38008D6F299ACC4E00A8AE2F /* DebugLights.metal in Sources */,
+				38008D40299ACBC200A8AE2F /* Lighting.swift in Sources */,
+				38008D69299ACC4E00A8AE2F /* PhysicsController.swift in Sources */,
+				38008D3C299ACBB500A8AE2F /* ViewController.swift in Sources */,
+				38008D4D299ACBED00A8AE2F /* Submesh.swift in Sources */,
+				38008D46299ACBD700A8AE2F /* PBR.metal in Sources */,
+				38008D4E299ACBF000A8AE2F /* Renderable.swift in Sources */,
+				38008D43299ACBCB00A8AE2F /* Nature.swift in Sources */,
+				38008D4B299ACBE700A8AE2F /* Model.swift in Sources */,
+				38008D48299ACBDD00A8AE2F /* Nature.metal in Sources */,
+				38008D4C299ACBEA00A8AE2F /* Mesh.swift in Sources */,
+				38008D6D299ACC4E00A8AE2F /* SphereAnimations.swift in Sources */,
+				38008D41299ACBC500A8AE2F /* Texturable.swift in Sources */,
+				38008D47299ACBDA00A8AE2F /* Skybox.metal in Sources */,
+				38008D49299ACBE200A8AE2F /* Node.swift in Sources */,
+				38008D3E299ACBBC00A8AE2F /* Scene.swift in Sources */,
+				38008D32299AC8F500A8AE2F /* ContentView.swift in Sources */,
+				38008D6B299ACC4E00A8AE2F /* Primitive.swift in Sources */,
+				38008D30299AC8F500A8AE2F /* SolarSystem_multiplatformApp.swift in Sources */,
+				38008D6A299ACC4E00A8AE2F /* DebugBoundingBox.swift in Sources */,
+				38008D68299ACC4E00A8AE2F /* DebugLights.swift in Sources */,
+				38008D3F299ACBBF00A8AE2F /* DemoScene.swift in Sources */,
+				38008D6E299ACC4E00A8AE2F /* MathLibrary.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		38999E3C25927A2B00C265F7 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -705,6 +887,80 @@
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
+		38008D39299AC8F700A8AE2F /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CODE_SIGN_ENTITLEMENTS = "SolarSystem-multiplatform/SolarSystem_multiplatform.entitlements";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_ASSET_PATHS = "\"SolarSystem-multiplatform/Preview Content\"";
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphoneos*]" = YES;
+				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphonesimulator*]" = YES;
+				"INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents[sdk=iphoneos*]" = YES;
+				"INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents[sdk=iphonesimulator*]" = YES;
+				"INFOPLIST_KEY_UILaunchScreen_Generation[sdk=iphoneos*]" = YES;
+				"INFOPLIST_KEY_UILaunchScreen_Generation[sdk=iphonesimulator*]" = YES;
+				"INFOPLIST_KEY_UIStatusBarStyle[sdk=iphoneos*]" = UIStatusBarStyleDefault;
+				"INFOPLIST_KEY_UIStatusBarStyle[sdk=iphonesimulator*]" = UIStatusBarStyleDefault;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 16.2;
+				LD_RUNPATH_SEARCH_PATHS = "@executable_path/Frameworks";
+				"LD_RUNPATH_SEARCH_PATHS[sdk=macosx*]" = "@executable_path/../Frameworks";
+				MACOSX_DEPLOYMENT_TARGET = 13.1;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.th.SolarSystem-multiplatform";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = auto;
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator macosx";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		38008D3A299AC8F700A8AE2F /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CODE_SIGN_ENTITLEMENTS = "SolarSystem-multiplatform/SolarSystem_multiplatform.entitlements";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_ASSET_PATHS = "\"SolarSystem-multiplatform/Preview Content\"";
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphoneos*]" = YES;
+				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphonesimulator*]" = YES;
+				"INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents[sdk=iphoneos*]" = YES;
+				"INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents[sdk=iphonesimulator*]" = YES;
+				"INFOPLIST_KEY_UILaunchScreen_Generation[sdk=iphoneos*]" = YES;
+				"INFOPLIST_KEY_UILaunchScreen_Generation[sdk=iphonesimulator*]" = YES;
+				"INFOPLIST_KEY_UIStatusBarStyle[sdk=iphoneos*]" = UIStatusBarStyleDefault;
+				"INFOPLIST_KEY_UIStatusBarStyle[sdk=iphonesimulator*]" = UIStatusBarStyleDefault;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 16.2;
+				LD_RUNPATH_SEARCH_PATHS = "@executable_path/Frameworks";
+				"LD_RUNPATH_SEARCH_PATHS[sdk=macosx*]" = "@executable_path/../Frameworks";
+				MACOSX_DEPLOYMENT_TARGET = 13.1;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.th.SolarSystem-multiplatform";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = auto;
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator macosx";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
 		38999E5125927A2C00C265F7 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -922,6 +1178,15 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		38008D3B299AC8F700A8AE2F /* Build configuration list for PBXNativeTarget "SolarSystem-multiplatform" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				38008D39299AC8F700A8AE2F /* Debug */,
+				38008D3A299AC8F700A8AE2F /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 		38999E5325927A2C00C265F7 /* Build configuration list for PBXNativeTarget "SolarSystem-iOS" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
