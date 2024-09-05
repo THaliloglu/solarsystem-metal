@@ -6,8 +6,9 @@
 //
 
 import GameController
+import Combine
 
-class InputController {
+class InputController: ObservableObject {
     struct Point {
         var x: Float
         var y: Float
@@ -28,11 +29,15 @@ class InputController {
         }
     }
     
-    static let shared = InputController()
-    var keysPressed: Set<GCKeyCode> = []
+    // Make keysPressed observable using Combine
+    @Published var keysPressed: Set<GCKeyCode> = []
     
+    static let shared = InputController()
+        
     private init() {
         let center = NotificationCenter.default
+        
+        // Keyboard handling
         center.addObserver(
             forName: .GCKeyboardDidConnect,
             object: nil,
@@ -47,10 +52,12 @@ class InputController {
                     }
                 }
             }
+        
 #if os(macOS)
-        NSEvent.addLocalMonitorForEvents(
-            matching: [.keyUp, .keyDown]) { _ in nil }
+        NSEvent.addLocalMonitorForEvents(matching: [.keyUp, .keyDown]) { _ in nil }
 #endif
+
+        // Mouse handling
         center.addObserver(
             forName: .GCMouseDidConnect,
             object: nil,

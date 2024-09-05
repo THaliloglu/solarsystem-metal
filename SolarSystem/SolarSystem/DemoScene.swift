@@ -7,6 +7,7 @@
 
 import Foundation
 import CoreGraphics
+import Combine
 
 enum DemoSceneConstants {
     static var planetScale: Float = 0.8
@@ -55,6 +56,8 @@ class DemoScene: MetalScene {
     let asteroidBeltInstanceCount = 1000
     
     var rocks:Nature?
+    
+    private var cancellables = Set<AnyCancellable>()
     
     override func setupScene() {
         // Option Menu Values;
@@ -162,6 +165,32 @@ class DemoScene: MetalScene {
                 rock.transform.rotation = [0, rotationY, 0]
             }
         }
+        
+        let inputController = InputController.shared
+
+        inputController.$keysPressed
+            .sink { [weak self] keys in
+//                print("Keys pressed: \(keys)")
+                
+                guard let self = self else { return }
+                
+                switch keys.first {
+                case .one:
+                    currentCameraIndex = 1
+                case .two:
+                    currentCameraIndex = 2
+                case .three:
+                    currentCameraIndex = 3
+                case .four:
+                    currentCameraIndex = 4
+                case .five:
+                    Renderer.antialiasingEnabled = !Renderer.antialiasingEnabled
+                case .zero:
+                    debugRenderBoundingBox = !debugRenderBoundingBox
+                default: break
+                }
+            }
+            .store(in: &cancellables)
     }
     
     override func updateScene(deltaTime: Float) {
@@ -220,35 +249,3 @@ class DemoScene: MetalScene {
         cameras[currentCameraIndex].update(size: size)
     }
 }
-
-//#if os(macOS)
-//extension DemoScene: KeyboardDelegate {
-//    func keyPressed(key: KeyboardControl, state: InputState) -> Bool {
-//        switch key {
-//        case .c where state == .ended:
-//            if rocketCamEnabled {
-//                // TODO: Add When Rocket finished
-//            } else {
-//                // TODO: Revert cam
-//            }
-//            rocketCamEnabled = !rocketCamEnabled
-//            return false
-//        case .key1:
-//            currentCameraIndex = 1
-//        case .key2:
-//            currentCameraIndex = 2
-//        case .key3:
-//            currentCameraIndex = 3
-//        case .key4:
-//            currentCameraIndex = 4
-//        case .key5 where state == .ended:
-//            Renderer.antialiasingEnabled = !Renderer.antialiasingEnabled
-//        case .key0 where state == .ended:
-//            debugRenderBoundingBox = !debugRenderBoundingBox
-//        default:
-//            break
-//        }
-//        return true
-//    }
-//}
-//#endif
