@@ -9,7 +9,7 @@ import Foundation
 
 struct KeyQuaternion {
     var time: Float = 0
-    var value = simd_quatf()
+    var value = simd_quatf(.identity)
 }
 
 struct Keyframe {

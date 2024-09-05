@@ -147,7 +147,7 @@ class Nature: Node {
         pointer.pointee.textureID = UInt32(textureID)
         pointer.pointee.morphTargetID = UInt32(morphTargetID)
         pointer.pointee.position = transform.position
-        pointer.pointee.scale = transform.scale
+        pointer.pointee.scale = float3(repeating: transform.scale)
         pointer.pointee.modelMatrix = transform.modelMatrix
         pointer.pointee.normalMatrix = transform.normalMatrix
     }
@@ -158,7 +158,7 @@ class Nature: Node {
                                                  capacity: instanceCount)
         pointer = pointer.advanced(by: instance)
         
-        var transform = Transform()
+        let transform = Transform()
         let currentPosition = pointer.pointee.position
         let currentScale = pointer.pointee.scale
         let startAngle = atan2(currentPosition.x, currentPosition.z) * 180 / .pi
@@ -167,10 +167,10 @@ class Nature: Node {
         transform.position = [sin((startAngle + currentTime) * orbitalPeriod) * distance,
                               currentPosition.y,
                               -cos((startAngle + currentTime) * orbitalPeriod) * distance]
-        transform.scale = currentScale
+        transform.scale = currentScale.x
         
         pointer.pointee.position = transform.position
-        pointer.pointee.scale = transform.scale
+        pointer.pointee.scale = float3(repeating: transform.scale)
         pointer.pointee.modelMatrix = transform.modelMatrix
         pointer.pointee.normalMatrix = transform.normalMatrix
     }
@@ -197,7 +197,7 @@ class Nature: Node {
         pipelineDescriptor.vertexDescriptor = Nature.mtlVertexDescriptor
         pipelineDescriptor.colorAttachments[0].pixelFormat = Renderer.colorPixelFormat
         pipelineDescriptor.depthAttachmentPixelFormat = .depth32Float
-        pipelineDescriptor.sampleCount = antialiasing ? Renderer.antialiasingSampleCount : 1
+        pipelineDescriptor.rasterSampleCount = antialiasing ? Renderer.antialiasingSampleCount : 1
         do {
             pipelineState = try Renderer.device.makeRenderPipelineState(descriptor: pipelineDescriptor)
         } catch let error {
@@ -217,7 +217,7 @@ extension Nature: Renderable {
         var uniforms = vertex
         var fragmentUniforms = fragment
         uniforms.modelMatrix = worldTransform
-        uniforms.normalMatrix = float3x3(normalFrom4x4: modelMatrix)
+        uniforms.normalMatrix = float3x3(normalFrom4x4: transform.modelMatrix)
         
         renderEncoder.setRenderPipelineState(Renderer.antialiasingEnabled ? pipelineStateAA : pipelineState)
         

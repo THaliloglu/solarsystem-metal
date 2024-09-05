@@ -1,5 +1,5 @@
 //
-//  ViewController.swift
+//  MainViewController.swift
 //  SolarSystem
 //
 //  Created by Tolga Haliloğlu on 20.12.2020.
@@ -7,7 +7,7 @@
 
 import MetalKit
 
-class ViewController: LocalViewController {
+class MainViewController: LocalViewController {
     
     var renderer: Renderer?
     
@@ -25,9 +25,9 @@ class ViewController: LocalViewController {
         
         addGestureRecognizers(to: metalView)
         
-        if let demoView = metalView as? DemoView {
-            demoView.inputController = scene.inputController
-        }
+//        if let demoView = metalView as? DemoView {
+//            demoView.inputController = scene.inputController
+//        }
     }
 }
 

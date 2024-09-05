@@ -1,5 +1,5 @@
 //
-//  ViewControllerExtension.swift
+//  MainViewControllerExtension.swift
 //  SolarSystem-macOS
 //
 //  Created by TOLGA HALILOGLU on 28.12.2020.
@@ -7,7 +7,7 @@
 
 import Cocoa
 
-extension ViewController {
+extension MainViewController {
     func addGestureRecognizers(to view: NSView) {
         let pan = NSPanGestureRecognizer(target: self, action: #selector(handlePan(gesture:)))
         view.addGestureRecognizer(pan)

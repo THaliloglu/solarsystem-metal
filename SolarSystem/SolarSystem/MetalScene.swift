@@ -8,10 +8,10 @@
 import Foundation
 import CoreGraphics
 
-class Scene {
+class MetalScene {
     var sceneSize: CGSize
     
-    var cameras = [Camera()]
+    var cameras: [Camera] = [PlayerCamera()]
     var currentCameraIndex = 0
     var camera: Camera  {
         return cameras[currentCameraIndex]
@@ -24,10 +24,7 @@ class Scene {
     let lighting = Lighting()
     
     var skybox: Skybox?
-    
-    let inputController = InputController()
-    let physicsController = PhysicsController()
-    
+        
     init(sceneSize: CGSize) {
         self.sceneSize = sceneSize
         setupScene()
@@ -100,7 +97,7 @@ class Scene {
     
     func sceneSizeWillChange(to size: CGSize) {
         for camera in cameras {
-            camera.aspect = Float(size.width / size.height)
+            camera.update(size: size)
         }
         sceneSize = size
     }

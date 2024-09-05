@@ -3,17 +3,15 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 54;
 	objects = {
 
 /* Begin PBXBuildFile section */
-		38008D30299AC8F500A8AE2F /* SolarSystem_multiplatformApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38008D2F299AC8F500A8AE2F /* SolarSystem_multiplatformApp.swift */; };
-		38008D32299AC8F500A8AE2F /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38008D31299AC8F500A8AE2F /* ContentView.swift */; };
+		38008D30299AC8F500A8AE2F /* SolarSystemApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38008D2F299AC8F500A8AE2F /* SolarSystemApp.swift */; };
 		38008D34299AC8F700A8AE2F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 38008D33299AC8F700A8AE2F /* Assets.xcassets */; };
 		38008D38299AC8F700A8AE2F /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 38008D37299AC8F700A8AE2F /* Preview Assets.xcassets */; };
-		38008D3C299ACBB500A8AE2F /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD057A5F258F7B6100C67DEF /* ViewController.swift */; };
 		38008D3D299ACBB800A8AE2F /* Renderer.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD057A76258F7E0500C67DEF /* Renderer.swift */; };
-		38008D3E299ACBBC00A8AE2F /* Scene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38D39D2125D7FDF4001EACC8 /* Scene.swift */; };
+		38008D3E299ACBBC00A8AE2F /* MetalScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38D39D2125D7FDF4001EACC8 /* MetalScene.swift */; };
 		38008D3F299ACBBF00A8AE2F /* DemoScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38D39D2625D81568001EACC8 /* DemoScene.swift */; };
 		38008D40299ACBC200A8AE2F /* Lighting.swift in Sources */ = {isa = PBXBuildFile; fileRef = 388B128C25C578B300B821C2 /* Lighting.swift */; };
 		38008D41299ACBC500A8AE2F /* Texturable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3809898B259F5CF800F311C5 /* Texturable.swift */; };
@@ -63,6 +61,10 @@
 		38008D6D299ACC4E00A8AE2F /* SphereAnimations.swift in Sources */ = {isa = PBXBuildFile; fileRef = 388B129825C6CAB900B821C2 /* SphereAnimations.swift */; };
 		38008D6E299ACC4E00A8AE2F /* MathLibrary.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38999E8625927DDD00C265F7 /* MathLibrary.swift */; };
 		38008D6F299ACC4E00A8AE2F /* DebugLights.metal in Sources */ = {isa = PBXBuildFile; fileRef = 3899A0C2259C961400C265F7 /* DebugLights.metal */; };
+		38008D74299AEDC800A8AE2F /* DemoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38008D73299AEDC800A8AE2F /* DemoView.swift */; };
+		38008D77299AFC8300A8AE2F /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38008D76299AFC8300A8AE2F /* MainView.swift */; };
+		38008D7A299AFFF400A8AE2F /* MetalView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38008D79299AFFF400A8AE2F /* MetalView.swift */; };
+		38008D7C299B009600A8AE2F /* Coordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38008D7B299B009600A8AE2F /* Coordinator.swift */; };
 		3802EF672643189B0045D8EF /* Transform.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3802EF662643189B0045D8EF /* Transform.swift */; };
 		3802EF682643189B0045D8EF /* Transform.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3802EF662643189B0045D8EF /* Transform.swift */; };
 		3802EF75264319340045D8EF /* rock2.obj in Resources */ = {isa = PBXBuildFile; fileRef = 3802EF6C264319340045D8EF /* rock2.obj */; };
@@ -114,11 +116,11 @@
 		38999E7425927CFC00C265F7 /* Shaders.metal in Sources */ = {isa = PBXBuildFile; fileRef = FD057A7D258F895200C67DEF /* Shaders.metal */; };
 		38999E7525927CFC00C265F7 /* Renderer.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD057A76258F7E0500C67DEF /* Renderer.swift */; };
 		38999E7625927CFC00C265F7 /* Primitive.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD057A7A258F84DE00C67DEF /* Primitive.swift */; };
-		38999E7725927CFC00C265F7 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD057A5F258F7B6100C67DEF /* ViewController.swift */; };
+		38999E7725927CFC00C265F7 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD057A5F258F7B6100C67DEF /* MainViewController.swift */; };
 		38999E7825927CFC00C265F7 /* Shaders.metal in Sources */ = {isa = PBXBuildFile; fileRef = FD057A7D258F895200C67DEF /* Shaders.metal */; };
 		38999E7925927CFC00C265F7 /* Renderer.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD057A76258F7E0500C67DEF /* Renderer.swift */; };
 		38999E7A25927CFC00C265F7 /* Primitive.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD057A7A258F84DE00C67DEF /* Primitive.swift */; };
-		38999E7B25927CFC00C265F7 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD057A5F258F7B6100C67DEF /* ViewController.swift */; };
+		38999E7B25927CFC00C265F7 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD057A5F258F7B6100C67DEF /* MainViewController.swift */; };
 		38999E8725927DDD00C265F7 /* MathLibrary.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38999E8625927DDD00C265F7 /* MathLibrary.swift */; };
 		38999E8825927DDD00C265F7 /* MathLibrary.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38999E8625927DDD00C265F7 /* MathLibrary.swift */; };
 		3899A0882597D0D900C265F7 /* Node.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3899A0872597D0D900C265F7 /* Node.swift */; };
@@ -133,8 +135,8 @@
 		3899A09F2597D45C00C265F7 /* Submesh.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3899A09D2597D45C00C265F7 /* Submesh.swift */; };
 		3899A0A32597D4D200C265F7 /* VertexDescriptor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3899A0A22597D4D200C265F7 /* VertexDescriptor.swift */; };
 		3899A0A42597D4D200C265F7 /* VertexDescriptor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3899A0A22597D4D200C265F7 /* VertexDescriptor.swift */; };
-		3899A0B3259A513C00C265F7 /* ViewControllerExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3899A0B2259A513C00C265F7 /* ViewControllerExtension.swift */; };
-		3899A0B7259A51D200C265F7 /* ViewControllerExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3899A0B6259A51D200C265F7 /* ViewControllerExtension.swift */; };
+		3899A0B3259A513C00C265F7 /* MainViewControllerExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3899A0B2259A513C00C265F7 /* MainViewControllerExtension.swift */; };
+		3899A0B7259A51D200C265F7 /* MainViewControllerExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3899A0B6259A51D200C265F7 /* MainViewControllerExtension.swift */; };
 		3899A0BE259C95F900C265F7 /* DebugLights.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3899A0BD259C95F900C265F7 /* DebugLights.swift */; };
 		3899A0BF259C95F900C265F7 /* DebugLights.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3899A0BD259C95F900C265F7 /* DebugLights.swift */; };
 		3899A0C3259C961400C265F7 /* DebugLights.metal in Sources */ = {isa = PBXBuildFile; fileRef = 3899A0C2259C961400C265F7 /* DebugLights.metal */; };
@@ -148,8 +150,8 @@
 		38D39D1625D7FA6A001EACC8 /* InputController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38D39D1525D7FA6A001EACC8 /* InputController.swift */; };
 		38D39D1A25D7FA86001EACC8 /* DemoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38D39D1925D7FA86001EACC8 /* DemoView.swift */; };
 		38D39D1E25D7FCB1001EACC8 /* MotionController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38D39D1D25D7FCB1001EACC8 /* MotionController.swift */; };
-		38D39D2225D7FDF4001EACC8 /* Scene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38D39D2125D7FDF4001EACC8 /* Scene.swift */; };
-		38D39D2325D7FDF4001EACC8 /* Scene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38D39D2125D7FDF4001EACC8 /* Scene.swift */; };
+		38D39D2225D7FDF4001EACC8 /* MetalScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38D39D2125D7FDF4001EACC8 /* MetalScene.swift */; };
+		38D39D2325D7FDF4001EACC8 /* MetalScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38D39D2125D7FDF4001EACC8 /* MetalScene.swift */; };
 		38D39D2725D81568001EACC8 /* DemoScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38D39D2625D81568001EACC8 /* DemoScene.swift */; };
 		38D39D2825D81568001EACC8 /* DemoScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38D39D2625D81568001EACC8 /* DemoScene.swift */; };
 		38D39D3A25D85FD9001EACC8 /* earth.mtl in Resources */ = {isa = PBXBuildFile; fileRef = 38D39D3825D85FD9001EACC8 /* earth.mtl */; };
@@ -182,15 +184,51 @@
 		38D3A1EC25F0065C001EACC8 /* rocket.obj in Resources */ = {isa = PBXBuildFile; fileRef = 38D3A1E825F0065A001EACC8 /* rocket.obj */; };
 		38E7B5C525B61C6000D32001 /* PBR.metal in Sources */ = {isa = PBXBuildFile; fileRef = 38E7B5C425B61C6000D32001 /* PBR.metal */; };
 		38E7B5C625B61C6000D32001 /* PBR.metal in Sources */ = {isa = PBXBuildFile; fileRef = 38E7B5C425B61C6000D32001 /* PBR.metal */; };
+		DADBCEAF2AE1C4BC00B3DD0B /* InputController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DADBCEAE2AE1C4BC00B3DD0B /* InputController.swift */; };
+		DADBCEB02AE1C4BC00B3DD0B /* InputController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DADBCEAE2AE1C4BC00B3DD0B /* InputController.swift */; };
+		DADBCEB12AE1C4BD00B3DD0B /* InputController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DADBCEAE2AE1C4BC00B3DD0B /* InputController.swift */; };
+		DADBCEB32AE1CA7D00B3DD0B /* Movement.swift in Sources */ = {isa = PBXBuildFile; fileRef = DADBCEB22AE1CA7D00B3DD0B /* Movement.swift */; };
+		DADBCEB42AE1CA7D00B3DD0B /* Movement.swift in Sources */ = {isa = PBXBuildFile; fileRef = DADBCEB22AE1CA7D00B3DD0B /* Movement.swift */; };
+		DADBCEB52AE1CA7D00B3DD0B /* Movement.swift in Sources */ = {isa = PBXBuildFile; fileRef = DADBCEB22AE1CA7D00B3DD0B /* Movement.swift */; };
+		DADBCEB72AEA8E1A00B3DD0B /* Rocket.swift in Sources */ = {isa = PBXBuildFile; fileRef = DADBCEB62AEA8E1A00B3DD0B /* Rocket.swift */; };
+		DADBCEB82AEA8E1A00B3DD0B /* Rocket.swift in Sources */ = {isa = PBXBuildFile; fileRef = DADBCEB62AEA8E1A00B3DD0B /* Rocket.swift */; };
+		DADBCEB92AEA8E1A00B3DD0B /* Rocket.swift in Sources */ = {isa = PBXBuildFile; fileRef = DADBCEB62AEA8E1A00B3DD0B /* Rocket.swift */; };
+		DADBCEBC2AEAADF100B3DD0B /* Sun.swift in Sources */ = {isa = PBXBuildFile; fileRef = DADBCEBB2AEAADF100B3DD0B /* Sun.swift */; };
+		DADBCEBD2AEAADF100B3DD0B /* Sun.swift in Sources */ = {isa = PBXBuildFile; fileRef = DADBCEBB2AEAADF100B3DD0B /* Sun.swift */; };
+		DADBCEBE2AEAADF100B3DD0B /* Sun.swift in Sources */ = {isa = PBXBuildFile; fileRef = DADBCEBB2AEAADF100B3DD0B /* Sun.swift */; };
+		DADBCEC02AEAB0D300B3DD0B /* Mercury.swift in Sources */ = {isa = PBXBuildFile; fileRef = DADBCEBF2AEAB0D300B3DD0B /* Mercury.swift */; };
+		DADBCEC12AEAB0D300B3DD0B /* Mercury.swift in Sources */ = {isa = PBXBuildFile; fileRef = DADBCEBF2AEAB0D300B3DD0B /* Mercury.swift */; };
+		DADBCEC22AEAB0D300B3DD0B /* Mercury.swift in Sources */ = {isa = PBXBuildFile; fileRef = DADBCEBF2AEAB0D300B3DD0B /* Mercury.swift */; };
+		DADBCEC42AEAB31E00B3DD0B /* Venus.swift in Sources */ = {isa = PBXBuildFile; fileRef = DADBCEC32AEAB31E00B3DD0B /* Venus.swift */; };
+		DADBCEC52AEAB31E00B3DD0B /* Venus.swift in Sources */ = {isa = PBXBuildFile; fileRef = DADBCEC32AEAB31E00B3DD0B /* Venus.swift */; };
+		DADBCEC62AEAB31E00B3DD0B /* Venus.swift in Sources */ = {isa = PBXBuildFile; fileRef = DADBCEC32AEAB31E00B3DD0B /* Venus.swift */; };
+		DADBCEC82AEAB42D00B3DD0B /* Earth.swift in Sources */ = {isa = PBXBuildFile; fileRef = DADBCEC72AEAB42D00B3DD0B /* Earth.swift */; };
+		DADBCEC92AEAB42D00B3DD0B /* Earth.swift in Sources */ = {isa = PBXBuildFile; fileRef = DADBCEC72AEAB42D00B3DD0B /* Earth.swift */; };
+		DADBCECA2AEAB42D00B3DD0B /* Earth.swift in Sources */ = {isa = PBXBuildFile; fileRef = DADBCEC72AEAB42D00B3DD0B /* Earth.swift */; };
+		DADBCECC2AEAB4FE00B3DD0B /* Moon.swift in Sources */ = {isa = PBXBuildFile; fileRef = DADBCECB2AEAB4FE00B3DD0B /* Moon.swift */; };
+		DADBCECD2AEAB4FE00B3DD0B /* Moon.swift in Sources */ = {isa = PBXBuildFile; fileRef = DADBCECB2AEAB4FE00B3DD0B /* Moon.swift */; };
+		DADBCECE2AEAB4FE00B3DD0B /* Moon.swift in Sources */ = {isa = PBXBuildFile; fileRef = DADBCECB2AEAB4FE00B3DD0B /* Moon.swift */; };
+		DADBCED02AEAB64E00B3DD0B /* Mars.swift in Sources */ = {isa = PBXBuildFile; fileRef = DADBCECF2AEAB64E00B3DD0B /* Mars.swift */; };
+		DADBCED12AEAB64E00B3DD0B /* Mars.swift in Sources */ = {isa = PBXBuildFile; fileRef = DADBCECF2AEAB64E00B3DD0B /* Mars.swift */; };
+		DADBCED22AEAB64E00B3DD0B /* Mars.swift in Sources */ = {isa = PBXBuildFile; fileRef = DADBCECF2AEAB64E00B3DD0B /* Mars.swift */; };
+		DADBCED42AEB05B200B3DD0B /* Planet.swift in Sources */ = {isa = PBXBuildFile; fileRef = DADBCED32AEB05B200B3DD0B /* Planet.swift */; };
+		DADBCED52AEB05B200B3DD0B /* Planet.swift in Sources */ = {isa = PBXBuildFile; fileRef = DADBCED32AEB05B200B3DD0B /* Planet.swift */; };
+		DADBCED62AEB05B200B3DD0B /* Planet.swift in Sources */ = {isa = PBXBuildFile; fileRef = DADBCED32AEB05B200B3DD0B /* Planet.swift */; };
+		DAEC68712BF9511C0055161E /* PlayerCamera.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAEC68702BF9511C0055161E /* PlayerCamera.swift */; };
+		DAEC68722BF9511C0055161E /* PlayerCamera.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAEC68702BF9511C0055161E /* PlayerCamera.swift */; };
+		DAEC68732BF9511C0055161E /* PlayerCamera.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAEC68702BF9511C0055161E /* PlayerCamera.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		38008D2D299AC8F500A8AE2F /* SolarSystem-multiplatform.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "SolarSystem-multiplatform.app"; sourceTree = BUILT_PRODUCTS_DIR; };
-		38008D2F299AC8F500A8AE2F /* SolarSystem_multiplatformApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SolarSystem_multiplatformApp.swift; sourceTree = "<group>"; };
-		38008D31299AC8F500A8AE2F /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		38008D2F299AC8F500A8AE2F /* SolarSystemApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SolarSystemApp.swift; sourceTree = "<group>"; };
 		38008D33299AC8F700A8AE2F /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		38008D35299AC8F700A8AE2F /* SolarSystem_multiplatform.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = SolarSystem_multiplatform.entitlements; sourceTree = "<group>"; };
 		38008D37299AC8F700A8AE2F /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		38008D73299AEDC800A8AE2F /* DemoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DemoView.swift; sourceTree = "<group>"; };
+		38008D76299AFC8300A8AE2F /* MainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
+		38008D79299AFFF400A8AE2F /* MetalView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MetalView.swift; sourceTree = "<group>"; };
+		38008D7B299B009600A8AE2F /* Coordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Coordinator.swift; sourceTree = "<group>"; };
 		3802EF662643189B0045D8EF /* Transform.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Transform.swift; sourceTree = "<group>"; };
 		3802EF6C264319340045D8EF /* rock2.obj */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = rock2.obj; sourceTree = "<group>"; };
 		3802EF6D264319340045D8EF /* rock3.obj */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = rock3.obj; sourceTree = "<group>"; };
@@ -233,8 +271,8 @@
 		3899A0982597D41400C265F7 /* Mesh.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Mesh.swift; sourceTree = "<group>"; };
 		3899A09D2597D45C00C265F7 /* Submesh.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Submesh.swift; sourceTree = "<group>"; };
 		3899A0A22597D4D200C265F7 /* VertexDescriptor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VertexDescriptor.swift; sourceTree = "<group>"; };
-		3899A0B2259A513C00C265F7 /* ViewControllerExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewControllerExtension.swift; sourceTree = "<group>"; };
-		3899A0B6259A51D200C265F7 /* ViewControllerExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewControllerExtension.swift; sourceTree = "<group>"; };
+		3899A0B2259A513C00C265F7 /* MainViewControllerExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewControllerExtension.swift; sourceTree = "<group>"; };
+		3899A0B6259A51D200C265F7 /* MainViewControllerExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewControllerExtension.swift; sourceTree = "<group>"; };
 		3899A0BD259C95F900C265F7 /* DebugLights.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DebugLights.swift; sourceTree = "<group>"; };
 		3899A0C2259C961400C265F7 /* DebugLights.metal */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.metal; path = DebugLights.metal; sourceTree = "<group>"; };
 		389DC3EE2627774900C3E18C /* Skybox.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Skybox.swift; sourceTree = "<group>"; };
@@ -244,7 +282,7 @@
 		38D39D1525D7FA6A001EACC8 /* InputController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InputController.swift; sourceTree = "<group>"; };
 		38D39D1925D7FA86001EACC8 /* DemoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DemoView.swift; sourceTree = "<group>"; };
 		38D39D1D25D7FCB1001EACC8 /* MotionController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MotionController.swift; sourceTree = "<group>"; };
-		38D39D2125D7FDF4001EACC8 /* Scene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Scene.swift; sourceTree = "<group>"; };
+		38D39D2125D7FDF4001EACC8 /* MetalScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MetalScene.swift; sourceTree = "<group>"; };
 		38D39D2625D81568001EACC8 /* DemoScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DemoScene.swift; sourceTree = "<group>"; };
 		38D39D3825D85FD9001EACC8 /* earth.mtl */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = earth.mtl; sourceTree = "<group>"; };
 		38D39D3925D85FD9001EACC8 /* earth.obj */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = earth.obj; sourceTree = "<group>"; };
@@ -261,7 +299,18 @@
 		38D3A1E725F0065A001EACC8 /* rocket.mtl */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = rocket.mtl; sourceTree = "<group>"; };
 		38D3A1E825F0065A001EACC8 /* rocket.obj */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = rocket.obj; sourceTree = "<group>"; };
 		38E7B5C425B61C6000D32001 /* PBR.metal */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.metal; path = PBR.metal; sourceTree = "<group>"; };
-		FD057A5F258F7B6100C67DEF /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		DADBCEAE2AE1C4BC00B3DD0B /* InputController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InputController.swift; sourceTree = "<group>"; };
+		DADBCEB22AE1CA7D00B3DD0B /* Movement.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Movement.swift; sourceTree = "<group>"; };
+		DADBCEB62AEA8E1A00B3DD0B /* Rocket.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Rocket.swift; sourceTree = "<group>"; };
+		DADBCEBB2AEAADF100B3DD0B /* Sun.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Sun.swift; sourceTree = "<group>"; };
+		DADBCEBF2AEAB0D300B3DD0B /* Mercury.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Mercury.swift; sourceTree = "<group>"; };
+		DADBCEC32AEAB31E00B3DD0B /* Venus.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Venus.swift; sourceTree = "<group>"; };
+		DADBCEC72AEAB42D00B3DD0B /* Earth.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Earth.swift; sourceTree = "<group>"; };
+		DADBCECB2AEAB4FE00B3DD0B /* Moon.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Moon.swift; sourceTree = "<group>"; };
+		DADBCECF2AEAB64E00B3DD0B /* Mars.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Mars.swift; sourceTree = "<group>"; };
+		DADBCED32AEB05B200B3DD0B /* Planet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Planet.swift; sourceTree = "<group>"; };
+		DAEC68702BF9511C0055161E /* PlayerCamera.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayerCamera.swift; sourceTree = "<group>"; };
+		FD057A5F258F7B6100C67DEF /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
 		FD057A76258F7E0500C67DEF /* Renderer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Renderer.swift; sourceTree = "<group>"; };
 		FD057A7A258F84DE00C67DEF /* Primitive.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Primitive.swift; sourceTree = "<group>"; };
 		FD057A7D258F895200C67DEF /* Shaders.metal */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.metal; path = Shaders.metal; sourceTree = "<group>"; };
@@ -297,8 +346,8 @@
 		38008D2E299AC8F500A8AE2F /* SolarSystem-multiplatform */ = {
 			isa = PBXGroup;
 			children = (
-				38008D2F299AC8F500A8AE2F /* SolarSystem_multiplatformApp.swift */,
-				38008D31299AC8F500A8AE2F /* ContentView.swift */,
+				38008D2F299AC8F500A8AE2F /* SolarSystemApp.swift */,
+				38008D73299AEDC800A8AE2F /* DemoView.swift */,
 				38008D33299AC8F700A8AE2F /* Assets.xcassets */,
 				38008D35299AC8F700A8AE2F /* SolarSystem_multiplatform.entitlements */,
 				38008D36299AC8F700A8AE2F /* Preview Content */,
@@ -312,6 +361,33 @@
 				38008D37299AC8F700A8AE2F /* Preview Assets.xcassets */,
 			);
 			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		38008D72299AEC7D00A8AE2F /* UIKit-AppKit */ = {
+			isa = PBXGroup;
+			children = (
+				FD057A5F258F7B6100C67DEF /* MainViewController.swift */,
+			);
+			path = "UIKit-AppKit";
+			sourceTree = "<group>";
+		};
+		38008D75299AF97300A8AE2F /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				38008D78299AFC8A00A8AE2F /* SwiftUI */,
+				38008D72299AEC7D00A8AE2F /* UIKit-AppKit */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		38008D78299AFC8A00A8AE2F /* SwiftUI */ = {
+			isa = PBXGroup;
+			children = (
+				38008D7B299B009600A8AE2F /* Coordinator.swift */,
+				38008D79299AFFF400A8AE2F /* MetalView.swift */,
+				38008D76299AFC8300A8AE2F /* MainView.swift */,
+			);
+			path = SwiftUI;
 			sourceTree = "<group>";
 		};
 		3802EF6B264319340045D8EF /* Rocks */ = {
@@ -344,7 +420,7 @@
 				38D39D1525D7FA6A001EACC8 /* InputController.swift */,
 				38D39D1925D7FA86001EACC8 /* DemoView.swift */,
 				38D39D1D25D7FCB1001EACC8 /* MotionController.swift */,
-				3899A0B2259A513C00C265F7 /* ViewControllerExtension.swift */,
+				3899A0B2259A513C00C265F7 /* MainViewControllerExtension.swift */,
 				38999E4B25927A2C00C265F7 /* Assets.xcassets */,
 				38999E4825927A2B00C265F7 /* Main.storyboard */,
 				38999E4D25927A2C00C265F7 /* LaunchScreen.storyboard */,
@@ -360,7 +436,7 @@
 				38999E5C25927A4C00C265F7 /* AppDelegate.swift */,
 				38D39D0725D7F6B7001EACC8 /* InputController.swift */,
 				38D39D0B25D7F742001EACC8 /* DemoView.swift */,
-				3899A0B6259A51D200C265F7 /* ViewControllerExtension.swift */,
+				3899A0B6259A51D200C265F7 /* MainViewControllerExtension.swift */,
 				38999E6025927A4D00C265F7 /* Assets.xcassets */,
 				38999E6225927A4D00C265F7 /* Main.storyboard */,
 				38999E6525927A4D00C265F7 /* Info.plist */,
@@ -405,7 +481,9 @@
 			children = (
 				3899A0872597D0D900C265F7 /* Node.swift */,
 				3899A08C2597D15F00C265F7 /* Camera.swift */,
+				DAEC68702BF9511C0055161E /* PlayerCamera.swift */,
 				3899A0932597D1F400C265F7 /* Model.swift */,
+				DADBCEBA2AEA8E1F00B3DD0B /* Models */,
 				3899A0982597D41400C265F7 /* Mesh.swift */,
 				3899A09D2597D45C00C265F7 /* Submesh.swift */,
 				388B128725C5741400B821C2 /* Renderable.swift */,
@@ -498,6 +576,21 @@
 			path = rocket;
 			sourceTree = "<group>";
 		};
+		DADBCEBA2AEA8E1F00B3DD0B /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				DADBCEB62AEA8E1A00B3DD0B /* Rocket.swift */,
+				DADBCEBB2AEAADF100B3DD0B /* Sun.swift */,
+				DADBCED32AEB05B200B3DD0B /* Planet.swift */,
+				DADBCEBF2AEAB0D300B3DD0B /* Mercury.swift */,
+				DADBCEC32AEAB31E00B3DD0B /* Venus.swift */,
+				DADBCEC72AEAB42D00B3DD0B /* Earth.swift */,
+				DADBCECB2AEAB4FE00B3DD0B /* Moon.swift */,
+				DADBCECF2AEAB64E00B3DD0B /* Mars.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
 		FD057A4F258F7B6100C67DEF = {
 			isa = PBXGroup;
 			children = (
@@ -524,15 +617,17 @@
 		FD057A5A258F7B6100C67DEF /* SolarSystem */ = {
 			isa = PBXGroup;
 			children = (
-				FD057A5F258F7B6100C67DEF /* ViewController.swift */,
+				38008D75299AF97300A8AE2F /* Views */,
 				FD057A76258F7E0500C67DEF /* Renderer.swift */,
-				38D39D2125D7FDF4001EACC8 /* Scene.swift */,
+				38D39D2125D7FDF4001EACC8 /* MetalScene.swift */,
 				38D39D2625D81568001EACC8 /* DemoScene.swift */,
 				388B128C25C578B300B821C2 /* Lighting.swift */,
 				3809898B259F5CF800F311C5 /* Texturable.swift */,
 				389DC3EE2627774900C3E18C /* Skybox.swift */,
 				3802F0B12649ADBD0045D8EF /* Nature.swift */,
 				3802EF662643189B0045D8EF /* Transform.swift */,
+				DADBCEAE2AE1C4BC00B3DD0B /* InputController.swift */,
+				DADBCEB22AE1CA7D00B3DD0B /* Movement.swift */,
 				389DC3D92627706E00C3E18C /* Metal Shaders */,
 				389DC3CF2627701D00C3E18C /* Nodes */,
 				38040C6625B31B8200AED8C8 /* Textures.xcassets */,
@@ -602,8 +697,9 @@
 		FD057A50258F7B6100C67DEF /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
+				BuildIndependentTargetsInParallel = YES;
 				LastSwiftUpdateCheck = 1420;
-				LastUpgradeCheck = 1230;
+				LastUpgradeCheck = 1540;
 				TargetAttributes = {
 					38008D2C299AC8F500A8AE2F = {
 						CreatedOnToolsVersion = 14.2;
@@ -743,31 +839,44 @@
 			files = (
 				38008D45299ACBD300A8AE2F /* Shaders.metal in Sources */,
 				38008D6C299ACC4E00A8AE2F /* DebugBoundingBox.metal in Sources */,
+				DADBCECA2AEAB42D00B3DD0B /* Earth.swift in Sources */,
 				38008D44299ACBCE00A8AE2F /* Transform.swift in Sources */,
+				DADBCEB52AE1CA7D00B3DD0B /* Movement.swift in Sources */,
 				38008D4F299ACBF300A8AE2F /* VertexDescriptor.swift in Sources */,
 				38008D4A299ACBE400A8AE2F /* Camera.swift in Sources */,
 				38008D50299ACBF700A8AE2F /* Animation.swift in Sources */,
 				38008D3D299ACBB800A8AE2F /* Renderer.swift in Sources */,
 				38008D42299ACBC800A8AE2F /* Skybox.swift in Sources */,
 				38008D6F299ACC4E00A8AE2F /* DebugLights.metal in Sources */,
+				DAEC68732BF9511C0055161E /* PlayerCamera.swift in Sources */,
+				38008D77299AFC8300A8AE2F /* MainView.swift in Sources */,
+				DADBCEB12AE1C4BD00B3DD0B /* InputController.swift in Sources */,
 				38008D40299ACBC200A8AE2F /* Lighting.swift in Sources */,
+				DADBCED22AEAB64E00B3DD0B /* Mars.swift in Sources */,
+				38008D74299AEDC800A8AE2F /* DemoView.swift in Sources */,
+				DADBCED62AEB05B200B3DD0B /* Planet.swift in Sources */,
 				38008D69299ACC4E00A8AE2F /* PhysicsController.swift in Sources */,
-				38008D3C299ACBB500A8AE2F /* ViewController.swift in Sources */,
+				DADBCECE2AEAB4FE00B3DD0B /* Moon.swift in Sources */,
 				38008D4D299ACBED00A8AE2F /* Submesh.swift in Sources */,
 				38008D46299ACBD700A8AE2F /* PBR.metal in Sources */,
 				38008D4E299ACBF000A8AE2F /* Renderable.swift in Sources */,
 				38008D43299ACBCB00A8AE2F /* Nature.swift in Sources */,
+				DADBCEC62AEAB31E00B3DD0B /* Venus.swift in Sources */,
+				38008D7C299B009600A8AE2F /* Coordinator.swift in Sources */,
 				38008D4B299ACBE700A8AE2F /* Model.swift in Sources */,
 				38008D48299ACBDD00A8AE2F /* Nature.metal in Sources */,
 				38008D4C299ACBEA00A8AE2F /* Mesh.swift in Sources */,
+				DADBCEBE2AEAADF100B3DD0B /* Sun.swift in Sources */,
 				38008D6D299ACC4E00A8AE2F /* SphereAnimations.swift in Sources */,
 				38008D41299ACBC500A8AE2F /* Texturable.swift in Sources */,
 				38008D47299ACBDA00A8AE2F /* Skybox.metal in Sources */,
 				38008D49299ACBE200A8AE2F /* Node.swift in Sources */,
-				38008D3E299ACBBC00A8AE2F /* Scene.swift in Sources */,
-				38008D32299AC8F500A8AE2F /* ContentView.swift in Sources */,
+				DADBCEB92AEA8E1A00B3DD0B /* Rocket.swift in Sources */,
+				38008D7A299AFFF400A8AE2F /* MetalView.swift in Sources */,
+				38008D3E299ACBBC00A8AE2F /* MetalScene.swift in Sources */,
+				DADBCEC22AEAB0D300B3DD0B /* Mercury.swift in Sources */,
 				38008D6B299ACC4E00A8AE2F /* Primitive.swift in Sources */,
-				38008D30299AC8F500A8AE2F /* SolarSystem_multiplatformApp.swift in Sources */,
+				38008D30299AC8F500A8AE2F /* SolarSystemApp.swift in Sources */,
 				38008D6A299ACC4E00A8AE2F /* DebugBoundingBox.swift in Sources */,
 				38008D68299ACC4E00A8AE2F /* DebugLights.swift in Sources */,
 				38008D3F299ACBBF00A8AE2F /* DemoScene.swift in Sources */,
@@ -779,12 +888,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				38999E7725927CFC00C265F7 /* ViewController.swift in Sources */,
+				38999E7725927CFC00C265F7 /* MainViewController.swift in Sources */,
 				3899A0992597D41400C265F7 /* Mesh.swift in Sources */,
 				38D39D2725D81568001EACC8 /* DemoScene.swift in Sources */,
-				3899A0B3259A513C00C265F7 /* ViewControllerExtension.swift in Sources */,
+				3899A0B3259A513C00C265F7 /* MainViewControllerExtension.swift in Sources */,
 				38999E8725927DDD00C265F7 /* MathLibrary.swift in Sources */,
-				38D39D2225D7FDF4001EACC8 /* Scene.swift in Sources */,
+				38D39D2225D7FDF4001EACC8 /* MetalScene.swift in Sources */,
 				3803C1E4260294A200FE5A63 /* DebugBoundingBox.swift in Sources */,
 				388B128825C5741400B821C2 /* Renderable.swift in Sources */,
 				3802F0B72649AE670045D8EF /* Nature.metal in Sources */,
@@ -795,7 +904,9 @@
 				38999E7525927CFC00C265F7 /* Renderer.swift in Sources */,
 				3899A0A32597D4D200C265F7 /* VertexDescriptor.swift in Sources */,
 				389DC3F6262785D900C3E18C /* Skybox.metal in Sources */,
+				DADBCED02AEAB64E00B3DD0B /* Mars.swift in Sources */,
 				3899A0882597D0D900C265F7 /* Node.swift in Sources */,
+				DADBCEC42AEAB31E00B3DD0B /* Venus.swift in Sources */,
 				3809898C259F5CF800F311C5 /* Texturable.swift in Sources */,
 				388B128D25C578B300B821C2 /* Lighting.swift in Sources */,
 				38D39D1E25D7FCB1001EACC8 /* MotionController.swift in Sources */,
@@ -803,17 +914,26 @@
 				38999E7425927CFC00C265F7 /* Shaders.metal in Sources */,
 				3899A0942597D1F400C265F7 /* Model.swift in Sources */,
 				38D39D1625D7FA6A001EACC8 /* InputController.swift in Sources */,
+				DADBCEAF2AE1C4BC00B3DD0B /* InputController.swift in Sources */,
+				DADBCEC82AEAB42D00B3DD0B /* Earth.swift in Sources */,
 				3802EF672643189B0045D8EF /* Transform.swift in Sources */,
+				DADBCEBC2AEAADF100B3DD0B /* Sun.swift in Sources */,
+				DADBCEB32AE1CA7D00B3DD0B /* Movement.swift in Sources */,
 				3899A09E2597D45C00C265F7 /* Submesh.swift in Sources */,
 				38999E4325927A2B00C265F7 /* AppDelegate.swift in Sources */,
+				DADBCEB72AEA8E1A00B3DD0B /* Rocket.swift in Sources */,
 				3803C1E6260294A200FE5A63 /* DebugBoundingBox.metal in Sources */,
+				DADBCECC2AEAB4FE00B3DD0B /* Moon.swift in Sources */,
 				3803C1DA2602876E00FE5A63 /* PhysicsController.swift in Sources */,
+				DAEC68712BF9511C0055161E /* PlayerCamera.swift in Sources */,
 				38999E4525927A2B00C265F7 /* SceneDelegate.swift in Sources */,
 				38999E7625927CFC00C265F7 /* Primitive.swift in Sources */,
+				DADBCED42AEB05B200B3DD0B /* Planet.swift in Sources */,
 				388B129225C6C1E500B821C2 /* Animation.swift in Sources */,
 				38D39D1A25D7FA86001EACC8 /* DemoView.swift in Sources */,
 				389DC3EF2627774900C3E18C /* Skybox.swift in Sources */,
 				3899A08D2597D15F00C265F7 /* Camera.swift in Sources */,
+				DADBCEC02AEAB0D300B3DD0B /* Mercury.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -823,34 +943,45 @@
 			files = (
 				38E7B5C625B61C6000D32001 /* PBR.metal in Sources */,
 				3803C1E7260294A200FE5A63 /* DebugBoundingBox.metal in Sources */,
-				3899A0B7259A51D200C265F7 /* ViewControllerExtension.swift in Sources */,
+				DADBCEC92AEAB42D00B3DD0B /* Earth.swift in Sources */,
+				3899A0B7259A51D200C265F7 /* MainViewControllerExtension.swift in Sources */,
+				DADBCEB42AE1CA7D00B3DD0B /* Movement.swift in Sources */,
 				3899A09F2597D45C00C265F7 /* Submesh.swift in Sources */,
 				388B128925C5741400B821C2 /* Renderable.swift in Sources */,
 				3802F0B82649AE670045D8EF /* Nature.metal in Sources */,
 				389DC3F7262785D900C3E18C /* Skybox.metal in Sources */,
 				3803C1E5260294A200FE5A63 /* DebugBoundingBox.swift in Sources */,
 				3899A0952597D1F400C265F7 /* Model.swift in Sources */,
+				DAEC68722BF9511C0055161E /* PlayerCamera.swift in Sources */,
 				3899A08E2597D15F00C265F7 /* Camera.swift in Sources */,
+				DADBCEB02AE1C4BC00B3DD0B /* InputController.swift in Sources */,
 				3803C1DB2602876E00FE5A63 /* PhysicsController.swift in Sources */,
+				DADBCED12AEAB64E00B3DD0B /* Mars.swift in Sources */,
 				388B128E25C578B300B821C2 /* Lighting.swift in Sources */,
-				38999E7B25927CFC00C265F7 /* ViewController.swift in Sources */,
+				DADBCED52AEB05B200B3DD0B /* Planet.swift in Sources */,
+				38999E7B25927CFC00C265F7 /* MainViewController.swift in Sources */,
+				DADBCECD2AEAB4FE00B3DD0B /* Moon.swift in Sources */,
 				38999E7825927CFC00C265F7 /* Shaders.metal in Sources */,
 				3899A09A2597D41400C265F7 /* Mesh.swift in Sources */,
 				3899A0C4259C961400C265F7 /* DebugLights.metal in Sources */,
 				3899A0A42597D4D200C265F7 /* VertexDescriptor.swift in Sources */,
+				DADBCEC52AEAB31E00B3DD0B /* Venus.swift in Sources */,
 				38D39D0C25D7F742001EACC8 /* DemoView.swift in Sources */,
 				38999E7925927CFC00C265F7 /* Renderer.swift in Sources */,
 				389DC3F02627774900C3E18C /* Skybox.swift in Sources */,
 				38D39D2825D81568001EACC8 /* DemoScene.swift in Sources */,
+				DADBCEBD2AEAADF100B3DD0B /* Sun.swift in Sources */,
 				38999E5D25927A4C00C265F7 /* AppDelegate.swift in Sources */,
 				388B129A25C6CABA00B821C2 /* SphereAnimations.swift in Sources */,
 				3802F0B32649ADBD0045D8EF /* Nature.swift in Sources */,
 				3809898D259F5CF800F311C5 /* Texturable.swift in Sources */,
+				DADBCEB82AEA8E1A00B3DD0B /* Rocket.swift in Sources */,
 				3802EF682643189B0045D8EF /* Transform.swift in Sources */,
 				38999E7A25927CFC00C265F7 /* Primitive.swift in Sources */,
+				DADBCEC12AEAB0D300B3DD0B /* Mercury.swift in Sources */,
 				38999E8825927DDD00C265F7 /* MathLibrary.swift in Sources */,
 				3899A0BF259C95F900C265F7 /* DebugLights.swift in Sources */,
-				38D39D2325D7FDF4001EACC8 /* Scene.swift in Sources */,
+				38D39D2325D7FDF4001EACC8 /* MetalScene.swift in Sources */,
 				388B129325C6C1E500B821C2 /* Animation.swift in Sources */,
 				38D39D0825D7F6B7001EACC8 /* InputController.swift in Sources */,
 				3899A0892597D0DA00C265F7 /* Node.swift in Sources */,
@@ -894,9 +1025,14 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
 				CODE_SIGN_ENTITLEMENTS = "SolarSystem-multiplatform/SolarSystem_multiplatform.entitlements";
+				CODE_SIGN_IDENTITY = "-";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "Apple Development";
+				"CODE_SIGN_IDENTITY[sdk=macosx*]" = "-";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
+				DEAD_CODE_STRIPPING = YES;
 				DEVELOPMENT_ASSET_PATHS = "\"SolarSystem-multiplatform/Preview Content\"";
+				DEVELOPMENT_TEAM = NAPDF773HN;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphoneos*]" = YES;
@@ -909,10 +1045,10 @@
 				"INFOPLIST_KEY_UIStatusBarStyle[sdk=iphonesimulator*]" = UIStatusBarStyleDefault;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				IPHONEOS_DEPLOYMENT_TARGET = 16.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
 				LD_RUNPATH_SEARCH_PATHS = "@executable_path/Frameworks";
 				"LD_RUNPATH_SEARCH_PATHS[sdk=macosx*]" = "@executable_path/../Frameworks";
-				MACOSX_DEPLOYMENT_TARGET = 13.1;
+				MACOSX_DEPLOYMENT_TARGET = 14.0;
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = "com.th.SolarSystem-multiplatform";
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -931,9 +1067,14 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
 				CODE_SIGN_ENTITLEMENTS = "SolarSystem-multiplatform/SolarSystem_multiplatform.entitlements";
+				CODE_SIGN_IDENTITY = "-";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "Apple Development";
+				"CODE_SIGN_IDENTITY[sdk=macosx*]" = "-";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
+				DEAD_CODE_STRIPPING = YES;
 				DEVELOPMENT_ASSET_PATHS = "\"SolarSystem-multiplatform/Preview Content\"";
+				DEVELOPMENT_TEAM = NAPDF773HN;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphoneos*]" = YES;
@@ -946,10 +1087,10 @@
 				"INFOPLIST_KEY_UIStatusBarStyle[sdk=iphonesimulator*]" = UIStatusBarStyleDefault;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				IPHONEOS_DEPLOYMENT_TARGET = 16.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
 				LD_RUNPATH_SEARCH_PATHS = "@executable_path/Frameworks";
 				"LD_RUNPATH_SEARCH_PATHS[sdk=macosx*]" = "@executable_path/../Frameworks";
-				MACOSX_DEPLOYMENT_TARGET = 13.1;
+				MACOSX_DEPLOYMENT_TARGET = 14.0;
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = "com.th.SolarSystem-multiplatform";
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -968,7 +1109,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = "SolarSystem-iOS/SolarSystem-iOS.entitlements";
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = ZEHX8P57LY;
+				DEVELOPMENT_TEAM = NAPDF773HN;
 				INFOPLIST_FILE = "SolarSystem-iOS/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				"IPHONEOS_DEPLOYMENT_TARGET[sdk=macosx*]" = 13.1;
@@ -992,7 +1133,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = "SolarSystem-iOS/SolarSystem-iOS.entitlements";
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = ZEHX8P57LY;
+				DEVELOPMENT_TEAM = NAPDF773HN;
 				INFOPLIST_FILE = "SolarSystem-iOS/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				"IPHONEOS_DEPLOYMENT_TARGET[sdk=macosx*]" = 13.1;
@@ -1015,9 +1156,11 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = "SolarSystem-macOS/SolarSystem_macOS.entitlements";
+				CODE_SIGN_IDENTITY = "-";
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
-				DEVELOPMENT_TEAM = ZEHX8P57LY;
+				DEAD_CODE_STRIPPING = YES;
+				DEVELOPMENT_TEAM = NAPDF773HN;
 				ENABLE_HARDENED_RUNTIME = YES;
 				INFOPLIST_FILE = "SolarSystem-macOS/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -1039,9 +1182,11 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = "SolarSystem-macOS/SolarSystem_macOS.entitlements";
+				CODE_SIGN_IDENTITY = "-";
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
-				DEVELOPMENT_TEAM = ZEHX8P57LY;
+				DEAD_CODE_STRIPPING = YES;
+				DEVELOPMENT_TEAM = NAPDF773HN;
 				ENABLE_HARDENED_RUNTIME = YES;
 				INFOPLIST_FILE = "SolarSystem-macOS/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -1094,6 +1239,7 @@
 				DEBUG_INFORMATION_FORMAT = dwarf;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				ENABLE_TESTABILITY = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu11;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_NO_COMMON_BLOCKS = YES;
@@ -1156,6 +1302,7 @@
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				ENABLE_NS_ASSERTIONS = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu11;
 				GCC_NO_COMMON_BLOCKS = YES;
 				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;

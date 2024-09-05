@@ -13,7 +13,7 @@ class Renderer: NSObject {
     static var library: MTLLibrary!
     static var colorPixelFormat: MTLPixelFormat!
     
-    var scene: Scene?
+    var scene: MetalScene?
     
     let depthStencilState: MTLDepthStencilState
     static func buildDepthStencilState() -> MTLDepthStencilState? {

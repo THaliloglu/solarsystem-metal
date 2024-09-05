@@ -11,6 +11,8 @@ import MetalKit
 var debugRenderBoundingBox = false
 class PhysicsController {
     
+    static let shared = PhysicsController()
+    
     var dynamicBody: Node?
     var staticBodies: [Node] = []
     
