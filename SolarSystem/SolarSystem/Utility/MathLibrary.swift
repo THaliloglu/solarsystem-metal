@@ -226,3 +226,9 @@ extension float4 {
     self = [Float(d.x), Float(d.y), Float(d.z), Float(d.w)]
   }
 }
+
+extension simd_quatf {
+  static var identity: simd_quatf {
+    .init(angle: 0, axis: [1, 0, 0])
+  }
+}

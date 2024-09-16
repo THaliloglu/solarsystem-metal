@@ -21,17 +21,17 @@ struct VertexOut {
     float3 worldPosition;
     float3 worldNormal;
     float2 uv;
-    uint textureID [[flat]];
+    uint32_t textureID [[flat]];
 };
 
 vertex VertexOut vertex_nature(constant VertexIn *in [[buffer(0)]],
-                               uint vertexID [[vertex_id]],
+                               uint32_t vertexID [[vertex_id]],
                                constant Uniforms &uniforms [[buffer(BufferIndexUniforms)]],
                                constant NatureInstance *instances [[buffer(BufferIndexInstances)]],
-                               uint instanceID [[instance_id]],
-                               constant int &vertexCount [[buffer(1)]]) {    
+                               uint32_t instanceID [[instance_id]],
+                               constant int &vertexCount [[buffer(1)]]) {
     NatureInstance instance = instances[instanceID];
-    uint offset = instance.morphTargetID * vertexCount;
+    uint32_t offset = instance.morphTargetID * vertexCount;
     VertexIn vertexIn = in[vertexID + offset];
     
     VertexOut out;

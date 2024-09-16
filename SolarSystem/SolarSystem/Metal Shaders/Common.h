@@ -38,9 +38,9 @@ typedef struct {
 } Light;
 
 typedef struct {
-    uint lightCount;
+    uint32_t lightCount;
     vector_float3 cameraPosition;
-    uint tiling;
+    uint32_t tiling;
 } FragmentUniforms;
 
 typedef enum {
@@ -84,8 +84,8 @@ struct Instances {
 };
 
 struct NatureInstance {
-    uint textureID;
-    uint morphTargetID;
+    uint32_t textureID;
+    uint32_t morphTargetID;
     vector_float3 position;
     vector_float3 scale;
     matrix_float4x4 modelMatrix;

@@ -76,7 +76,7 @@ class Skybox {
         descriptor.vertexFunction = Renderer.library?.makeFunction(name: "vertexSkybox")
         descriptor.fragmentFunction = Renderer.library?.makeFunction(name: "fragmentSkybox")
         descriptor.vertexDescriptor = MTKMetalVertexDescriptorFromModelIO(vertexDescriptor)
-        descriptor.sampleCount = antialiasing ? Renderer.antialiasingSampleCount : 1
+        descriptor.rasterSampleCount = antialiasing ? Renderer.antialiasingSampleCount : 1
         do {
             return try Renderer.device.makeRenderPipelineState(descriptor: descriptor)
         } catch {

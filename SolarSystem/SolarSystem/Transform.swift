@@ -70,7 +70,7 @@ class Transform {
         }
     }
     var scale: Float = 1
-    var quaternion = simd_quatf(.identity)
+    var quaternion: simd_quatf = .identity
 }
 
 extension Transform {
