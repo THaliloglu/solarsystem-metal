@@ -36,7 +36,7 @@ class PlayerCamera: Camera {
         self.transform.rotation += transform.rotation
         self.transform.position += transform.position
         let input = InputController.shared
-        if input.leftMouseDown {
+        if input.leftMouseDown && input.isResizing == false {
             let sensitivity = Settings.mousePanSensitivity
             self.transform.rotation.x += input.mouseDelta.y * sensitivity
             self.transform.rotation.y += input.mouseDelta.x * sensitivity

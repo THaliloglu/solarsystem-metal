@@ -24,6 +24,39 @@ struct VertexOut {
     uint32_t textureID [[flat]];
 };
 
+kernel void updateOrbit(
+    device NatureInstance *instances [[buffer(0)]],
+    constant float &time [[buffer(1)]],
+    constant float &angularVelocity [[buffer(2)]],
+    uint id [[thread_position_in_grid]]
+) {
+    // Load instance data
+    NatureInstance instance = instances[id];
+
+    // Calculate orbital angle
+    float angle = angularVelocity * time + (id * 0.1); // Unique offset per instance
+
+    // Calculate radius dynamically
+    float radius = sqrt(pow(instance.position.x, 2) + pow(instance.position.z, 2));
+
+    // Calculate new position
+    float x = radius * cos(angle);
+    float z = radius * sin(angle);
+
+    float scale = instance.scale.x;
+    
+    // Update model matrix
+    instance.modelMatrix = float4x4(
+        float4(scale, 0, 0, 0),
+        float4(0, scale, 0, 0),
+        float4(0, 0, scale, 0),
+        float4(x, 0, z, 1)
+    );
+
+    // Write back to the buffer
+    instances[id] = instance;
+}
+
 vertex VertexOut vertex_nature(constant VertexIn *in [[buffer(0)]],
                                uint32_t vertexID [[vertex_id]],
                                constant Uniforms &uniforms [[buffer(BufferIndexUniforms)]],

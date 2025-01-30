@@ -30,9 +30,9 @@ class ArcballCamera: Camera {
     }
     
     let minDistance: Float = 0.0
-    let maxDistance: Float = 20
+    let maxDistance: Float = 100
     var target: float3 = [0, 0, 0]
-    var distance: Float = 2.5
+    var distance: Float = 30
     
     func update(size: CGSize) {
         aspect = Float(size.width / size.height)
@@ -56,7 +56,7 @@ class ArcballCamera: Camera {
         distance = min(maxDistance, distance)
         distance = max(minDistance, distance)
         input.mouseScroll = .zero
-        if input.leftMouseDown {
+        if input.leftMouseDown && input.isResizing == false {
             let sensitivity = Settings.mousePanSensitivity
             self.transform.rotation.x += input.mouseDelta.y * sensitivity
             self.transform.rotation.y += input.mouseDelta.x * sensitivity
@@ -120,8 +120,8 @@ class OrthographicCamera: Camera, Movement {
 
 class TPCamera: Camera {
     var focus: Movement
-    var focusDistance: Float = 5
-    var focusHeight: Float = 1.2
+    var focusDistance: Float
+    var focusHeight: Float
     
     var transform = Transform()
     
@@ -137,8 +137,14 @@ class TPCamera: Camera {
             aspect: aspect)
     }
     
-    init(focus: Movement) {
+    init(
+        focus: Movement,
+        focusHeight: Float = 1.2,
+        focusDistance: Float = 5
+    ) {
         self.focus = focus
+        self.focusHeight = focusHeight
+        self.focusDistance = focusDistance
     }
     
     var viewMatrix: float4x4 {

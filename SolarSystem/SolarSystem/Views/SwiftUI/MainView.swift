@@ -15,6 +15,11 @@ struct MainView: View {
     var body: some View {
         VStack {
             MetalView()
+                .onGeometryChange(for: CGRect.self) { proxy in
+                    proxy.frame(in: .global)
+                } action: { newValue in
+                    InputController.shared.isResizing = true
+                }
                 .gesture(DragGesture(minimumDistance: 0)
                     .onChanged { value in
                         InputController.shared.touchLocation = value.location

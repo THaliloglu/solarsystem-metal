@@ -47,13 +47,12 @@ class DemoScene: MetalScene {
     let rocket = Rocket()
     
     var asteroidBeltMinDistance:Float {
-        DemoSceneConstants.earthDistance * 2.0
+        DemoSceneConstants.earthDistance * 2.2
     }
     var asteroidBeltMaxDistance:Float {
-        DemoSceneConstants.earthDistance * 2.75
+        DemoSceneConstants.earthDistance * 3
     }
-    var instancingEnabled = true
-    let asteroidBeltInstanceCount = 1000
+    let asteroidBeltInstanceCount = 10000
     
     var rocks:Nature?
     
@@ -98,7 +97,7 @@ class DemoScene: MetalScene {
         
         // Camera
         var archballCamera = ArcballCamera()
-        archballCamera.distance = 20
+        archballCamera.distance = 30
         archballCamera.target = [0, 0, -2]
         archballCamera.rotation.x = Float(-25).degreesToRadians
         archballCamera.position = [0, 1.2, -4]
@@ -130,40 +129,24 @@ class DemoScene: MetalScene {
             physicsController.addStaticBody(node: sphere)
         }
         
-        if instancingEnabled {
-            let textureNames = ["rock1-color", "rock2-color", "rock3-color"]
-            let morphTargetNames = ["rock1", "rock2", "rock3"]
-            rocks = Nature(name: "Rocks", instanceCount: asteroidBeltInstanceCount,
-                               textureNames: textureNames,
-                               morphTargetNames: morphTargetNames)
-            add(node: rocks!)
-            for i in 0..<asteroidBeltInstanceCount {
-                
-                let transform = Transform()
-                let t:Float = 2 * .pi * .random(in: 0..<100)
-                let r:Float = .random(in: asteroidBeltMinDistance..<asteroidBeltMaxDistance)
-                transform.position.x = r * cos(t)
-                transform.position.z = r * sin(t)
-                transform.scale = DemoSceneConstants.planetScale * 0.1
-                
-                let textureID = Int.random(in: 0..<textureNames.count)
-                let morphTargetID = Int.random(in: 0..<morphTargetNames.count)
-                rocks!.updateBuffer(instance: i, transform: transform, textureID: textureID, morphTargetID: morphTargetID)
-            }
-        } else {
-            for _ in 0..<asteroidBeltInstanceCount {
-                let rock = Model(name: "rock1.obj")
-                add(node: rock)
-                
-                let t:Float = 2 * .pi * .random(in: 0..<100)
-                let r:Float = .random(in: asteroidBeltMinDistance..<asteroidBeltMaxDistance)
-                rock.transform.position.x = r * cos(t)
-                rock.transform.position.z = r * sin(t)
-                rock.transform.scale = DemoSceneConstants.planetScale * 0.1
-
-                let rotationY: Float = .random(in: -.pi..<Float.pi)
-                rock.transform.rotation = [0, rotationY, 0]
-            }
+        // Asteroid Belt
+        let textureNames = ["rock1-color", "rock2-color", "rock3-color"]
+        let morphTargetNames = ["rock1", "rock2", "rock3"]
+        rocks = Nature(name: "Rocks", instanceCount: asteroidBeltInstanceCount,
+                           textureNames: textureNames,
+                           morphTargetNames: morphTargetNames)
+        add(node: rocks!)
+        for i in 0..<asteroidBeltInstanceCount {
+            let transform = Transform()
+            let t:Float = 2 * .pi * .random(in: 0..<100)
+            let r:Float = .random(in: asteroidBeltMinDistance..<asteroidBeltMaxDistance)
+            transform.position.x = r * sin(t)
+            transform.position.z = -(r * cos(t))
+            transform.scale = DemoSceneConstants.planetScale * 0.05
+            
+            let textureID = Int.random(in: 0..<textureNames.count)
+            let morphTargetID = Int.random(in: 0..<morphTargetNames.count)
+            rocks!.updateBuffer(instance: i, transform: transform, textureID: textureID, morphTargetID: morphTargetID)
         }
         
         let inputController = InputController.shared
@@ -223,10 +206,8 @@ class DemoScene: MetalScene {
                          mars.position.y,
                          -cos((mars.startAngle + mars.currentTime) * mars.orbitalPeriod) * mars.distance]
         
-        // Commented out for performance concerns, needs to figuring out a way using shaders
-//        for i in 0..<asteroidBeltInstanceCount {
-//            rocks?.updateBufferPositions(instance: i, currentTime: earth.currentTime, orbitalPeriod: earthOrbitalPeriod)
-//        }
+        let angularVelocity = (2 * Float.pi) / 10 // Example orbital period of 10 seconds
+        rocks?.updateInstances(time: earth.currentTime, angularVelocity: angularVelocity)
     }
     
     override func updatePlayer(deltaTime: Float) {

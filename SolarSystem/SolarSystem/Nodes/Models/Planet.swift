@@ -7,7 +7,8 @@
 
 import Foundation
 
-protocol Planet {
+protocol Planet: Transformable  {
+    var currentTime: Float { get }
     var solarDay: Float { get }
     var orbitalPeriod: Float { get }
     var distance: Float { get }

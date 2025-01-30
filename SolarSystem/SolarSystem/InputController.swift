@@ -16,6 +16,7 @@ class InputController: ObservableObject {
     }
     
     var leftMouseDown = false
+    var isResizing: Bool = false
     var mouseDelta = Point.zero
     var mouseScroll = Point.zero
     var touchLocation: CGPoint?
@@ -65,6 +66,9 @@ class InputController: ObservableObject {
                 let mouse = notification.object as? GCMouse
                 mouse?.mouseInput?.leftButton.pressedChangedHandler = { _, _, pressed in
                     self.leftMouseDown = pressed
+                    if self.leftMouseDown == false {
+                        self.isResizing = false
+                    }
                 }
                 mouse?.mouseInput?.mouseMovedHandler = { _, deltaX, deltaY in
                     self.mouseDelta = Point(x: deltaX, y: deltaY)
