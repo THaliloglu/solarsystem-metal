@@ -20,7 +20,7 @@ class ArcballCamera: Camera {
     var aspect: Float = 1.0
     var fov = Float(70).degreesToRadians
     var near: Float = 0.1
-    var far: Float = 100
+    var far: Float = 500
     var projectionMatrix: float4x4 {
         float4x4(
             projectionFov: fov,
@@ -77,7 +77,7 @@ class OrthographicCamera: Camera, Movement {
     var aspect: CGFloat = 1
     var viewSize: CGFloat = 10
     var near: Float = 0.1
-    var far: Float = 100
+    var far: Float = 500
     
     var viewMatrix: float4x4 {
         (float4x4(translation: position) *
@@ -128,7 +128,7 @@ class TPCamera: Camera {
     var aspect: Float = 1.0
     var fov = Float(70).degreesToRadians
     var near: Float = 0.1
-    var far: Float = 100
+    var far: Float = 500
     var projectionMatrix: float4x4 {
         float4x4(
             projectionFov: fov,
@@ -172,7 +172,7 @@ class FPCamera: Camera {
     var aspect: Float = 1.0
     var fov = Float(70).degreesToRadians
     var near: Float = 0.1
-    var far: Float = 100
+    var far: Float = 500
     var projectionMatrix: float4x4 {
         float4x4(
             projectionFov: fov,

@@ -43,6 +43,21 @@ class DemoScene: MetalScene {
     // Mars
     let mars = Mars()
     
+    // Jupiter
+    let jupiter = Jupiter()
+    
+    // Saturn
+    let saturn = Saturn()
+    
+    // Uranus
+    let uranus = Uranus()
+    
+    // Neptune
+    let neptune = Neptune()
+    
+    // Pluto
+    let pluto = Pluto()
+    
     // Rocket
     let rocket = Rocket()
     
@@ -91,6 +106,21 @@ class DemoScene: MetalScene {
         
         add(node: mars)
         spheres.append(mars)
+        
+        add(node: jupiter)
+        spheres.append(jupiter)
+        
+        add(node: saturn)
+        spheres.append(saturn)
+        
+        add(node: uranus)
+        spheres.append(uranus)
+        
+        add(node: neptune)
+        spheres.append(neptune)
+        
+        add(node: pluto)
+        spheres.append(pluto)
         
         // Rocket Object
         add(node: rocket)
@@ -205,6 +235,31 @@ class DemoScene: MetalScene {
         mars.transform.position = [sin((mars.startAngle + mars.currentTime) * mars.orbitalPeriod) * mars.distance,
                          mars.position.y,
                          -cos((mars.startAngle + mars.currentTime) * mars.orbitalPeriod) * mars.distance]
+        
+        jupiter.transform.rotation = [0, (jupiter.currentTime * jupiter.solarDay) * RotationDirection.counterclockwise.rawValue, 0]
+        jupiter.transform.position = [sin((jupiter.startAngle + jupiter.currentTime) * jupiter.orbitalPeriod) * jupiter.distance,
+                                      jupiter.position.y,
+                         -cos((jupiter.startAngle + jupiter.currentTime) * jupiter.orbitalPeriod) * jupiter.distance]
+        
+        saturn.transform.rotation = [0, (saturn.currentTime * saturn.solarDay) * RotationDirection.counterclockwise.rawValue, 0]
+        saturn.transform.position = [sin((saturn.startAngle + saturn.currentTime) * saturn.orbitalPeriod) * saturn.distance,
+                                     saturn.position.y,
+                         -cos((saturn.startAngle + saturn.currentTime) * saturn.orbitalPeriod) * saturn.distance]
+        
+        uranus.transform.rotation = [0, (uranus.currentTime * uranus.solarDay) * RotationDirection.counterclockwise.rawValue, 0]
+        uranus.transform.position = [sin((uranus.startAngle + uranus.currentTime) * uranus.orbitalPeriod) * uranus.distance,
+                                     uranus.position.y,
+                         -cos((uranus.startAngle + uranus.currentTime) * uranus.orbitalPeriod) * uranus.distance]
+        
+        neptune.transform.rotation = [0, (neptune.currentTime * neptune.solarDay) * RotationDirection.counterclockwise.rawValue, 0]
+        neptune.transform.position = [sin((neptune.startAngle + neptune.currentTime) * neptune.orbitalPeriod) * neptune.distance,
+                                      neptune.position.y,
+                         -cos((neptune.startAngle + neptune.currentTime) * neptune.orbitalPeriod) * neptune.distance]
+        
+        pluto.transform.rotation = [0, (pluto.currentTime * pluto.solarDay) * RotationDirection.counterclockwise.rawValue, 0]
+        pluto.transform.position = [sin((pluto.startAngle + pluto.currentTime) * pluto.orbitalPeriod) * pluto.distance,
+                                    pluto.position.y,
+                         -cos((pluto.startAngle + pluto.currentTime) * pluto.orbitalPeriod) * pluto.distance]
         
         let angularVelocity = (2 * Float.pi) / 10 // Example orbital period of 10 seconds
         rocks?.updateInstances(time: earth.currentTime, angularVelocity: angularVelocity)

@@ -13,6 +13,6 @@ class Sun: Model {
     init() {
         super.init(name: "sun.obj")
         transform.position = [0, 0, 0]
-        transform.scale = DemoSceneConstants.planetScale * 3
+        transform.scale = DemoSceneConstants.planetScale * 3 // Should be 87.4
     }
 }
