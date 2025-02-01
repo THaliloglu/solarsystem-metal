@@ -12,6 +12,7 @@ class Nature: Node {
     let instanceBuffer: MTLBuffer
     let pipelineState: MTLRenderPipelineState
     let pipelineStateAA: MTLRenderPipelineState
+    let computePipelineState: MTLComputePipelineState
     
     let morphTargetCount: Int
     let textureCount: Int
@@ -20,6 +21,8 @@ class Nature: Node {
     let submesh: MTKSubmesh?
     
     var vertexCount: Int
+    
+    var currentTime: Float = 0
     
     static let mdlVertexDescriptor: MDLVertexDescriptor = {
         let vertexDescriptor = MDLVertexDescriptor()
@@ -81,9 +84,15 @@ class Nature: Node {
         pipelineStateAA = Nature.makePipelineState(vertex: vertexFunction,
                                                    fragment: fragmentFunction, withAntiAliasing: true)
         
+        guard let computeFunction = library?.makeFunction(name: "updateOrbit") else {
+            fatalError("Failed to create compute function")
+        }
+        computePipelineState = Nature.makeComputepipelineState(computeFunction: computeFunction)
+        
         // load the instances
         self.instanceCount = instanceCount
         instanceBuffer = Nature.buildInstanceBuffer(instanceCount: instanceCount)
+        instanceBuffer.label = "AsteroidOrbitBuffer"
         
         let layout = mesh.vertexDescriptor.layouts[0] as! MDLVertexBufferLayout
         vertexCount = bufferLength / layout.stride
@@ -111,9 +120,6 @@ class Nature: Node {
         
         super.init()
         
-        // initialize the instance buffer in case there is only one instance
-        // (there is no array of Transforms in this class)
-        updateBuffer(instance: 0, transform: Transform(), textureID: 0, morphTargetID: 0)
         self.name = name
     }
     
@@ -133,6 +139,10 @@ class Nature: Node {
         return instanceBuffer
     }
     
+    override func update(deltaTime: Float) {
+        currentTime += deltaTime / 2
+    }
+    
     func updateBuffer(instance: Int, transform: Transform,
                       textureID: Int, morphTargetID: Int) {
         guard textureID < textureCount
@@ -147,30 +157,7 @@ class Nature: Node {
         pointer.pointee.textureID = UInt32(textureID)
         pointer.pointee.morphTargetID = UInt32(morphTargetID)
         pointer.pointee.position = transform.position
-        pointer.pointee.scale = transform.scale
-        pointer.pointee.modelMatrix = transform.modelMatrix
-        pointer.pointee.normalMatrix = transform.normalMatrix
-    }
-    
-    func updateBufferPositions(instance: Int, currentTime: Float, orbitalPeriod: Float){
-        var pointer =
-            instanceBuffer.contents().bindMemory(to: NatureInstance.self,
-                                                 capacity: instanceCount)
-        pointer = pointer.advanced(by: instance)
-        
-        var transform = Transform()
-        let currentPosition = pointer.pointee.position
-        let currentScale = pointer.pointee.scale
-        let startAngle = atan2(currentPosition.x, currentPosition.z) * 180 / .pi
-        let distance = hypotf(currentPosition.x, currentPosition.z)
-        
-        transform.position = [sin((startAngle + currentTime) * orbitalPeriod) * distance,
-                              currentPosition.y,
-                              -cos((startAngle + currentTime) * orbitalPeriod) * distance]
-        transform.scale = currentScale
-        
-        pointer.pointee.position = transform.position
-        pointer.pointee.scale = transform.scale
+        pointer.pointee.scale = float3(repeating: transform.scale)
         pointer.pointee.modelMatrix = transform.modelMatrix
         pointer.pointee.normalMatrix = transform.normalMatrix
     }
@@ -197,7 +184,7 @@ class Nature: Node {
         pipelineDescriptor.vertexDescriptor = Nature.mtlVertexDescriptor
         pipelineDescriptor.colorAttachments[0].pixelFormat = Renderer.colorPixelFormat
         pipelineDescriptor.depthAttachmentPixelFormat = .depth32Float
-        pipelineDescriptor.sampleCount = antialiasing ? Renderer.antialiasingSampleCount : 1
+        pipelineDescriptor.rasterSampleCount = antialiasing ? Renderer.antialiasingSampleCount : 1
         do {
             pipelineState = try Renderer.device.makeRenderPipelineState(descriptor: pipelineDescriptor)
         } catch let error {
@@ -206,18 +193,53 @@ class Nature: Node {
         return pipelineState
     }
     
+    static func makeComputepipelineState(computeFunction: MTLFunction) -> MTLComputePipelineState {
+        do {
+            return try Renderer.device.makeComputePipelineState(function: computeFunction)
+        } catch {
+            fatalError("Failed to create compute pipeline state: \(error)")
+        }
+    }
 }
 
 
 extension Nature: Texturable {}
 
 extension Nature: Renderable {
+    
+    func updateInstances(time: Float, angularVelocity: Float) {
+        guard let commandBuffer = Renderer.commandQueue.makeCommandBuffer(),
+              let computeEncoder = commandBuffer.makeComputeCommandEncoder() else {
+            return
+        }
+        
+        // Ensure time and angularVelocity are variables
+        var localTime = self.currentTime
+        var localAngularVelocity = angularVelocity
+        
+        computeEncoder.setComputePipelineState(computePipelineState)
+        computeEncoder.setBuffer(instanceBuffer, offset: 0, index: 0)
+        computeEncoder.setBytes(&localTime, length: MemoryLayout<Float>.size, index: 1)
+        computeEncoder.setBytes(&localAngularVelocity, length: MemoryLayout<Float>.size, index: 2)
+
+        let threadGroupSize = MTLSize(width: 32, height: 1, depth: 1)
+        let threadGroups = MTLSize(
+            width: (instanceCount + threadGroupSize.width - 1) / threadGroupSize.width,
+            height: 1,
+            depth: 1
+        )
+        
+        computeEncoder.dispatchThreadgroups(threadGroups, threadsPerThreadgroup: threadGroupSize)
+        computeEncoder.endEncoding()
+        commandBuffer.commit()
+    }
+    
     func render(renderEncoder: MTLRenderCommandEncoder, uniforms vertex: Uniforms, fragmentUniforms fragment: FragmentUniforms) {
         guard let submesh = submesh else { return }
         var uniforms = vertex
         var fragmentUniforms = fragment
         uniforms.modelMatrix = worldTransform
-        uniforms.normalMatrix = float3x3(normalFrom4x4: modelMatrix)
+        uniforms.normalMatrix = float3x3(normalFrom4x4: transform.modelMatrix)
         
         renderEncoder.setRenderPipelineState(Renderer.antialiasingEnabled ? pipelineStateAA : pipelineState)
         

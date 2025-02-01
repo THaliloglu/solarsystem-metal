@@ -7,36 +7,35 @@
 
 import MetalKit
 
-class Node {
+class Node: Transformable {
     var name: String = "untitled"
     
     var parent: Node?
     var children: [Node] = []
     
-    var position: float3 = [0, 0, 0]
+    var transform = Transform()
     
-    var quaternion = simd_quatf()
-    var rotation: float3 = [0, 0, 0] {
-        didSet {
-            let rotationMatrix = float4x4(rotation: rotation)
-            quaternion = simd_quatf(rotationMatrix)
-        }
-    }
-    
-    var scale: float3 = [1, 1, 1]
-    
-    var modelMatrix: float4x4 {
-        let translateMatrix = float4x4(translation: position)
-        let rotateMatrix = float4x4(quaternion)
-        let scaleMatrix = float4x4(scaling: scale)
-        return translateMatrix * rotateMatrix * scaleMatrix
-    }
+//    var position: float3 = [0, 0, 0]
+//    var quaternion = simd_quatf(.identity())
+//    var rotation: float3 = [0, 0, 0] {
+//        didSet {
+//            let rotationMatrix = float4x4(rotation: rotation)
+//            quaternion = simd_quatf(rotationMatrix)
+//        }
+//    }
+//    var scale: float3 = [1, 1, 1]
+//    var modelMatrix: float4x4 {
+//        let translateMatrix = float4x4(translation: position)
+//        let rotateMatrix = float4x4(quaternion)
+//        let scaleMatrix = float4x4(scaling: scale)
+//        return translateMatrix * rotateMatrix * scaleMatrix
+//    }
     
     var worldTransform: float4x4 {
         if let parent = parent {
-            return parent.worldTransform * self.modelMatrix
+            return parent.worldTransform * transform.modelMatrix
         }
-        return modelMatrix
+        return transform.modelMatrix
     }
     
     var boundingBox = MDLAxisAlignedBoundingBox()
@@ -68,11 +67,11 @@ class Node {
         childNode.parent = nil
     }
     
-    var forwardVector: float3 {
-        return normalize([sin(rotation.y), 0, cos(rotation.y)])
-    }
-    
-    var rightVector: float3 {
-        return [forwardVector.z, forwardVector.y, -forwardVector.x]
-    }
+//    var forwardVector: float3 {
+//        return normalize([sin(rotation.y), 0, cos(rotation.y)])
+//    }
+//    
+//    var rightVector: float3 {
+//        return [forwardVector.z, forwardVector.y, -forwardVector.x]
+//    }
 }

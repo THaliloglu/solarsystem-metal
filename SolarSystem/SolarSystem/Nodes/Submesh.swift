@@ -68,7 +68,7 @@ private extension Submesh {
         pipelineDescriptor.vertexDescriptor = MTKMetalVertexDescriptorFromModelIO(vertexDescriptor)
         pipelineDescriptor.colorAttachments[0].pixelFormat = Renderer.colorPixelFormat
         pipelineDescriptor.depthAttachmentPixelFormat = .depth32Float
-        pipelineDescriptor.sampleCount = antialiasing ? Renderer.antialiasingSampleCount : 1
+        pipelineDescriptor.rasterSampleCount = antialiasing ? Renderer.antialiasingSampleCount : 1
         do {
             pipelineState = try Renderer.device.makeRenderPipelineState(descriptor: pipelineDescriptor)
         } catch let error {

@@ -34,7 +34,7 @@ using namespace metal;
 
 vertex float4 debug_vertex(const device packed_float3 *vertices [[buffer(21)]],
                            constant Uniforms &uniforms [[ buffer(BufferIndexUniforms) ]],
-                           uint vertex_id [[vertex_id]]
+                           uint32_t vertex_id [[vertex_id]]
                            ) {
     float4x4 mvp = uniforms.projectionMatrix * uniforms.viewMatrix * uniforms.modelMatrix;
     float4 position;

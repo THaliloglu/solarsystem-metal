@@ -61,7 +61,7 @@ extension Renderer {
         let buffer = Renderer.device.makeBuffer(bytes: &vertices,
                                                 length: MemoryLayout<float3>.stride * vertices.count,
                                                 options: [])
-        scene.uniforms.modelMatrix = float4x4.identity()
+        scene.uniforms.modelMatrix = float4x4.identity
         renderEncoder.setVertexBytes(&scene.uniforms,
                                      length: MemoryLayout<Uniforms>.stride, index: 1)
         var lightColor = color
@@ -88,7 +88,7 @@ extension Renderer {
         let buffer = Renderer.device.makeBuffer(bytes: &vertices,
                                                 length: MemoryLayout<float3>.stride * vertices.count,
                                                 options: [])
-        scene.uniforms.modelMatrix = float4x4.identity()
+        scene.uniforms.modelMatrix = float4x4.identity
         renderEncoder.setVertexBytes(&scene.uniforms,
                                      length: MemoryLayout<Uniforms>.stride, index: 1)
         var lightColor = color
@@ -110,7 +110,7 @@ extension Renderer {
         let buffer = Renderer.device.makeBuffer(bytes: &vertices,
                                                 length: MemoryLayout<float3>.stride * vertices.count,
                                                 options: [])
-        scene.uniforms.modelMatrix = float4x4.identity()
+        scene.uniforms.modelMatrix = float4x4.identity
         renderEncoder.setVertexBytes(&scene.uniforms,
                                      length: MemoryLayout<Uniforms>.stride, index: 1)
         var lightColor = color

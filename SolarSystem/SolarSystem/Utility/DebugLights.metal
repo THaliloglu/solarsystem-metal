@@ -17,7 +17,7 @@ struct VertexOut {
 
 vertex VertexOut vertex_light(constant float3 *vertices [[ buffer(0) ]],
                               constant Uniforms &uniforms [[ buffer(1) ]],
-                              uint id [[vertex_id]])
+                              uint32_t id [[vertex_id]])
 {
     matrix_float4x4 mvp = uniforms.projectionMatrix * uniforms.viewMatrix * uniforms.modelMatrix;
     VertexOut out {

@@ -36,7 +36,7 @@ struct VertexOut {
 vertex VertexOut vertex_main(const VertexIn vertexIn [[stage_in]],
                              constant Uniforms &uniforms [[buffer(BufferIndexUniforms)]],
                              constant Instances *instances [[buffer(BufferIndexInstances)]],
-                             uint instanceID [[instance_id]])
+                             uint32_t instanceID [[instance_id]])
 {
     Instances instance = instances[instanceID];
     VertexOut out {
@@ -91,7 +91,7 @@ fragment float4 fragment_main(VertexOut in [[stage_in]],
     }
     normalDirection = normalize(normalDirection);
 
-    for (uint i = 0; i < fragmentUniforms.lightCount; i++) {
+    for (uint32_t i = 0; i < fragmentUniforms.lightCount; i++) {
         Light light = lights[i];
         if (light.type == Sunlight) {
             float3 lightDirection = normalize(-light.position);
