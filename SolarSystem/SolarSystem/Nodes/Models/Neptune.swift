@@ -19,3 +19,5 @@ class Neptune: Model, Planet {
         transform.scale = DemoSceneConstants.planetScale * 3.1
     }
 }
+
+extension Neptune: Movement {}

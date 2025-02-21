@@ -19,3 +19,5 @@ class Mercury: Model, Planet {
         transform.scale = DemoSceneConstants.planetScale * 0.3
     }
 }
+
+extension Mercury: Movement {}

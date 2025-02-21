@@ -19,3 +19,5 @@ class Mars: Model, Planet {
         transform.scale = DemoSceneConstants.planetScale * 0.5
     }
 }
+
+extension Mars: Movement {}

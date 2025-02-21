@@ -19,3 +19,5 @@ class Venus: Model, Planet {
         transform.scale = DemoSceneConstants.planetScale * 0.95
     }
 }
+
+extension Venus: Movement {}

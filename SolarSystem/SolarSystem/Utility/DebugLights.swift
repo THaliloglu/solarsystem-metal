@@ -20,6 +20,7 @@ extension Renderer {
         pipelineDescriptor.fragmentFunction = fragmentFunction
         pipelineDescriptor.colorAttachments[0].pixelFormat = .bgra8Unorm
         pipelineDescriptor.depthAttachmentPixelFormat = .depth32Float
+        pipelineDescriptor.rasterSampleCount = Renderer.antialiasingSampleCount
         let lightPipelineState: MTLRenderPipelineState
         do {
             lightPipelineState = try Renderer.device.makeRenderPipelineState(descriptor: pipelineDescriptor)

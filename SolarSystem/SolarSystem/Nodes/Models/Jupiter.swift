@@ -19,3 +19,5 @@ class Jupiter: Model, Planet {
         transform.scale = DemoSceneConstants.planetScale * 8.8
     }
 }
+
+extension Jupiter: Movement {}

@@ -19,3 +19,5 @@ class Uranus: Model, Planet {
         transform.scale = DemoSceneConstants.planetScale * 3.2
     }
 }
+
+extension Uranus: Movement {}

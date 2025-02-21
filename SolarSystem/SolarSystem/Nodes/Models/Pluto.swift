@@ -19,3 +19,5 @@ class Pluto: Model, Planet {
         transform.scale = DemoSceneConstants.planetScale * 0.15
     }
 }
+
+extension Pluto: Movement {}

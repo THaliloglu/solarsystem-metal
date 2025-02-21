@@ -23,7 +23,6 @@ class DemoScene: MetalScene {
     }
     
     var rocketCamEnabled = false
-    var orthoCamera = OrthographicCamera()
     
     // Sun
     let sun = Sun()
@@ -81,14 +80,12 @@ class DemoScene: MetalScene {
         // - skybox procedural or cube texture
         // - asteroid belt instance count
         
-//        skybox = Skybox(textureName: nil) // procedural
         skybox = Skybox(textureName: "skybox-stars")
         
         var spheres: [Node] = []
         
-        // earth oriented
-        add(node: earth)
-        spheres.append(earth)
+        var spheresCanVisit: [Movement] = []
+        var currentSphereIndex: Int = 0
         
         // Sun
         add(node: sun)
@@ -97,30 +94,43 @@ class DemoScene: MetalScene {
         // Planets
         add(node: mercury)
         spheres.append(mercury)
+        spheresCanVisit.append(mercury)
         
         add(node: venus)
         spheres.append(venus)
+        spheresCanVisit.append(venus)
+        
+        // earth oriented
+        add(node: earth)
+        spheres.append(earth)
+        spheresCanVisit.append(earth)
         
         add(node: moon, parent: earth)
         spheres.append(moon)
         
         add(node: mars)
         spheres.append(mars)
+        spheresCanVisit.append(mars)
         
         add(node: jupiter)
         spheres.append(jupiter)
+        spheresCanVisit.append(jupiter)
         
         add(node: saturn)
         spheres.append(saturn)
+        spheresCanVisit.append(saturn)
         
         add(node: uranus)
         spheres.append(uranus)
+        spheresCanVisit.append(uranus)
         
         add(node: neptune)
         spheres.append(neptune)
+        spheresCanVisit.append(neptune)
         
         add(node: pluto)
         spheres.append(pluto)
+        spheresCanVisit.append(pluto)
         
         // Rocket Object
         add(node: rocket)
@@ -134,13 +144,6 @@ class DemoScene: MetalScene {
         cameras.append(archballCamera)
         currentCameraIndex = 1
         
-//        inputController.player = rocket
-//        inputController.keyboardDelegate = self
-        
-        orthoCamera.position = [0, 15, 0]
-        orthoCamera.rotation.x = .pi / 2
-        cameras.append(orthoCamera)
-        
         let tpCameraForEarth = TPCamera(focus: earth)
         cameras.append(tpCameraForEarth)
         
@@ -148,6 +151,9 @@ class DemoScene: MetalScene {
         tpCameraForRocket.focusHeight = 0.25
         tpCameraForRocket.focusDistance = 2
         cameras.append(tpCameraForRocket)
+        
+        let tpCameraForVisit = TPCamera(focus: mercury)
+        cameras.append(tpCameraForVisit)
         
         #if os(iOS)
         currentCameraIndex = 4
@@ -180,11 +186,9 @@ class DemoScene: MetalScene {
         }
         
         let inputController = InputController.shared
-
+        
         inputController.$keysPressed
             .sink { [weak self] keys in
-//                print("Keys pressed: \(keys)")
-                
                 guard let self = self else { return }
                 
                 switch keys.first {
@@ -200,6 +204,16 @@ class DemoScene: MetalScene {
                     Renderer.antialiasingEnabled = !Renderer.antialiasingEnabled
                 case .zero:
                     debugRenderBoundingBox = !debugRenderBoundingBox
+                case .rightArrow:
+                    if currentSphereIndex != spheresCanVisit.count - 1 {
+                        currentSphereIndex += 1
+                        tpCameraForVisit.focus = spheresCanVisit[currentSphereIndex]
+                    }
+                case .leftArrow:
+                    if currentSphereIndex != 0 {
+                        currentSphereIndex -= 1
+                        tpCameraForVisit.focus = spheresCanVisit[currentSphereIndex]
+                    }
                 default: break
                 }
             }

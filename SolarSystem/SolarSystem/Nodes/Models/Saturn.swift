@@ -19,3 +19,5 @@ class Saturn: Model, Planet {
         transform.scale = DemoSceneConstants.planetScale * 7.3
     }
 }
+
+extension Saturn: Movement {}
