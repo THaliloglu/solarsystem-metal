@@ -214,6 +214,9 @@
 		DA94F1A32D4D92C300867AC9 /* Pluto.usdz in Resources */ = {isa = PBXBuildFile; fileRef = DA94F1A22D4D92C300867AC9 /* Pluto.usdz */; };
 		DA94F1A42D4D92C300867AC9 /* Pluto.usdz in Resources */ = {isa = PBXBuildFile; fileRef = DA94F1A22D4D92C300867AC9 /* Pluto.usdz */; };
 		DA94F1A52D4D92C300867AC9 /* Pluto.usdz in Resources */ = {isa = PBXBuildFile; fileRef = DA94F1A22D4D92C300867AC9 /* Pluto.usdz */; };
+		DAD202E62E4388BF00829E91 /* Shadow.metal in Sources */ = {isa = PBXBuildFile; fileRef = DAD202E52E4388BF00829E91 /* Shadow.metal */; };
+		DAD202E72E4388BF00829E91 /* Shadow.metal in Sources */ = {isa = PBXBuildFile; fileRef = DAD202E52E4388BF00829E91 /* Shadow.metal */; };
+		DAD202E82E4388BF00829E91 /* Shadow.metal in Sources */ = {isa = PBXBuildFile; fileRef = DAD202E52E4388BF00829E91 /* Shadow.metal */; };
 		DADBCEAF2AE1C4BC00B3DD0B /* InputController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DADBCEAE2AE1C4BC00B3DD0B /* InputController.swift */; };
 		DADBCEB02AE1C4BC00B3DD0B /* InputController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DADBCEAE2AE1C4BC00B3DD0B /* InputController.swift */; };
 		DADBCEB12AE1C4BD00B3DD0B /* InputController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DADBCEAE2AE1C4BC00B3DD0B /* InputController.swift */; };
@@ -339,6 +342,7 @@
 		DA94F1992D4D8F7A00867AC9 /* Neptune.usdz */ = {isa = PBXFileReference; lastKnownFileType = file; path = Neptune.usdz; sourceTree = "<group>"; };
 		DA94F19D2D4D925100867AC9 /* Pluto.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Pluto.swift; sourceTree = "<group>"; };
 		DA94F1A22D4D92C300867AC9 /* Pluto.usdz */ = {isa = PBXFileReference; lastKnownFileType = file; path = Pluto.usdz; sourceTree = "<group>"; };
+		DAD202E52E4388BF00829E91 /* Shadow.metal */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.metal; path = Shadow.metal; sourceTree = "<group>"; };
 		DADBCEAE2AE1C4BC00B3DD0B /* InputController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InputController.swift; sourceTree = "<group>"; };
 		DADBCEB22AE1CA7D00B3DD0B /* Movement.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Movement.swift; sourceTree = "<group>"; };
 		DADBCEB62AEA8E1A00B3DD0B /* Rocket.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Rocket.swift; sourceTree = "<group>"; };
@@ -551,6 +555,7 @@
 			children = (
 				38999E8B25927E5C00C265F7 /* Common.h */,
 				FD057A7D258F895200C67DEF /* Shaders.metal */,
+				DAD202E52E4388BF00829E91 /* Shadow.metal */,
 				38E7B5C425B61C6000D32001 /* PBR.metal */,
 				389DC3F5262785D900C3E18C /* Skybox.metal */,
 				3802F0B62649AE670045D8EF /* Nature.metal */,
@@ -953,6 +958,7 @@
 				38008D50299ACBF700A8AE2F /* Animation.swift in Sources */,
 				38008D3D299ACBB800A8AE2F /* Renderer.swift in Sources */,
 				38008D42299ACBC800A8AE2F /* Skybox.swift in Sources */,
+				DAD202E72E4388BF00829E91 /* Shadow.metal in Sources */,
 				38008D6F299ACC4E00A8AE2F /* DebugLights.metal in Sources */,
 				DAEC68732BF9511C0055161E /* PlayerCamera.swift in Sources */,
 				38008D77299AFC8300A8AE2F /* MainView.swift in Sources */,
@@ -1001,6 +1007,7 @@
 				38999E7725927CFC00C265F7 /* MainViewController.swift in Sources */,
 				3899A0992597D41400C265F7 /* Mesh.swift in Sources */,
 				38D39D2725D81568001EACC8 /* DemoScene.swift in Sources */,
+				DAD202E62E4388BF00829E91 /* Shadow.metal in Sources */,
 				3899A0B3259A513C00C265F7 /* MainViewControllerExtension.swift in Sources */,
 				38999E8725927DDD00C265F7 /* MathLibrary.swift in Sources */,
 				DA94F1802D4D793900867AC9 /* Jupiter.swift in Sources */,
@@ -1067,6 +1074,7 @@
 				3802F0B82649AE670045D8EF /* Nature.metal in Sources */,
 				389DC3F7262785D900C3E18C /* Skybox.metal in Sources */,
 				3803C1E5260294A200FE5A63 /* DebugBoundingBox.swift in Sources */,
+				DAD202E82E4388BF00829E91 /* Shadow.metal in Sources */,
 				3899A0952597D1F400C265F7 /* Model.swift in Sources */,
 				DAEC68722BF9511C0055161E /* PlayerCamera.swift in Sources */,
 				3899A08E2597D15F00C265F7 /* Camera.swift in Sources */,

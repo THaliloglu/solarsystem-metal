@@ -15,6 +15,7 @@ typedef struct {
     matrix_float4x4 viewMatrix;
     matrix_float4x4 projectionMatrix;
     matrix_float3x3 normalMatrix;
+    matrix_float4x4 shadowMatrix;
 } Uniforms;
 
 typedef enum {
@@ -58,7 +59,8 @@ typedef enum {
     BufferIndexFragmentUniforms = 13,
     BufferIndexMaterials = 14,
     BufferIndexInstances = 15,
-    BufferIndexSkybox = 20
+    BufferIndexSkybox = 20,
+    BufferIndexShadow = 21
 } BufferIndices;
 
 typedef enum {

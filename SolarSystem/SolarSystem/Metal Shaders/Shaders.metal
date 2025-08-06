@@ -31,6 +31,7 @@ struct VertexOut {
     float2 uv;
     float3 worldTangent;
     float3 worldBitangent;
+    float4 shadowPosition;
 };
 
 vertex VertexOut vertex_main(const VertexIn vertexIn [[stage_in]],
@@ -47,6 +48,7 @@ vertex VertexOut vertex_main(const VertexIn vertexIn [[stage_in]],
         .uv = float2(1-vertexIn.uv.x, vertexIn.uv.y), // for blender objects
         .worldTangent = uniforms.normalMatrix * instance.normalMatrix * vertexIn.tangent,
         .worldBitangent = uniforms.normalMatrix * instance.normalMatrix * vertexIn.bitangent,
+        .shadowPosition = uniforms.shadowMatrix * uniforms.modelMatrix * vertexIn.position
     };
     return out;
 }
@@ -60,7 +62,8 @@ fragment float4 fragment_main(VertexOut in [[stage_in]],
                               constant Light *lights [[buffer(BufferIndexLights)]],
                               constant FragmentUniforms &fragmentUniforms [[buffer(BufferIndexFragmentUniforms)]],
                               constant Material &material [[buffer(BufferIndexMaterials)]],
-                              sampler textureSampler [[sampler(0)]]) {
+                              sampler textureSampler [[sampler(0)]],
+                              depth2d<float> shadowTexture [[texture(BufferIndexShadow)]]) {
     float3 baseColor;
     if (hasColorTexture) {
         baseColor = baseColorTexture.sample(textureSampler, in.uv * fragmentUniforms.tiling).rgb;
@@ -142,6 +145,31 @@ fragment float4 fragment_main(VertexOut in [[stage_in]],
             }
         }
     }
+  
+    // Shadow
+    // Determine a coordinate pair from the shadow position that will serve as a screen space pixel locator on the shadow texture
+    float2 xy = in.shadowPosition.xy;
+    // Normalize the coordinates from [-1, 1] to [0, 1]
+    xy = xy * 0.5 + 0.5;
+    // Reverse the Y coordinate since it’s upside down
+    xy.y = 1 - xy.y;
+    
+    constexpr sampler s(coord::normalized,
+                        filter::linear,
+                        address::clamp_to_edge,
+                        compare_func:: less);
+    
+    float shadow_sample = shadowTexture.sample(s, xy);
+    // Get the depth value for the currently processed pixel
+    float current_sample = in.shadowPosition.z / in.shadowPosition.w;
+    
+    if (current_sample > shadow_sample ) {
+        // set a darker grey for pixels
+        // that have the depth greater than the shadow value stored in the texture
+        diffuseColor *= 0.5;
+    }
+    // ------
+    
     float3 color = diffuseColor + ambientColor + specularColor;
     return float4(color, 1);
     

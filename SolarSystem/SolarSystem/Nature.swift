@@ -206,6 +206,7 @@ class Nature: Node {
 extension Nature: Texturable {}
 
 extension Nature: Renderable {
+    func render(renderEncoder: MTLRenderCommandEncoder, uniforms: Uniforms) {}
     
     func updateInstances(time: Float, angularVelocity: Float) {
         guard let commandBuffer = Renderer.commandQueue.makeCommandBuffer(),
